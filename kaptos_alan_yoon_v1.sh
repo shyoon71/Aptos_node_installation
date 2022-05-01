@@ -124,7 +124,18 @@ else
     echo ""
     echo ""
 fi
-sleep 2
+echo "\e[1m\e[32mAlan: And startig another script for extrcting your identity info and seed format for sharing, you can copy your own seed on this screen. \e[0m"
+echo ""
+echo ""
+echo ""
+wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > my_seed_format.txt && sed "s/^M//g" my_seed_format.txt && sed "/[32m/d" my_seed_format.txt
+echo ""
+echo ""
+echo "\e[1m\e[32mAlan: All process of identity info extracting already done! You can copy upper seed format on the screen now. \e[0m"
+sleep 10
+echo ""
+echo ""
+echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
