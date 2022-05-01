@@ -124,21 +124,22 @@ else
     echo ""
     echo ""
 fi
-sleep 3
+sleep 2
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
+sleep 5
+echo ""
 echo ""
 echo "\e[1m\e[35mAlan: Your node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[33mAlan: If you confirm your synced number is increasing continuously, you can ctrl+c, exit this script. \e[0m"
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
+echo "\e[1m\e[33mAlan: If your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
-echo "\e[1m\e[33mAlan: Have a nide day! \e[0m"
-echo ""
+echo "\e[1m\e[33mAlan: Done!! Have a nide day! \e[0m"
 echo ""
 echo ""
