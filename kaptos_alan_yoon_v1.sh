@@ -136,20 +136,10 @@ sleep 10
 echo ""
 echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
-sleep 10
-echo ""
-echo ""
-echo "\e[1m\e[33mAlan: If you want to stop checking, you can exit with ctrl+c. \e[0m"
-echo ""
-echo ""
-curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
-echo ""
-echo ""
-echo "\e[1m\e[33mAlan: Have a nide day! KAPTOS (Korean Aptos) Members!!! \e[0m"
+echo "\e[1m\e[33mAlan: Have a nide day! \e[0m"
 echo ""
 echo ""
 echo ""
