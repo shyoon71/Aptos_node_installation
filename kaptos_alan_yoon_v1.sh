@@ -9,6 +9,9 @@ sleep 1
 echo "\e[1m\e[33mChecking apt-get version and update to latest now... \e[0m"
 apt-get update &&
 sleep 1
+echo ""
+echo ""
+echo ""
 echo "\e[1m\e[35mStarting script now... \e[0m"
 sleep 1
 if [ -f /root/aptos/public_full_node.yaml ]
