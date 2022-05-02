@@ -6,7 +6,10 @@ echo ""
 echo ""
 cd ~
 sleep 1
+echo "\e[1m\e[33mChecking apt-get version and update to latest now... \e[0m"
 apt-get update &&
+sleep 1
+echo "\e[1m\e[36mStarting script now... \e[0m"
 sleep 1
 if [ -f /root/aptos/public_full_node.yaml ]
 then
@@ -23,8 +26,8 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "\e[1m\e[34mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
-    echo "\e[1m\e[34mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
+    echo "\e[1m\e[33mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
     echo
     echo
     rm -r /var/lib/docker/volumes/aptos_db/_data/db &&
@@ -36,14 +39,14 @@ then
     echo ""
     echo ""
 else
-    echo "\e[1m\e[34mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
     echo ""
     echo ""
     echo ""
 fi
 sleep 1
-echo "\e[1m\e[34mMain script for installing your node starts now. \e[0m"
-echo "\e[1m\e[34mThis script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo "\e[1m\e[36mMain script for installing your node starts now. \e[0m"
+echo "\e[1m\e[33mThis script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
@@ -58,7 +61,7 @@ else
 fi
 echo ""
 echo ""
-echo "\e[1m\e[34mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
+echo "\e[1m\e[36mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
 cd aptos
@@ -91,7 +94,7 @@ then
     echo ""
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "\e[1m\e[34mYour "public_full_node.yaml" file was restored successfully! \e[0m"
+    echo "\e[1m\e[36mYour "public_full_node.yaml" file was restored successfully! \e[0m"
     echo ""
     echo ""
     sleep 2
@@ -99,7 +102,7 @@ then
     sleep 2
     echo ""
     echo ""
-    echo "\e[1m\e[34mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[33mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
@@ -117,33 +120,33 @@ else
     echo ""
     echo ""
     sleep 5
-    echo "\e[1m\e[34mYour state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully. \e[0m"
+    echo "\e[1m\e[33mYour state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
     docker compose up -d &&
     sleep 5
     echo ""
     echo ""
-    echo "\e[1m\e[34mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[36mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
 fi
-echo "\e[1m\e[34mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
-echo "\e[1m\e[34mThis script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo "\e[1m\e[36mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
+echo "\e[1m\e[33mThis script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 echo ""
 sleep 5
 wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt
 echo ""
 echo ""
-echo "\e[1m\e[34mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
-echo "\e[1m\e[34mOr you can find your seed format at /root/my_seed_format.txt after this script process ends. \e[0m"
+echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
+echo "\e[1m\e[33mOr you can find your seed format at /root/my_seed_format.txt after this script process ends. \e[0m"
 rm -r /root/default_seed.txt 2> /dev/null &&
 rm -r /root/v2_or_not.txt 2> /dev/null &&
 rm -r /root/aptos.sh &&
 rm -r /root/kaptos_alan_yoon_v1.sh &&
-sleep 1
+sleep 5
 echo ""
 echo ""
 echo ""
@@ -151,7 +154,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[34mYour node is syncing Now, so be patient for a while. \e[0m"
+echo "\e[1m\e[36mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
@@ -159,14 +162,9 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[34mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
+echo "\e[1m\e[36mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
-echo "\e[1m\e[34mDone!! Have a nide day! Thanks you for using my script. \e[0m"
-echo "                                                           _    _          __   __                "
-echo "                                                          / \  | | __ _ _ _\ \ / /__   ___  _ __  "
-echo "                                                         / _ \ | |/ _` | '_ \ V / _ \ / _ \| '_ \ "
-echo "                                                        / ___ \| | (_| | | | | | (_) | (_) | | | |"
-echo "                                                       /_/   \_\_|\__,_|_| |_|_|\___/ \___/|_| |_|"
+echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon. \e[0m"
 echo ""
 echo ""
