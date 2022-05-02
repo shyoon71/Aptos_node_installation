@@ -21,39 +21,40 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "Your "public_full_node.yaml" file was copied and saved in /root directory."
-    echo "Backup process completed!"
+    echo "\e[1m\e[32mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo "\e[1m\e[32mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
     echo ""
     echo ""
     echo ""
 else
-    echo "You don't have any old files this time, so backup and restoring process will be possible when you update node next time."
+    echo "\e[1m\e[32mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
     echo ""
     echo ""
     echo ""
 fi
 sleep 2
 # wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
-echo "UPDATING START !! Don't touch your keyboard, please."
+echo "\e[1m\e[32mUPDATING START !! Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
 echo ""
 sleep 1
-docker-compose down &&
+cd $HOME/aptos
+docker compose stop &&
+sleep 1
+rm -r /var/lib/docker/volumes/aptos_db/_data/db &&
+sleep 1
+rm genesis.blob &&
 sleep 1
 rm waypoint.txt &&
-rm genesis.blob &&
-curl https://devnet.aptoslabs.com/waypoint.txt --output waypoint.txt &&
-sleep1
-curl https://devnet.aptoslabs.com/genesis.blob --output genesis.blob &&
 sleep 1
-docker volume rm aptos_db -f 2> /dev/null &&
+docker compose pull &&
 sleep 1
-rm -r /var/lib/docker/volumes/aptos_db/_data/db 2> /dev/null &&
+wget https://devnet.aptoslabs.com/genesis.blob &&
 sleep 1
-docker-compose pull &&
+wget https://devnet.aptoslabs.com/waypoint.txt &&
 sleep 1
-docker-compose up -d &&
+docker compose up -d &&
 sleep 1
 echo ""
 if [ -s /root/public_full_node.yaml ]
@@ -66,7 +67,7 @@ else
 fi
 echo ""
 echo ""
-echo "Checking your state_sync_driver's version and seed status now... Don't touch your keyboard, please."
+echo "\e[1m\e[32mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
 cd aptos
@@ -99,7 +100,7 @@ then
     echo ""
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "Your "public_full_node.yaml" file was restored successfully!"
+    echo "\e[1m\e[32mYour "public_full_node.yaml" file was restored successfully! \e[0m"
     echo ""
     echo ""
     sleep 2
@@ -107,7 +108,7 @@ then
     sleep 2
     echo ""
     echo ""
-    echo "Your node is running and checking health status now. Wait until checking process is completed!"
+    echo "\e[1m\e[32mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
@@ -125,19 +126,19 @@ else
     echo ""
     echo ""
     sleep 2
-    echo "Your state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully."
+    echo "\e[1m\e[32mYour state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
     docker compose up -d &&
     sleep 2
     echo ""
     echo ""
-    echo "Your node is running and checking health status now. Wait until checking process is completed!"
+    echo "\e[1m\e[32mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
 fi
-echo "And from now another script for extracting your identity info and seed format for sharing starts..."
+echo "\e[1m\e[32mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
 echo "\e[1m\e[32mThis script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 echo ""
@@ -145,8 +146,10 @@ echo ""
 wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt
 echo ""
 echo ""
-echo "Alan: Process for extracting identity info is completed! You can copy upper seed format on the screen now."
-echo "Or you can find your seed format at /root/my_seed_format.txt after this script process ends."
+echo "\e[1m\e[32mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
+echo "\e[1m\e[32mOr you can find your seed format at /root/my_seed_format.txt after this script process ends. \e[0m"
+rm -r v2_or_not.txt &&
+rm -r default_seed.txt &&
 sleep 10
 echo ""
 echo ""
@@ -155,7 +158,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[35mAlan: Your node is syncing Now, so be patient for a while. \e[0m"
+echo "\e[1m\e[32mAlan: Your node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
@@ -163,9 +166,9 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "If your synced number is increasing continuously, your node can be considered as normal running state."
+echo "\e[1m\e[32mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
-echo "Done!! Have a nide day! from Alan Yoon"
+echo "\e[1m\e[32mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon. \e[0m"
 echo ""
 echo ""
