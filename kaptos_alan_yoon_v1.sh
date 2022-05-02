@@ -101,7 +101,6 @@ sleep 2
 if [ -s /root/v2_or_not.txt ]
 then
     echo ""
-    echo ""
     cp /root/public_full_node.yaml /root/aptos &&
     echo "\e[1m\e[36mYour "public_full_node.yaml" file was restored successfully! \e[0m"
     echo ""
