@@ -11,9 +11,9 @@ apt-get update &&
 apt-get install figlet > /dev/null &&
 echo ""
 echo ""
-echo "============================================="
+echo "==========================================="
 figlet AlanYoon
-echo "============================================="
+echo "==========================================="
 sleep 1
 echo ""
 echo ""
@@ -171,9 +171,9 @@ echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
-echo "=========================================================================="
+echo "==========================================================================================================="
 docker stats --no-stream
-echo "=========================================================================="
+echo "==========================================================================================================="
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
