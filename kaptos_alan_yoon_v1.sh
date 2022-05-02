@@ -59,17 +59,16 @@ echo ""
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
-echo ""
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
     echo ""
 else
+    echo ""
+    echo ""
     cp /root/aptos/public_full_node.yaml /root/public_full_node.yaml &&
     sleep 2
 fi
-echo ""
-echo ""
 echo "\e[1m\e[35mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
@@ -148,7 +147,7 @@ echo "\e[1m\e[35mAnd from now another script for extracting your identity info a
 echo "\e[1m\e[33mThis extracting script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 5
-wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt && sed "s/'/\"/g" ../my_seed_format.txt
+wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > ../my_seed_format.txt && sed "s/'/\"/g" ../my_seed_format.txt
 echo ""
 echo ""
 sleep 1
