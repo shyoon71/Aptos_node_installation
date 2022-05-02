@@ -36,8 +36,8 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "\e[1m\e[35mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
-    echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
+    echo "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
     echo
     echo
     rm -r /var/lib/docker/volumes/aptos_db/_data/db > /dev/null &&
@@ -102,7 +102,7 @@ if [ -s /root/v2_or_not.txt ]
 then
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "\e[1m\e[36mYour "public_full_node.yaml" file was restored successfully! \e[0m"
+    echo "\e[1m\e[36mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
     echo ""
     sleep 2
@@ -130,7 +130,7 @@ else
     echo ""
     echo ""
     sleep 5
-    echo "\e[1m\e[33mYour state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully. \e[0m"
+    echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
     docker compose up -d &&
@@ -151,8 +151,11 @@ sleep 5
 wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt && sed "s/'/\"/g" ../my_seed_format.txt
 echo ""
 echo ""
-echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
-echo "\e[1m\e[35mOr you can find your seed format at /root/"my_seed_format.txt" after this script process ends. \e[0m"
+sleep 1
+echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen directly. \e[0m"
+sleep 1
+echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, and copy it printed from command 'cat my_seed_format.txt'. \e[0m"
+sleep 5
 rm -r /root/default_seed.txt 2> /dev/null &&
 rm -r /root/v2_or_not.txt 2> /dev/null &&
 rm -r /root/aptos.sh 2> /dev/null &&
@@ -173,9 +176,9 @@ echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
-echo "=============================================================================================================="
+echo "================================================================================================================="
 docker stats --no-stream
-echo "=============================================================================================================="
+echo "================================================================================================================="
 sleep 2
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
