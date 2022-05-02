@@ -38,15 +38,12 @@ then
     echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
     echo
     echo
-    rm -r /var/lib/docker/volumes/aptos_db/_data/db &&
-    echo ""
-    echo ""
-    echo ""
-    echo "\e[1m\e[33mAll your DB files wiped out! \e[0m"
-    echo ""
+    rm -r /var/lib/docker/volumes/aptos_db/_data/db > /dev/null &&
     echo ""
     echo ""
 else
+    echo ""
+    echo ""
     echo "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
     echo ""
     echo ""
@@ -55,6 +52,8 @@ fi
 sleep 1
 echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
 echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo ""
+echo ""
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
@@ -112,6 +111,7 @@ then
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
+    sleep 5
     timeout 6 docker stats
     echo ""
     echo ""
@@ -138,6 +138,7 @@ else
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
+    sleep 5
     timeout 6 docker stats
     echo ""
     echo ""
@@ -174,8 +175,10 @@ echo ""
 echo "==========================================================================================================="
 docker stats --no-stream
 echo "==========================================================================================================="
+sleep 2
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
+sleep 2
 echo ""
 echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
