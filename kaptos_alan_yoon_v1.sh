@@ -154,6 +154,9 @@ echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy
 echo "\e[1m\e[35mOr you can find your seed format at /root/"my_seed_format.txt" after this script process ends. \e[0m"
 rm -r /root/default_seed.txt 2> /dev/null &&
 rm -r /root/v2_or_not.txt 2> /dev/null &&
+rm -r /root/aptos.sh 2> /dev/null &&
+rm -r /root/kaptos_alan_yoon_v1.sh 2> /dev/null &&
+rm -r /root/aptos_identity.sh 2> /dev/null &&
 sleep 5
 echo ""
 echo ""
