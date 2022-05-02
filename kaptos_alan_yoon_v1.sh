@@ -9,7 +9,7 @@ sleep 1
 echo "\e[1m\e[33mChecking apt-get version and update to latest now... \e[0m"
 apt-get update &&
 sleep 1
-echo "\e[1m\e[36mStarting script now... \e[0m"
+echo "\e[1m\e[35mStarting script now... \e[0m"
 sleep 1
 if [ -f /root/aptos/public_full_node.yaml ]
 then
@@ -26,7 +26,7 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "\e[1m\e[33mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo "\e[1m\e[35mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
     echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
     echo
     echo
@@ -34,7 +34,7 @@ then
     echo ""
     echo ""
     echo ""
-    echo "\e[1m\e[34mAll your DB files wiped out! \e[0m"
+    echo "\e[1m\e[33mAll your DB files wiped out! \e[0m"
     echo ""
     echo ""
     echo ""
@@ -45,8 +45,8 @@ else
     echo ""
 fi
 sleep 1
-echo "\e[1m\e[36mMain script for installing your node starts now. \e[0m"
-echo "\e[1m\e[33mThis script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
+echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
@@ -61,7 +61,7 @@ else
 fi
 echo ""
 echo ""
-echo "\e[1m\e[36mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
+echo "\e[1m\e[35mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
 cd aptos
@@ -102,7 +102,7 @@ then
     sleep 2
     echo ""
     echo ""
-    echo "\e[1m\e[33mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
@@ -127,13 +127,13 @@ else
     sleep 5
     echo ""
     echo ""
-    echo "\e[1m\e[36mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
 fi
-echo "\e[1m\e[36mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
-echo "\e[1m\e[33mThis script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo "\e[1m\e[35mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
+echo "\e[1m\e[33mThis extracting script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 echo ""
 sleep 5
@@ -141,7 +141,7 @@ wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +
 echo ""
 echo ""
 echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
-echo "\e[1m\e[33mOr you can find your seed format at /root/my_seed_format.txt after this script process ends. \e[0m"
+echo "\e[1m\e[35mOr you can find your seed format at /root/"my_seed_format.txt" after this script process ends. \e[0m"
 rm -r /root/default_seed.txt 2> /dev/null &&
 rm -r /root/v2_or_not.txt 2> /dev/null &&
 rm -r /root/aptos.sh &&
@@ -154,7 +154,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[36mYour node is syncing Now, so be patient for a while. \e[0m"
+echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
@@ -162,9 +162,9 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[36mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
+echo "\e[1m\e[35mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
-echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon. \e[0m"
+echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 echo ""
 echo ""
