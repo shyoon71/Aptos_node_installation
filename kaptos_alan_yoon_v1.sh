@@ -8,8 +8,13 @@ cd ~
 sleep 1
 echo "\e[1m\e[33mChecking apt-get version and update to latest now... \e[0m"
 apt-get update &&
-sleep 1
+apt-get install figlet > /dev/null &&
 echo ""
+echo ""
+echo "============================================="
+figlet AlanYoon
+echo "============================================="
+sleep 1
 echo ""
 echo ""
 echo "\e[1m\e[35mStarting script now... \e[0m"
@@ -107,6 +112,7 @@ then
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
+    timeout 6 docker stats
     echo ""
     echo ""
 else
@@ -132,6 +138,7 @@ else
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
+    timeout 6 docker stats
     echo ""
     echo ""
 fi
@@ -162,10 +169,13 @@ sleep 5
 echo ""
 echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
-sleep 5
+sleep 2
 echo ""
+echo "=========================================================================="
+docker stats --no-stream
+echo "=========================================================================="
 echo ""
-echo "\e[1m\e[35mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
+echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
