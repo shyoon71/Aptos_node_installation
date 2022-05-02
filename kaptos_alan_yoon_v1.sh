@@ -21,24 +21,29 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "\e[1m\e[33mAlan: Your [ public_full_node.yaml ] backup process completed! \e[0m"
-    echo "\e[1m\e[33m      Copied and saved in /root/public_full_node.yaml. Don't delete this file. \e[0m"
+    echo "\e[1m\e[32mYour "public_full_node.yaml" file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo "\e[1m\e[32mIf you previously ran this script, that yaml file would have been saved as extension name "yaml.old". \e[0m"
     echo
     echo
     rm -r /var/lib/docker/volumes/aptos_db/_data/db &&
     echo ""
     echo ""
     echo ""
-    echo "\e[1m\e[33mAlan: All your DB files wiped out! \e[0m"
+    echo "\e[1m\e[32mAll your DB files wiped out! \e[0m"
     echo ""
     echo ""
     echo ""
 else
-    echo "\e[1m\e[33mAlan: You don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo "\e[1m\e[32mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
     echo ""
     echo ""
     echo ""
 fi
+sleep 1
+echo "\e[1m\e[32mMain script for installing your node starts now. \e[0m"
+echo "\e[1m\e[32mThis script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
+echo ""
+echo ""
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
@@ -53,7 +58,7 @@ else
 fi
 echo ""
 echo ""
-echo "\e[1m\e[35mAlan: Sync mode version and seed status checking now! Don't exit this script! \e[0m"
+echo "\e[1m\e[32mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. \e[0m"
 echo ""
 echo ""
 cd aptos
@@ -86,7 +91,7 @@ then
     echo ""
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "\e[1m\e[33mAlan: Your "public_full_node.yaml" file restored successfully! \e[0m"
+    echo "\e[1m\e[32mYour "public_full_node.yaml" file was restored successfully! \e[0m"
     echo ""
     echo ""
     sleep 2
@@ -94,7 +99,7 @@ then
     sleep 2
     echo ""
     echo ""
-    echo "\e[1m\e[33mAlan: Your node is running and checking health status now. Please, wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[32mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
@@ -112,28 +117,31 @@ else
     echo ""
     echo ""
     sleep 2
-    echo "\e[1m\e[33mAlan: Your state_sync configuration in public_full node.yaml was upgraded to v2 successfully. \e[0m"
+    echo "\e[1m\e[32mYour state_sync_driver's version config in public_full_node.yaml was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
     docker compose up -d &&
     sleep 2
     echo ""
     echo ""
-    echo "\e[1m\e[33mAlan: Your node is running and checking health status now. Please, wait until checking process is completed! \e[0m"
+    echo "\e[1m\e[32mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     echo ""
     echo ""
 fi
-echo "\e[1m\e[32mAlan: And startig another script for extrcting your identity info and seed format for sharing, you can copy your own seed on this screen. \e[0m"
-echo ""
+echo "\e[1m\e[32mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
+echo "\e[1m\e[32mThis script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 echo ""
 wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt
 echo ""
 echo ""
-echo "\e[1m\e[32mAlan: All process of identity info extracting already done! You can copy upper seed format on the screen now. \e[0m"
-echo "\e[1m\e[32m      Also you can find it in /root/my_seed_format.txt after this script process ends. \e[0m"
-sleep 10
+echo "\e[1m\e[32mProcess for extracting identity info is completed! You can copy upper seed format on the screen now. \e[0m"
+echo "\e[1m\e[32mOr you can find your seed format at /root/my_seed_format.txt after this script process ends. \e[0m"
+rm -r /root/default_seed.txt 2> /dev/null &&
+sleep 1
+rm -r /root/v2_or_not.txt 2> /dev/null &&
+sleep 5
 echo ""
 echo ""
 echo ""
@@ -141,7 +149,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[35mAlan: Your node is syncing Now, so be patient for a while. \e[0m"
+echo "\e[1m\e[32mAlan: Your node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
@@ -149,9 +157,9 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[33mAlan: If your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
+echo "\e[1m\e[32mIf your synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
 echo ""
 echo ""
-echo "\e[1m\e[33mAlan: Done!! Have a nide day! \e[0m"
+echo "\e[1m\e[32mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon. \e[0m"
 echo ""
 echo ""
