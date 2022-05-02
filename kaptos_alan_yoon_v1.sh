@@ -147,7 +147,7 @@ echo "\e[1m\e[35mAnd from now another script for extracting your identity info a
 echo "\e[1m\e[33mThis extracting script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 5
-wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > ../my_seed_format.txt && sed "s/'/\"/g" ../my_seed_format.txt
+wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > /dev/null && sed "s/'/\"/g" ../my_seed_format.txt
 echo ""
 echo ""
 sleep 1
@@ -175,9 +175,9 @@ echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
-echo "================================================================================================================="
+echo "==================================================================================================================="
 docker stats --no-stream
-echo "================================================================================================================="
+echo "==================================================================================================================="
 sleep 2
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
