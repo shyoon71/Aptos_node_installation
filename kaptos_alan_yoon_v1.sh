@@ -128,10 +128,11 @@ echo "\e[1m\e[32mAlan: And startig another script for extrcting your identity in
 echo ""
 echo ""
 echo ""
-wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > my_seed_format.txt && sed "s/^M//g" my_seed_format.txt && sed "/[32m/d" my_seed_format.txt
+wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt && sed "/[32m/d" ../my_seed_format.txt
 echo ""
 echo ""
 echo "\e[1m\e[32mAlan: All process of identity info extracting already done! You can copy upper seed format on the screen now. \e[0m"
+echo "\e[1m\e[32m      Also you can find it in /root/my_seed_format.txt after this script process ends. \e[0m"
 sleep 10
 echo ""
 echo ""
