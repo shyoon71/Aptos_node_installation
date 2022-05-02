@@ -19,7 +19,7 @@ echo "==========================================="
 sleep 1
 echo ""
 echo ""
-echo "\e[1m\e[35mStarting script now... \e[0m"
+echo "\e[1m\e[33mStarting script now... \e[0m"
 sleep 1
 if [ -f /root/aptos/public_full_node.yaml ]
 then
@@ -101,7 +101,7 @@ if [ -s /root/v2_or_not.txt ]
 then
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "\e[1m\e[36mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
+    echo "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
     echo ""
     sleep 2
