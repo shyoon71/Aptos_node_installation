@@ -30,3 +30,10 @@ then
 else
     echo -e "\e[1m\e[32mCan't find 'private-key.txt' file: "$HOME/aptos/identity"  \e[0m" 
 fi
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
