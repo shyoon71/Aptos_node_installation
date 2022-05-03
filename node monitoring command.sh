@@ -23,10 +23,9 @@ timeout 10 docker compose logs -f --tail 1000 | grep "Applied transaction output
 echo ""
 sleep 1
 echo "\e[1m\e[33m로그에서 싱크정보 버전 실시간 추출 중... \e[0m"
-sleep 1
+sleep 6
 echo ""
 a=0
-apt install links2 &&
 while [ $a -lt 10 ]
 do
    curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version{.*\"synced\"}" | awk '{print $2}'
@@ -35,12 +34,13 @@ do
 done
 echo ""
 echo "\e[1m\e[33m본인 노드 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가면서 증가하는 지 확인바랍니다. \e[0m"
-sleep 3
-echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그에서 추출된 싱크정보 버전 간에 차이가 크지 않아야 합니다. \e[0m"
+sleep 6
 echo ""
-sleep 3
+echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그에서 추출된 싱크정보 버전 간에 차이가 크지 않아야 합니다. \e[0m"
+sleep 6
+echo ""
 echo "\e[1m\e[33m브라우저로 Aptos 블록체인 대쉬보드에 접속하겠습니다. 위 수치와 근접한 지 확인바랍니다. 20초 이후에는 창이 닫힙니다. \e[0m"
-timeout 20 links2 -g https://explorer.devnet.aptos.dev/
+timeout 20 links2 https://explorer.devnet.aptos.dev/
 echo ""
 echo ""
 IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
@@ -56,11 +56,11 @@ echo ""
 nc -zvv $IP 6180 &&
 sleep 2
 echo ""
-echo "\e[1m\e[32mc3개 포트 모두 체크 결과 출력이 succeeded! 메세지이어야 합니다. 만약 Connection refused 메세지가 출력되면 오픈되지 않은 것입니다. \e[0m"
-sleep 3
+echo "\e[1m\e[32m3개 포트 모두 체크 결과 출력이 succeeded! 메세지이어야 합니다. 만약 Connection refused 메세지가 출력되면 오픈되지 않은 것입니다. \e[0m"
+sleep 6
 echo "\e[1m\e[32m포트가 열리지 않는 대부분의 원인은 노드(도커)가 기동하지 않거나 도커 설정에 원인이 있습니다. 또한 VPS에서 포트포워딩 네트워크 설정이 필요한 경우도 있습니다. . \e[0m"
+sleep 6
 echo ""
-sleep 3
 echo "\e[1m\e[33m9101(METRICS) 8080(API) 2개는 웹페이지 모니터링, 6180(PEER INBOUND) 1개는 인바운드 접속용입니다. \e[0m"
 echo ""
 echo ""
