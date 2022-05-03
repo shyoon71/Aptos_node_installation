@@ -23,7 +23,7 @@ a=0
 while [ $a -lt 10 ]
 do
    curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version{.*\"synced\"}" | awk '{print $2}'
-   sleep 1
+   sleep 2
    a=`expr $a + 1`
 done
 echo ""
@@ -37,6 +37,7 @@ echo ""
 IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
 echo "\e[1m\e[33m외부 네트워크와 연결될 수 있는 지 포트 오픈 상태를 확인하겠습니다... \e[0m"
 echo ""
+sleep 5
 nc -zvv $IP 9101 &&
 sleep 5
 echo ""
@@ -44,12 +45,14 @@ nc -zvv $IP 8080 &&
 sleep 5
 echo ""
 nc -zvv $IP 6180 &&
-sleep 3
+sleep 2
 echo ""
-echo ""
-echo "\e[1m\e[32m3개 포트 모두 port [tcp/*] succeeded! 메세지를 출력해야 합니다. 만약 Connection refused 메세지가 출력되면 비정상입니다. \e[0m"
+echo "\e[1m\e[32m3개 포트 모두 succeeded! 메세지를 출력해야 합니다. 만약 Connection refused 메세지가 출력되면 비정상입니다. \e[0m"
 echo ""
 echo "\e[1m\e[33m9101(METRICS) 8080(API) 2개는 웹페이지 모니터링, 6180(PEER INBOUND) 1개는 인바운드 접속용입니다. \e[0m"
 echo ""
 echo ""
-sleep 2
+echo ""
+echo "\e[1m\e[33m이상으로 터미널에서 확인할 수 있는 노드 구동 상태 점검 작업을 마치겠습니다. \e[0m"
+echo ""
+echo ""
