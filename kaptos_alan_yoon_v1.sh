@@ -57,8 +57,8 @@ sleep 2
 rm -r /root/aptos/genesis.blob &&
 rm -r /root/aptos/waypoint.txt &&
 sleep 1
-wget -O -P /root/aptos https://devnet.aptoslabs.com/genesis.blob > /dev/null &&
-wget -O -P /root/aptos https://devnet.aptoslabs.com/waypoint.txt > /dev/null &&
+wget -O https://devnet.aptoslabs.com/genesis.blob > /dev/null &&
+wget -O https://devnet.aptoslabs.com/waypoint.txt > /dev/null &&
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
