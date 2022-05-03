@@ -3,11 +3,8 @@
 clear
 cd ~
 sleep 1
-echo "\e[1m\e[33mChecking apt-get version and update to latest now... \e[0m"
-apt-get update &&
+apt-get update && > /dev/bull &&
 apt-get install figlet > /dev/null &&
-sleep 1
-clear
 echo ""
 echo ""
 echo "==========================================="
