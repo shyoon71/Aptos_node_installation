@@ -3,7 +3,7 @@
 clear
 cd ~
 sleep 1
-apt-get update && > /dev/bull &&
+apt-get update > /dev/bull &&
 apt-get install figlet > /dev/null &&
 echo ""
 echo ""
