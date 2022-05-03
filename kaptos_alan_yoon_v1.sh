@@ -31,9 +31,10 @@ then
     echo ""
     sleep 1
     echo "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo ""
     echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
-    echo
-    echo
+    echo ""
+    echo ""
     rm -r /var/lib/docker/volumes/aptos_db/_data/db > /dev/null &&
     echo ""
     echo ""
@@ -47,6 +48,7 @@ else
 fi
 sleep 1
 echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
+echo ""
 echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 2
@@ -143,6 +145,7 @@ cat ../my_seed_format.txt
 sleep 1
 echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen directly. \e[0m"
 sleep 1
+echo ""
 echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, and copy it printed from command 'cat my_seed_format.txt'. \e[0m"
 sleep 5
 rm -r /root/default_seed.txt 2> /dev/null &&
@@ -174,7 +177,7 @@ echo "\e[1m\e[35mIf docker is running and synced number is increasing continuous
 sleep 2
 echo ""
 echo ""
-echo "\e[1m\e[32mLet's check if the image you downloaded is correct. Compare the image id printed here with the id of the update release info. \e[0m"
+echo "\e[1m\e[33mLastly, let's check if the image you downloaded is correct. Compare the image id printed here with the id of the update release info. \e[0m"
 echo ""
 docker images --no-trunc &&
 sleep 6
