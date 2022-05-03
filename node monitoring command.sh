@@ -14,7 +14,16 @@ echo "\e[1m\e[33m노드 스타트 후 싱크 캐치업이 끝난 안정적인 �
 sleep 5
 cd ./aptos
 sleep 1
-timeout 15 docker compose logs -f --tail 1000 | grep "Applied transaction output chunk!" | grep local_synced_version &&
+timeout 10 docker compose logs -f --tail 1000 | grep "Applied transaction output chunk!" | grep local_synced_version &&
+echo ""
+sleep 1
+a=0
+while [ $a -lt 10 ]
+do
+   curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version{.*\"synced\"}" | awk '{print $2}'
+   sleep 1
+   a=`expr $a + 1`
+done
 echo ""
 echo ""
 echo "본인 노드 로컬 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가고 있는 지 확인바랍니다."
