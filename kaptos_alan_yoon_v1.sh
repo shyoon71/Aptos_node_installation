@@ -91,7 +91,7 @@ else
     sed -i 's/{}//g' /root/public_full_node.yaml &&
     sleep 1
 fi
-sed -i 's/127.0.0.1/0.0.0.0/g' /root/public_full_node.yaml &&
+sed -i 's/127.0/0.0/g' /root/public_full_node.yaml &&
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
