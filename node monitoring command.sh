@@ -40,7 +40,7 @@ echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 �
 sleep 6
 echo ""
 echo "\e[1m\e[33m브라우저로 Aptos 블록체인 대쉬보드에 접속하겠습니다. 위 수치와 근접한 지 확인바랍니다. 20초 이후에는 창이 닫힙니다. \e[0m"
-timeout 20 links2 https://explorer.devnet.aptos.dev/
+timeout 20 sudo firefox https://explorer.devnet.aptos.dev/
 echo ""
 echo ""
 IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
