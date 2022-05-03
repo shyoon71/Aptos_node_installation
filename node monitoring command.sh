@@ -1,10 +1,14 @@
 #!/bin/bash
 
+clear &&
 echo ""
 echo "\e[1m\e[33m노드가 정상적인 구동 상태인지 확인하겠습니다... \e[0m"
 echo ""
 cd
-sleep 3
+echo "\e[1m\e[33m도커 프로세스가 사용하는 CPU 부하율과 Memory 점유율 수치가 실시간으로 변하는 지 확인바랍니다. \e[0m"
+echo ""
+echo "\e[1m\e[33m노드 스타트 후 싱크 캐치업이 끝난 안정적인 상태라면 CPU 부하율과 Memory 점유율은 40% 이하가 바람직합니다. \e[0m"
+sleep 6
 a=0
 while [ $a -lt 5 ]
 do
@@ -12,17 +16,18 @@ do
    sleep 2
    a=`expr $a + 1`
 done
-echo ""
-echo "\e[1m\e[33m도커 프로세스가 사용하는 CPU 부하율과 Memory 점유율 수치가 실시간으로 변하는 지 확인바랍니다. \e[0m"
-echo ""
-echo "\e[1m\e[33m노드 스타트 후 싱크 캐치업이 끝난 안정적인 상태라면 CPU 부하율과 Memory 점유율은 40% 이하가 바람직합니다. \e[0m"
 sleep 6
+echo ""
 cd ./aptos
 sleep 1
+echo "\e[1m\e[33m블록체인 상에서 이 노드가 실제로 트랜젝션을 만들고 있는 지 확인하겠습니다. \e[0m"
+sleep 6
+echo ""
 timeout 10 docker compose logs -f --tail 1000 | grep "Applied transaction output chunk!" | grep local_synced_version &&
 echo ""
-sleep 1
-echo "\e[1m\e[33m로그에서 싱크정보 버전 실시간 추출 중... \e[0m"
+echo "\e[1m\e[33m노드가 정상 동작한다면 트랜잭션 로그가 지속적으로 출력되어야 합니다. \e[0m"
+sleep 6
+echo "\e[1m\e[33mAptos 블록체인 내 다른 노드와 접속하여 싱크 진행 중인 지 확인하기 위해 싱크정보 버전을 실시간 추출 중입니다... \e[0m"
 sleep 6
 echo ""
 a=0
