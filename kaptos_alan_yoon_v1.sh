@@ -53,12 +53,6 @@ echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawr
 echo ""
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
-sleep 2
-rm -r /root/aptos/genesis.blob &&
-rm -r /root/aptos/waypoint.txt &&
-sleep 1
-wget https://devnet.aptoslabs.com/genesis.blob -P /root/aptos/ &&
-wget https://devnet.aptoslabs.com/waypoint.txt -P /root/aptos/ &&
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
