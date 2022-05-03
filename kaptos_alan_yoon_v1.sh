@@ -180,6 +180,8 @@ echo ""
 echo "\e[1m\e[33mLastly, let's check if the image you downloaded is correct. Compare the image id printed here with the id of the update release info. \e[0m"
 echo ""
 docker images --no-trunc &&
+echo ""
+echo "\e[1m\e[33mYou should check the latest created two images as validater and tools with devnet tag. \e[0m"
 sleep 6
 echo ""
 echo ""
