@@ -1,4 +1,4 @@
- This compose file defines a Public Fullnode docker compose wrapper around aptos-node.
+# This compose file defines a Public Fullnode docker compose wrapper around aptos-node.
 #
 # In order to use, place a copy of the proper genesis.blob and waypoint.txt in this directory.
 #
