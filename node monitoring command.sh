@@ -5,21 +5,28 @@ echo "\e[1m\e[33m노드가 정상적인 구동 상태인지 확인하겠습니�
 echo ""
 cd
 sleep 3
-timeout 15 docker stats &&
-echo ""
+a=0
+while [ $a -lt 5 ]
+do
+   docker stats --no-stream
+   sleep 2
+   a=`expr $a + 1`
+done
 echo ""
 echo "\e[1m\e[33m도커 프로세스가 사용하는 CPU 부하율과 Memory 점유율 수치가 실시간으로 변하는 지 확인바랍니다. \e[0m"
 echo ""
 echo "\e[1m\e[33m노드 스타트 후 싱크 캐치업이 끝난 안정적인 상태라면 CPU 부하율과 Memory 점유율은 40% 이하가 바람직합니다. \e[0m"
-sleep 5
+sleep 6
 cd ./aptos
 sleep 1
 timeout 10 docker compose logs -f --tail 1000 | grep "Applied transaction output chunk!" | grep local_synced_version &&
 echo ""
 sleep 1
 echo "\e[1m\e[33m로그에서 싱크정보 버전 실시간 추출 중... \e[0m"
+sleep 1
 echo ""
 a=0
+apt install links2 &&
 while [ $a -lt 10 ]
 do
    curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version{.*\"synced\"}" | awk '{print $2}'
@@ -33,7 +40,7 @@ echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 �
 echo ""
 sleep 3
 echo "\e[1m\e[33m브라우저로 Aptos 블록체인 대쉬보드에 접속하겠습니다. 위 수치와 근접한 지 확인바랍니다. 20초 이후에는 창이 닫힙니다. \e[0m"
-timeout 20 firefox  https://explorer.devnet.aptos.dev/
+timeout 20 links2 -g https://explorer.devnet.aptos.dev/
 echo ""
 echo ""
 IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
