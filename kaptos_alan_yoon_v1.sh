@@ -175,6 +175,13 @@ echo "\e[1m\e[35mIf docker is running and synced number is increasing continuous
 sleep 2
 echo ""
 echo ""
+echo "\e[1m\e[32mLet's check if the image you downloaded is correct. Compare the image id printed here with the id of the update release info. \e[0m"
+echo ""
+docker images --no-trunc &&
+sleep 6
+echo ""
+echo ""
+echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 echo ""
 echo ""
