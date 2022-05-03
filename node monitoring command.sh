@@ -43,14 +43,10 @@ do
 done
 echo ""
 echo "\e[1m\e[33m본인 노드 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가면서 증가하는 지 확인바랍니다. \e[0m"
-sleep 3
-apt-get install w3m
+sleep 6
 echo ""
 echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그에서 추출된 싱크정보 버전 간에 차이가 크지 않아야 합니다. \e[0m"
 sleep 6
-echo ""
-echo "\e[1m\e[33m브라우저로 Aptos 블록체인 대쉬보드에 접속하겠습니다. 위 수치와 근접한 지 확인바랍니다. 20초 이후에는 창이 닫힙니다. \e[0m"
-timeout 20 w3m https://explorer.devnet.aptos.dev/
 echo ""
 echo ""
 IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
