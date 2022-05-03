@@ -11,6 +11,7 @@ sleep 6
 echo ""
 echo "\e[1m\e[33m노드 스타트 후 싱크 캐치업이 끝난 안정적인 상태라면 CPU 부하율과 Memory 점유율은 40% 이하가 바람직합니다. \e[0m"
 sleep 6
+echo ""
 a=0
 while [ $a -lt 5 ]
 do
@@ -43,7 +44,7 @@ done
 echo ""
 echo "\e[1m\e[33m본인 노드 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가면서 증가하는 지 확인바랍니다. \e[0m"
 sleep 3
-apt-get install w3m > /dev/null
+apt-get install w3m
 echo ""
 echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그에서 추출된 싱크정보 버전 간에 차이가 크지 않아야 합니다. \e[0m"
 sleep 6
