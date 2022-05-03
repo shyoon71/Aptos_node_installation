@@ -1,5 +1,17 @@
 #!/bin/bash
-
+clear
+echo ""
+echo ""
+apt-get update && > /dev/null &&
+apt-get install figlet > /dev/null &&
+echo "==========================================="
+figlet AlanYoon
+echo "==========================================="
+sleep 1
+echo ""
+echo ""
+echo "\e[1m\e[33mSearching your info now... \e[0m"
+sleep 5
 if [ -f $HOME/aptos/identity/private-key.txt ]
 then
     ID=$(sed -n 2p $HOME/aptos/identity/peer-info.yaml | sed 's/\(.*\):/\1/')
