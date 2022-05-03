@@ -87,9 +87,11 @@ else
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
     sed -i 's/seeds: {}/seeds:/g' /root/public_full_node.yaml &&
+    sleep 2
+    sed -i 's/{}//g' /root/public_full_node.yaml &&
     sleep 1
 fi
-sed -i 's/127.0.0.1/0.0.0.0/g' /root/public_full_node.yaml > /dev/null &&
+sed -i 's/"/ip4/127.0.0.1/tcp/6180"/"/ip4/0.0.0.0/tcp/6180"/g' /root/public_full_node.yaml &&
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
