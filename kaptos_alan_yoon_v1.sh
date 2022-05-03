@@ -144,13 +144,9 @@ else
     echo ""
 fi
 echo "\e[1m\e[35mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
-echo "\e[1m\e[33mThis extracting script was also made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
-echo ""
-sleep 5
+sleep 3
 wget -q -O aptos_seed_format_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_seed_format_alan_yoon.sh && chmod +x aptos_seed_format_alan_yoon.sh && sudo /bin/bash aptos_seed_format_alan_yoon.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > /dev/null && sed -i "s/'/\"/g" ../my_seed_format.txt
 cat ../my_seed_format.txt
-echo ""
-echo ""
 sleep 1
 echo "\e[1m\e[33mProcess for extracting identity info is completed! You can copy upper seed format on the screen directly. \e[0m"
 sleep 1
