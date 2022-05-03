@@ -70,7 +70,7 @@ echo ""
 cd aptos
 docker compose down &&
 rm docker-compose.yaml &&
-wget -O https://raw.githubusercontent.com/shyoon71/installation-script/0cfa355d9f30ec507a62bdfba1fe3f63b6ba8752/docker-compose.yaml
+wget https://raw.githubusercontent.com/shyoon71/installation-script/0cfa355d9f30ec507a62bdfba1fe3f63b6ba8752/docker-compose.yaml
 sleep 2
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
 sleep 3
