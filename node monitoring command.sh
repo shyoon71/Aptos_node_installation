@@ -17,6 +17,8 @@ sleep 1
 timeout 10 docker compose logs -f --tail 1000 | grep "Applied transaction output chunk!" | grep local_synced_version &&
 echo ""
 sleep 1
+echo "\e[1m\e[33m로그에서 싱크정보 버전 실시간 추출 중... \e[0m"
+echo ""
 a=0
 while [ $a -lt 10 ]
 do
@@ -26,19 +28,11 @@ do
 done
 echo ""
 echo ""
-echo "본인 노드 로컬 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가고 있는 지 확인바랍니다."
+echo "\e[1m\e[33m본인 노드 싱크정보 버전이 Aptos 블록체인의 버전을 지속적으로 따라가면서 증가하는 지 확인바랍니다. \e[0m"
 echo ""
-echo "https://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그 상의 local_synced_version: 오른쪽 수치 간에 차이가 크지 않아야 합니다"
+echo "\e[1m\e[33mhttps://explorer.devnet.aptos.dev/ 의 LATEST VERSION ID 와 로그에서 추출된 상의 싱크정보 버전 간에 차이가 크지 않아야 합니다. \e[0m"
 echo ""
 echo ""
 echo ""
 echo ""
 sleep 2
-
-sleep 1
-
-
-echo ""
-echo ""
-echo ""
-echo ""
