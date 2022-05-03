@@ -54,6 +54,10 @@ echo ""
 sleep 2
 wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 2
+cd /root/aptos &&
+wget https://devnet.aptoslabs.com/genesis.blob > /dev/null &&
+wget https://devnet.aptoslabs.com/waypoint.txt > /dev/null &&
+sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
