@@ -80,11 +80,11 @@ then
 else
     sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
     sleep 1
-    sed -i'' -r -e "/identity:/i\        addresses:" /root/public_full_node.yaml &&
+    sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
     sleep 1
-    sed -i'' -r -e '/identity:/i\        - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /root/public_full_node.yaml
+    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /root/public_full_node.yaml
     sleep 1
-    sed -i'' -r -e '/identity:/i\        role: "Upstream"' /root/public_full_node.yaml &&
+    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
     sed -i 's/seeds: {}/seeds:/g' /root/public_full_node.yaml &&
     sleep 1
