@@ -1,17 +1,15 @@
 #!/bin/bash
 
 clear
-cd
+cd /root/aptos &&
+sleep 2
 echo ""
 echo ""
 apt-get update > /dev/null &&
 apt-get install figlet > /dev/null &&
-echo "========================================================================================================"
 figlet This script is only for 0504 debugging from AlanYoon
-echo "========================================================================================================"
 sleep 1
 echo ""
-cd /aptos
 echo ""
 echo -e "\e[1m\e[33mRestoring old docker-compose.yaml file... \e[0m"
 docker compose down &&
