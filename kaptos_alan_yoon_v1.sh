@@ -101,6 +101,7 @@ then
 else
     echo ""
     echo ""
+fi
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
