@@ -181,22 +181,9 @@ echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
-echo "==================================================================================================================="
-docker stats --no-stream
-echo "==================================================================================================================="
-sleep 2
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
-sleep 2
-echo ""
-echo ""
-echo "\e[1m\e[33mLastly, let's check if the image you downloaded is correct. Compare the image id printed here with the id of the update release info. \e[0m"
-echo ""
-docker images --no-trunc &&
-echo ""
-echo "\e[1m\e[33mYou should check the latest created two images as validater and tools with devnet tag. \e[0m"
-sleep 6
-echo ""
+sleep 3
 echo ""
 echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
