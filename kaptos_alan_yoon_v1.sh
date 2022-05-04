@@ -92,7 +92,9 @@ if [ -s /root/seed.txt ]
 then
     sed -i '/seed:/d' /root/public_full_node.yaml &&
     sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /root/public_full_node.yaml &&
-else    
+    sleep 1
+else
+    sleep 1    
     sed -i '/{}/d' /root/public_full_node.yaml &&
     sleep 1
 fi
