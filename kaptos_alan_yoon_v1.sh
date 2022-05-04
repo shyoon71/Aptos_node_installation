@@ -89,7 +89,7 @@ else
     sed -i 's/seeds: {}/seeds:/g' /root/public_full_node.yaml &&
     sleep 2
     sed -i 's/{}//g' /root/public_full_node.yaml &&
-    sed '/^$/d' /root/public_full_node.yaml &&
+    sed -i '/^$/d' /root/public_full_node.yaml &&
     sleep 1
 fi
 grep -o "127.0.0.1" /root/public_full_node.yaml > /root/127001.txt
@@ -97,7 +97,7 @@ sleep 3
 if [ -s /root/127001.txt ]
 then
     sed -i '/127.0.0.1/d' /root/public_full_node.yaml &&
-    sed '/^$/d' /root/public_full_node.yaml &&
+    sed -i '/^$/d' /root/public_full_node.yaml &&
     sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"/' /root/public_full_node.yaml &&
     sleep 2
 else
