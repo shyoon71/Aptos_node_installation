@@ -174,6 +174,7 @@ rm -r /root/aptos.sh 2> /dev/null &&
 rm -r /root/kaptos_alan_yoon_v1.sh 2> /dev/null &&
 rm -r /root/aptos_identity.sh 2> /dev/null &&
 rm -r /root/127001.txt 2> /dev/null &&
+rm -r /root/seed.txt 2> /dev/null &&
 sleep 5
 echo ""
 echo ""
