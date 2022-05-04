@@ -90,7 +90,7 @@ fi
 grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 if [ -s /root/seed.txt ]
 then
-    sed -i '/seed:/d' /root/public_full_node.yaml &&
+    sed -i '/seeds:/d' /root/public_full_node.yaml &&
     sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:/' /root/public_full_node.yaml &&
     sleep 1
 else
