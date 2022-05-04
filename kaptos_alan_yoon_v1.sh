@@ -86,8 +86,13 @@ else
     sleep 1
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
+fi
+grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
+if [ -s /root/seed.txt ]
+then
     sed -i '/seed:/d' /root/public_full_node.yaml &&
-    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:/' /root/public_full_node.yaml &&
+    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /root/public_full_node.yaml &&
+else    
     sed -i '/{}/d' /root/public_full_node.yaml &&
     sleep 1
 fi
@@ -96,7 +101,7 @@ sleep 3
 if [ -s /root/127001.txt ]
 then
     sed -i '/127.0.0.1/d' /root/public_full_node.yaml &&
-    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"/' /root/public_full_node.yaml &&
+    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' /root/public_full_node.yaml &&
     sleep 2
 else
     echo ""
