@@ -14,7 +14,9 @@ echo ""
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
-git clone https://github.com/shyoon71/aptos-core.git &&
+rm -r ~/aptos-core &&
+sleep 0.2
+git clone https://github.com/shyoon71/aptos-core &&
 cd ~/aptos-core &&
 sleep 0.2
 ./scripts/dev_setup.sh &&
@@ -113,6 +115,8 @@ sleep 0.1
 rm ~/aptos-core/waypoint.txt &&
 sleep 0.1
 wget https://devnet.aptoslabs.com/waypoint.txt &&
+sleep 0.1
+cp ~/aptos-core/public_full_node.yaml ~/ &&
 sleep 0.1
 cd ~/aptos-core &&
 sleep 0.1
