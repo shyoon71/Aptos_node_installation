@@ -150,7 +150,7 @@ else
     echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
-    echo "\e[1m\e[33mFinally compiling and starting now! \e[0m"
+    echo "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
     echo ""
     echo ""
 fi
@@ -163,13 +163,5 @@ rm -r /root/127001.txt 2> /dev/null &&
 rm -r /root/seed.txt 2> /dev/null &&
 sleep 0.1
 cd /root/aptos-core
-sleep 0.1
-echo ""
-echo ""
-echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
-echo ""
-echo ""
-sleep 0.1
+sleep 6
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
-echo ""
-echo ""
