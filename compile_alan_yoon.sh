@@ -4,6 +4,7 @@ clear
 cd ~
 sleep 0.1
 apt install figlet 2> /dev/null
+clear
 sleep 0.1
 echo ""
 echo ""
