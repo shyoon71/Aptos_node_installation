@@ -47,7 +47,7 @@ then
     sleep 6
     echo ""
     echo ""
-    rm -r /root/aptos-core/target/release > /dev/null
+    rm -r /root/aptos-core/target/release 2> /dev/null
     sleep 0.1
     echo ""
     echo ""
