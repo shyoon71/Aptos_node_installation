@@ -31,9 +31,13 @@ git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
 cd aptos-core
 sleep 0.1
+curl https://sh.rustup.rs -sSf | sh
+sleep 0.1
 ./scripts/dev_setup.sh
 sleep 0.1
 source ~/.cargo/env
+sleep 0.1
+cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
@@ -76,12 +80,6 @@ else
     rm /root/public_full_node.yaml
     sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
-    sleep 0.1
-    curl https://sh.rustup.rs -sSf | sh
-    sleep 0.1
-    source ~/.cargo/env
-    sleep 0.1
-    cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
     sleep 0.1
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.1
