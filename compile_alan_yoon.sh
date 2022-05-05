@@ -3,8 +3,7 @@
 clear
 cd ~
 sleep 0.1
-apt install figlet 2> /dev/null
-clear
+apt-get install figlet > /dev/null
 sleep 0.1
 echo ""
 echo ""
@@ -28,14 +27,14 @@ else
     touch ./public_full_node.yaml
     sleep 0.1
 fi
-    git clone https://github.com/shyoon71/aptos-core.git
-    sleep 0.1
-    cd aptos-core
-    sleep 0.1
-    ./scripts/dev_setup.sh
-    sleep 0.1
-    source ~/.cargo/env
-    sleep 1
+git clone https://github.com/shyoon71/aptos-core.git
+sleep 0.1
+cd aptos-core
+sleep 0.1
+./scripts/dev_setup.sh
+sleep 0.1
+source ~/.cargo/env
+sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
