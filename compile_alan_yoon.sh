@@ -75,7 +75,7 @@ else
     echo ""
     rm /root/public_full_node.yaml
     sleep 0.1
-    cp config/src/config/test_data/public_full_node.yaml /root
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.1
