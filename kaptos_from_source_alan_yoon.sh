@@ -34,6 +34,8 @@ cd ~/aptos-core &&
 sleep 0.1
 wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml &&
 sleep 0.1
+cp ~/public_full_node.yaml ~/aptos-core &&
+sleep 0.1
 if [ -f ~/private-key.txt ]
 then
     rm ~/aptos-core/genesis.blob > /dev/null &&
