@@ -9,11 +9,11 @@ echo ""
 echo "==========================================="
 figlet AlanYoon
 echo "==========================================="
-sleep 1
+sleep 0.1
 echo ""
 echo ""
 echo "\e[1m\e[33mStarting script now... \e[0m"
-sleep 1
+sleep 3
 if [ -f /root/aptos/public_full_node.yaml ]
 then
     cp /root/aptos/public_full_node.yaml ./public_full_node.yaml.old &&
