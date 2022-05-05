@@ -2,9 +2,9 @@
 
 clear
 cd ~
-sleep 1
-apt-get update > /dev/bull &&
-apt-get install figlet > /dev/null &&
+sleep 0.1
+apt-get install figlet > /dev/null
+sleep 0.1
 echo ""
 echo ""
 echo "==========================================="
