@@ -9,7 +9,8 @@ echo "==============================================================="
 sleep 0.2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mStarting script now... \e[0m"
+echo "Starting script now..."
+echo ""
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
