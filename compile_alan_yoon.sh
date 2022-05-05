@@ -72,11 +72,11 @@ else
     sleep 0.1
     cp config/src/config/test_data/public_full_node.yaml /root &&
     sleep 2
-    aptos key generate --key-type x25519 --output-file /path/to/private-key.txt
+    aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.1
-    ID=$(sed -n 2p /path/to/peer-info.yaml | sed 's/\(.*\):/\1/')
+    ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
     ID=${ID//$'\r'/}
-    PRIVATE_KEY=$(cat /path/to/private-key.txt)
+    PRIVATE_KEY=$(cat /root/private-key.txt)
     sed -i 's/<PEER_ID>/$ID/g' /root/public_full_node.yaml
     sed -i 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' /root/public_full_node.yaml
 fi
