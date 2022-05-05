@@ -77,6 +77,10 @@ else
     sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
+    curl https://sh.rustup.rs -sSf | sh
+    sleep 0.1
+    source ~/.cargo/env
+    sleep 0.1
     cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
     sleep 0.1
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
