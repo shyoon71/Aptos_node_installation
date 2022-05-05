@@ -33,11 +33,11 @@ cd aptos-core
 sleep 0.1
 curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
-source $HOME/.cargo/env
+source ~/.cargo/env
 sleep 0.5
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
-./scripts/dev_setup.sh
+/root/aptos-core/scripts/dev_setup.sh
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
