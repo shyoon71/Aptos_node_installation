@@ -4,7 +4,7 @@ clear
 cd ~
 echo ""
 echo "==============================================================="
-echo "This script is for source compiling process. Made by Alan Yoon." 
+echo "This script is only for source compiling mode. Made by Alan Yoon." 
 echo "==============================================================="
 sleep 0.2
 echo ""
@@ -14,26 +14,28 @@ echo ""
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
+mv ~/public_full_node.yaml ~/public_full_node.yaml.old
+cp ~/aptos-core/public_full_node.yaml ~/ &&
+sleep 0.1
 rm -r ~/aptos-core &&
-sleep 0.2
+sleep 0.1
 git clone https://github.com/shyoon71/aptos-core &&
 cd ~/aptos-core &&
-sleep 0.2
+sleep 0.1
 ./scripts/dev_setup.sh &&
-sleep 0.2
+sleep 0.1
 source ~/.cargo/env &&
-sleep 0.2
+sleep 0.1
 cargo install --force --git https://github.com/aptos-labs/aptos-core.git aptos &&
-sleep 0.2
+sleep 0.1
 which aptos &&
-sleep 0.2
+sleep 0.1
 cd ~/aptos-core &&
+sleep 0.1
+wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml &&
 sleep 0.1
 if [ -f ~/private-key.txt ]
 then
-    cp ./public_full_node.yaml ~/public_full_node.yaml.old &&
-    cp ./public_full_node.yaml ~/ &&
-    sleep 0.1
     rm ~/aptos-core/genesis.blob > /dev/null &&
     sleep 0.1
     rm ~/aptos-core/waypoint.txt /dev/null &&
@@ -54,8 +56,6 @@ else
     sleep 0.5
     ID=$(sed -n 2p ~/peer-info.yaml | sed 's/\(.*\):/\1/') &&
     ID=${ID//$'\r'/} &&
-    sleep 0.5
-    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml &&
     sleep 0.5
     sed -i'' -e 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/aptos-core/public_full_node.yaml &&
     sleep 0.5
