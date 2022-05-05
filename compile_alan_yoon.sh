@@ -45,9 +45,9 @@ then
     echo ""
     echo ""
     sleep 0.1
-    echo "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! \e[0m"
+    echo -e "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! \e[0m"
     echo ""
-    echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
+    echo -e "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
     sleep 6
     echo ""
     echo ""
@@ -58,7 +58,7 @@ then
 else
     echo ""
     echo ""
-    echo "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo -e "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
     sleep 6
     echo ""
     echo ""
@@ -150,10 +150,10 @@ then
     echo ""
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
-    echo "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
+    echo -e "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
     echo ""
-    echo "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+    echo -e "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
     sleep 6
     echo ""
     echo ""
@@ -170,10 +170,10 @@ else
     sleep 0.1
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
-    echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
+    echo -e "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
-    echo "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+    echo -e "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
     sleep 6
     echo ""
     echo ""
