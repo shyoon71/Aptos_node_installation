@@ -13,7 +13,7 @@ echo "==========================================="
 sleep 1
 echo ""
 echo ""
-echo "\e[1m\e[33mPreparing now... \e[0m"
+echo "\e[1m\e[33mPreparing compile environment and source code now... \e[0m"
 sleep 1
 if [ -f /root/aptos-core/public_full_node.yaml ]
 then
