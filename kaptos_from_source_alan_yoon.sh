@@ -2,14 +2,10 @@
 
 clear
 cd ~
-sleep 0.2
-apt-get update > /dev/bull &&
-apt-get install figlet > /dev/null &&
 echo ""
-echo ""
-echo "==========================================="
-figlet AlanYoon
-echo "==========================================="
+echo "==============================================================="
+echo "This script is for source compiling process. Made by Alan Yoon." 
+echo "==============================================================="
 sleep 0.2
 echo ""
 echo ""
