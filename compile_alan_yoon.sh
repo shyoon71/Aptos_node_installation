@@ -85,8 +85,9 @@ else
     sleep 0.1
     /root/aptos-core/docker/install-tools.sh
     sleep 0.1
-    aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
-    which aptos
+    cargo run -p aptos-operational-tool
+    sleep 0.1
+    ./target/debug/aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
     sleep 0.1
