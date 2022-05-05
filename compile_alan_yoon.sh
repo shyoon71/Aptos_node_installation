@@ -154,7 +154,7 @@ then
     
 else
     sleep 0.1
-    sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt
+    sed -n 9,11p /root/aptos-core/public_full_node.yaml > /root/v2_or_not.txt
     sleep 0.1
     sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml
     sleep 0.1
@@ -175,12 +175,6 @@ fi
 rm -r /root/default_seed.txt 2> /dev/null
 sleep 0.1
 rm -r /root/v2_or_not.txt 2> /dev/null
-sleep 0.1
-rm -r /root/aptos.sh 2> /dev/null
-sleep 0.1
-rm -r /root/kaptos_alan_yoon_v1.sh 2> /dev/null
-sleep 0.1
-rm -r /root/aptos_identity.sh 2> /dev/null
 sleep 0.1
 rm -r /root/127001.txt 2> /dev/null
 sleep 0.1
