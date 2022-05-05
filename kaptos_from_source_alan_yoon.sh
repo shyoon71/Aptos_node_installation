@@ -105,5 +105,4 @@ wget https://devnet.aptoslabs.com/waypoint.txt &&
 sleep 0.1
 echo ""
 echo ""
-echo "Starting compiling and running..."
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
