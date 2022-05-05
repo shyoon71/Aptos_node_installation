@@ -132,7 +132,7 @@ then
     echo "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
     echo ""
-    echo "\e[1m\e[33mFinally compiling and starting now! \e[0m"
+    echo "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
     echo ""
     echo ""
     
