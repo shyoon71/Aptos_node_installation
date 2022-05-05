@@ -100,6 +100,7 @@ fi
 rm -r ~/127001.txt > /dev/null &&
 rm -r ~/seed.txt &&
 rm -r ~/default_seed.txt &&
+rm -r ~/kaptos_from_source_alan_yoon.sh &&
 sleep 0.1
 wget https://devnet.aptoslabs.com/genesis.blob &&
 sleep 0.1
