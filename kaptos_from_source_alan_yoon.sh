@@ -3,13 +3,13 @@
 clear
 cd ~
 echo ""
-echo "==============================================================="
-echo "This script is for source compiling process. Made by Alan Yoon." 
-echo "==============================================================="
+echo -e "==============================================================="
+echo -e "This script is for source compiling process. Made by Alan Yoon." 
+echo -e "==============================================================="
 sleep 0.2
 echo ""
 echo ""
-echo "\e[1m\e[33mStarting script now... \e[0m"
+echo -e "\e[1m\e[33mStarting script now... \e[0m"
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
@@ -26,20 +26,17 @@ which aptos &&
 sleep 0.2
 if [ -f /path/to/private-key.txt ]
 then
-    cp ./public_full_node.yaml /root/public_full_node.yaml.old &&
-    cp ./public_full_node.yaml /root &&
+    cp ./public_full_node.yaml ~/public_full_node.yaml.old &&
+    cp ./public_full_node.yaml ~/ &&
     sleep 0.1
     rm ./genesis.blob > /dev/null &&
     sleep 0.1
     rm ./waypoint.txt /dev/null &&
     sleep 0.1
-    rm -r /opt/aptos/data > /dev/null &&
+    rm -r ./data > /dev/null &&
     sleep 0.1
 else
-    aptos key generate --key-type x25519 --output-file /path/to/private-key.txt &&
-    cp /path/to/private-key.txt ~/ &&
-    cp /path/to/private-key.txt.pub ~/ &&
-    cp /path/to/peer-info.yaml ~/ &&
+    aptos key generate --key-type x25519 --output-file ~/private-key.txt &&
     cat ~/private-key.txt &&
     sleep 0.1
     cat ~/private-key.txt.pub &&
@@ -51,9 +48,9 @@ else
     ID=$(sed -n 2p ~/peer-info.yaml | sed 's/\(.*\):/\1/') &&
     ID=${ID//$'\r'/} &&
     sleep 0.5
-    sed -i 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/aptos-core/public_full_node.yaml &&
     sleep 0.5
-    sed -i 's/<PEER_ID>/$ID/g' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e 's/<PEER_ID>/$ID/g' ~/aptos-core/public_full_node.yaml &&
     sleep 0.1
 fi
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" ~/aptos-core/public_full_node.yaml > ~/default_seed.txt
@@ -76,7 +73,7 @@ fi
 grep -o "seeds: {}" ~/aptos-core/public_full_node.yaml > ~/seed.txt
 if [ -s ~/seed.txt ]
 then
-    sed -i '/seeds:/d' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e '/seeds:/d' ~/aptos-core/public_full_node.yaml &&
     sleep 0.5
     sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' ~/aptos-core/public_full_node.yaml &&
     sleep 0.1
@@ -89,7 +86,7 @@ grep -o "127.0.0.1" ~/aptos-core/public_full_node.yaml > ~/127001.txt
 sleep 0.1
 if [ -s ~/127001.txt ]
 then
-    sed -i '/127.0.0.1/d' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e '/127.0.0.1/d' ~/aptos-core/public_full_node.yaml &&
     sleep 0.5
     sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' ~/aptos-core/public_full_node.yaml &&
     sleep 0.1
