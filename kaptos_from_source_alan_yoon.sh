@@ -19,14 +19,14 @@ cp ~/aptos-core/public_full_node.yaml ~/ &&
 sleep 0.1
 rm -r ~/aptos-core &&
 sleep 0.1
-git clone https://github.com/shyoon71/aptos-core &&
+#git clone https://github.com/shyoon71/aptos-core &&
 cd ~/aptos-core &&
 sleep 0.1
 ./scripts/dev_setup.sh &&
 sleep 0.1
 source ~/.cargo/env &&
 sleep 0.1
-cargo install --force --git https://github.com/aptos-labs/aptos-core.git aptos &&
+#cargo install --force --git https://github.com/aptos-labs/aptos-core.git aptos &&
 sleep 0.1
 which aptos &&
 sleep 0.1
@@ -59,12 +59,12 @@ else
     ID=$(sed -n 2p ~/peer-info.yaml | sed 's/\(.*\):/\1/') &&
     ID=${ID//$'\r'/} &&
     sleep 0.5
-    sed -i'' -e 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/public_full_node.yaml &&
     sleep 0.5
-    sed -i'' -e 's/<PEER_ID>/$ID/g' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e 's/<PEER_ID>/$ID/g' ~/public_full_node.yaml &&
     sleep 0.1
 fi
-grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" ~/aptos-core/public_full_node.yaml > ~/default_seed.txt
+grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" ~/public_full_node.yaml > ~/default_seed.txt
 sleep 3
 if [ -s ~/default_seed.txt ]
 then
@@ -72,34 +72,34 @@ then
     echo ""
     sleep 2
 else
-    sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" ~/aptos-core/public_full_node.yaml
+    sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" ~/public_full_node.yaml
     sleep 0.5
-    sed -i'' -r -e "/identity:/i\          addresses:" ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -r -e "/identity:/i\          addresses:" ~/public_full_node.yaml &&
     sleep 0.5
-    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' ~/aptos-core/public_full_node.yaml
+    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' ~/public_full_node.yaml
     sleep 0.5
-    sed -i'' -r -e '/identity:/i\          role: "Upstream"' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -r -e '/identity:/i\          role: "Upstream"' ~/public_full_node.yaml &&
     sleep 0.1
 fi
-grep -o "seeds: {}" ~/aptos-core/public_full_node.yaml > ~/seed.txt
+grep -o "seeds: {}" ~/public_full_node.yaml > ~/seed.txt
 if [ -s ~/seed.txt ]
 then
-    sed -i'' -e '/seeds:/d' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e '/seeds:/d' ~/public_full_node.yaml &&
     sleep 0.5
-    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' ~/public_full_node.yaml &&
     sleep 0.1
 else
     sleep 0.1
-    sed -i '/{}/d' ~/aptos-core/public_full_node.yaml &&
+    sed -i '/{}/d' ~/public_full_node.yaml &&
     sleep 0.5
 fi
-grep -o "127.0.0.1" ~/aptos-core/public_full_node.yaml > ~/127001.txt
+grep -o "127.0.0.1" ~/public_full_node.yaml > ~/127001.txt
 sleep 0.1
 if [ -s ~/127001.txt ]
 then
-    sed -i'' -e '/127.0.0.1/d' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -e '/127.0.0.1/d' ~/public_full_node.yaml &&
     sleep 0.5
-    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' ~/aptos-core/public_full_node.yaml &&
+    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' ~/public_full_node.yaml &&
     sleep 0.1
 else
     echo ""
@@ -118,7 +118,7 @@ rm ~/aptos-core/waypoint.txt &&
 sleep 0.1
 wget https://devnet.aptoslabs.com/waypoint.txt &&
 sleep 0.1
-cp ~/aptos-core/public_full_node.yaml ~/ &&
+cp ~/public_full_node.yaml ~/aptos-core &&
 sleep 0.1
 cd ~/aptos-core &&
 sleep 0.1
