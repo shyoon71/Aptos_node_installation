@@ -13,7 +13,7 @@ echo "\e[1m\e[33mStarting script now... \e[0m"
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
-git clone https://github.com/<shyoon71>/aptos-core.git &&
+git clone https://github.com/shyoon71/aptos-core.git &&
 cd aptos-core &&
 sleep 0.2
 ./scripts/dev_setup.sh &&
