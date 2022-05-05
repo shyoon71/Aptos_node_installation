@@ -35,7 +35,7 @@ source $HOME/.cargo/env
 sleep 0.5
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
-/root/aptos-core/scripts/dev_setup.sh
+./scripts/dev_setup.sh
 slepp 1
 cd aptos-core
 sleep 1
