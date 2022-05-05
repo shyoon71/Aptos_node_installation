@@ -17,22 +17,24 @@ echo "\e[1m\e[33mPreparing compile environment and source code now... \e[0m"
 sleep 6
 if [ -f /root/aptos-core/public_full_node.yaml ]
 then
-    cp /root/aptos/public_full_node.yaml ./public_full_node.yaml.old
+    cp /root/aptos-core/public_full_node.yaml ./public_full_node.yaml.old
     sleep 0.1
-    cp /root/aptos/public_full_node.yaml ./
+    cp /root/aptos-core/public_full_node.yaml ./
+    sleep 0.1
+    rm -r aptos-core
     sleep 0.1
 else
     touch ./public_full_node.yaml
     sleep 0.1
+fi
     git clone https://github.com/shyoon71/aptos-core.git
     sleep 0.1
     cd aptos-core
-    slep 0.1
+    sleep 0.1
     ./scripts/dev_setup.sh
     sleep 0.1
     source ~/.cargo/env
-    sleep 0.1
-fi
+    sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
