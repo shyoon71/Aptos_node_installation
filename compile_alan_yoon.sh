@@ -80,15 +80,16 @@ else
     sed -i 's/<PEER_ID>/$ID/g' /root/public_full_node.yaml
     sed -i 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' /root/public_full_node.yaml
 fi
-cd aptos-core
-sleep 2
+sleep 1
+cd /root/aptos-core 2> /dev/null
+sleep 1
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
-sleep 3
+sleep 1
 if [ -s /root/default_seed.txt ]
 then
     echo ""
     echo ""
-    sleep 2
+    sleep 1
 else
     sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
     sleep 1
