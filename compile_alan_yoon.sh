@@ -14,7 +14,7 @@ sleep 1
 echo ""
 echo ""
 echo "\e[1m\e[33mPreparing compile environment and source code now... \e[0m"
-sleep 1
+sleep 6
 if [ -f /root/aptos-core/public_full_node.yaml ]
 then
     cp /root/aptos/public_full_node.yaml ./public_full_node.yaml.old &&
