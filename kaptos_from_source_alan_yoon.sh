@@ -3,13 +3,13 @@
 clear
 cd ~
 echo ""
-echo -e "==============================================================="
-echo -e "This script is for source compiling process. Made by Alan Yoon." 
-echo -e "==============================================================="
+echo "==============================================================="
+echo "This script is for source compiling process. Made by Alan Yoon." 
+echo "==============================================================="
 sleep 0.2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mStarting script now... \e[0m"
+echo "\e[1m\e[33mStarting script now... \e[0m"
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
@@ -20,7 +20,7 @@ sleep 0.2
 sleep 0.2
 source ~/.cargo/env &&
 sleep 0.2
-cargo install --git https://github.com/aptos-labs/aptos-core.git aptos &&
+cargo install --force --git https://github.com/aptos-labs/aptos-core.git aptos &&
 sleep 0.2
 which aptos &&
 sleep 0.2
