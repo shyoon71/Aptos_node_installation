@@ -9,13 +9,13 @@ echo "==============================================================="
 sleep 0.2
 echo ""
 echo ""
-echo "Starting script now..."
+echo "Preparing source code compiling..."
 echo ""
 sleep 0.2
 curl https://sh.rustup.rs -sSf | sh &&
 sleep 0.2
 git clone https://github.com/shyoon71/aptos-core.git &&
-cd aptos-core &&
+cd ~/aptos-core &&
 sleep 0.2
 ./scripts/dev_setup.sh &&
 sleep 0.2
@@ -25,16 +25,18 @@ cargo install --force --git https://github.com/aptos-labs/aptos-core.git aptos &
 sleep 0.2
 which aptos &&
 sleep 0.2
-if [ -f /path/to/private-key.txt ]
+cd ~/aptos-core &&
+sleep 0.1
+if [ -f ~/private-key.txt ]
 then
     cp ./public_full_node.yaml ~/public_full_node.yaml.old &&
     cp ./public_full_node.yaml ~/ &&
     sleep 0.1
-    rm ./genesis.blob > /dev/null &&
+    rm ~/aptos-core/genesis.blob > /dev/null &&
     sleep 0.1
-    rm ./waypoint.txt /dev/null &&
+    rm ~/aptos-core/waypoint.txt /dev/null &&
     sleep 0.1
-    rm -r ./data > /dev/null &&
+    rm -r ~/aptos-core/target/release > /dev/null &&
     sleep 0.1
 else
     aptos key generate --key-type x25519 --output-file ~/private-key.txt &&
@@ -44,10 +46,14 @@ else
     sleep 0.1
     cat ~/peer-info.yaml &&
     sleep 0.1
+    cd ~/aptos-core &&
+    sleep 0.1
     PRIVATE_KEY=$(cat ~/private-key.txt) &&
     sleep 0.5
     ID=$(sed -n 2p ~/peer-info.yaml | sed 's/\(.*\):/\1/') &&
     ID=${ID//$'\r'/} &&
+    sleep 0.5
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml &&
     sleep 0.5
     sed -i'' -e 's/<PRIVATE_KEY>/$PRIVATE_KEY/g' ~/aptos-core/public_full_node.yaml &&
     sleep 0.5
@@ -100,10 +106,15 @@ rm -r ~/seed.txt &&
 rm -r ~/default_seed.txt &&
 rm -r ~/kaptos_from_source_alan_yoon.sh &&
 sleep 0.1
+rm ~/aptos-core/genesis.blob &&
+sleep 0.1
 wget https://devnet.aptoslabs.com/genesis.blob &&
+sleep 0.1
+rm ~/aptos-core/waypoint.txt &&
 sleep 0.1
 wget https://devnet.aptoslabs.com/waypoint.txt &&
 sleep 0.1
-echo ""
-echo ""
+cd ~/aptos-core &&
+sleep 0.1
+echo "Compiling source code..."
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
