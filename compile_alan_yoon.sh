@@ -130,6 +130,10 @@ else
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml
     sleep 0.1
 fi
+WAYPOINT=$(cat /root/aptos-core/waypoint.txt)
+sleep 0.1
+sed -i "s/<WAYPOINT>/$WAYPOINT/g" /root/public_full_node.yaml
+sleep 0.1
 grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 sleep 0.1
 if [ -s /root/seed.txt ]
