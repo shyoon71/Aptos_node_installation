@@ -41,7 +41,7 @@ source $HOME/.cargo/env
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33m[ 1/2 ] First compiling starts now... \e[0m"
+echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... \e[0m"
 sleep 5
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
@@ -206,7 +206,7 @@ cd /root/aptos-core
 sleep 0.1
 rm -r /root/compile_alan_yoon.sh > /dev/null
 sleep 0.1
-echo -e "\e[1m\e[33m[ 2/2 ] Second compiling starts now... \e[0m"
+echo -e "\e[1m\e[33mFinal compiling for starting your node... \e[0m"
 sleep 1
 echo ""
 echo ""
