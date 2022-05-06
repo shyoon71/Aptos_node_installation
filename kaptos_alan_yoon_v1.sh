@@ -40,7 +40,7 @@ then
 else
     echo ""
     echo ""
-    echo "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo "\e[1m\e[33mYou don't have any old files, so backup and restoring process will be possible when you update node next time. \e[0m"
     echo ""
     echo ""
     echo ""
