@@ -14,7 +14,7 @@ sleep 1
 echo ""
 echo ""
 echo -e "\e[1m\e[33mPreparing compile environment and source code now... \e[0m"
-sleep 6
+sleep 5
 if [ -f /root/aptos-core/public_full_node.yaml ]
 then
     cp /root/aptos-core/public_full_node.yaml ./public_full_node.yaml.old
@@ -33,8 +33,8 @@ curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.5
-echo -e "\e[1m\e[33m[ 1/3 ] First compiling starts now... \e[0m"
-sleep 2
+echo -e "\e[1m\e[33m[ 1/2 ] First compiling starts now... \e[0m"
+sleep 5
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
@@ -70,7 +70,7 @@ fi
 cd /root/aptos-core
 sleep 0.1
 echo -e "\e[1m\e[33mDownloading genesis and waypoint file... \e[0m"
-sleep 2
+sleep 5
 echo ""
 wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
@@ -88,12 +88,10 @@ else
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
-    sleep 2
+    sleep 0.1
     echo ""
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
-    sleep 0.1
-    echo -e "\e[1m\e[33m[ 2/3 ] Second compiling starts now... \e[0m"
-    sleep 2
+    sleep 5
     echo ""
 #   cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
@@ -163,6 +161,7 @@ then
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
     echo -e "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
+    sleep 5
     echo ""
     echo ""
 else
@@ -192,11 +191,11 @@ rm -r /root/seed.txt 2> /dev/null
 sleep 1
 cd /root/aptos-core
 sleep 0.1
-echo -e "\e[1m\e[33m[ 3/3 ] Final compiling starts now... \e[0m"
+echo -e "\e[1m\e[33m[ 2/2 ] Second compiling starts now... \e[0m"
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33m[ 3/3 ] Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 sleep 5
 echo ""
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
