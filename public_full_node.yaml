@@ -20,15 +20,15 @@ full_node_networks:
     # prevent remote, incoming connections.
     listen_address: "/ip4/0.0.0.0/tcp/6180"
     # Define the upstream peers to connect to
-    seeds:
-      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:
-          addresses:
-          - "/dns4/pfn0.node.devnet.aptoslabs.com/tcp/6182/ln-noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/ln-handshake/0"
-          role: "Upstream"
-      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:
-          addresses:
-          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"
-          role: "Upstream"    
+#    seeds:
+#      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:
+#          addresses:
+#          - "/dns4/pfn0.node.devnet.aptoslabs.com/tcp/6182/ln-noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/ln-handshake/0"
+#          role: "Upstream"
+#      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:
+#          addresses:
+#          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"
+#          role: "Upstream"    
     identity:
       type: from_config
       key: <PRIVATE_KEY>
