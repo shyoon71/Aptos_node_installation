@@ -79,7 +79,7 @@ cd /root/aptos-core
 sleep 0.1
 mkdir data
 sleep 0.1
-echo -e "\e[1m\e[33mDownloading genesis and waypoint files for update configuration... \e[0m"
+echo -e "\e[1m\e[33mDownloading new configurarion files for your node update... \e[0m"
 sleep 5
 echo ""
 wget https://devnet.aptoslabs.com/genesis.blob
@@ -98,7 +98,10 @@ else
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
-    sleep 0.1
+    sleep 2
+    echo ""
+    echo -e "\e[1m\e[35mEntering docker container now, prepare to input two commands for key generating manually... \e[0m"
+    sleep 5
     echo ""
     docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
     cd
