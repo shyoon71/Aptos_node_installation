@@ -69,7 +69,7 @@ then
 else
     echo ""
     echo ""
-    echo -e "\e[1m\e[33mYou don't have any old files this time, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo -e "\e[1m\e[33mYou don't have any old files, so backup and restoring process will be possible when you update node next time. \e[0m"
     sleep 6
     echo ""
     echo ""
