@@ -32,7 +32,9 @@ sleep 0.1
 curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
-sleep 0.5
+sleep 2
+echo ""
+echo ""
 echo -e "\e[1m\e[33m[ 1/2 ] First compiling starts now... \e[0m"
 sleep 5
 echo ""
