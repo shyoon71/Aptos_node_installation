@@ -14,6 +14,8 @@ sleep 1
 echo ""
 echo ""
 echo -e "\e[1m\e[33mPreparing compile environment and cloning github source code now... \e[0m"
+sleep 2
+echo -e "\e[1m\e[35mYou should select and inpout yes or 1 for all question form script from now... \e[0m"
 sleep 5
 if [ -f /root/aptos-core/public_full_node.yaml ]
 then
