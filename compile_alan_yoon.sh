@@ -71,6 +71,8 @@ else
 fi
 cd /root/aptos-core
 sleep 0.1
+mkdir data
+sleep 0.1
 echo -e "\e[1m\e[33mDownloading genesis and waypoint file... \e[0m"
 sleep 5
 echo ""
