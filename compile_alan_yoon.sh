@@ -104,6 +104,7 @@ else
     cd
 #   aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt
 #   aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+#   exit
     sleep 2
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
     ID=${ID//$'\r'/}
