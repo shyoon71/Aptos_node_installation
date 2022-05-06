@@ -102,7 +102,7 @@ else
     sleep 0.1
     PRIVATE_KEY=$(cat /root/private-key.txt)
     sleep 0.1
-    sed -i "s/<PEER_ID>/$ID/g" /root/public_full_node.yaml
+    sed -i "s/<PEER-ID>/$ID/g" /root/public_full_node.yaml
     sleep 0.1
     sed -i "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /root/public_full_node.yaml
     sleep 0.1
