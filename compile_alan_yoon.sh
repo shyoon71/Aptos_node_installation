@@ -83,9 +83,7 @@ else
     sleep 0.1
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.1
-    cargo run -p aptos-operational-tool
-    sleep 0.1
-    ./target/debug/aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+    cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
     sleep 0.1
