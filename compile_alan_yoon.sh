@@ -164,8 +164,6 @@ then
     echo ""
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
-    echo -e "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
-    sleep 5
     echo ""
     echo ""
 else
@@ -180,7 +178,6 @@ else
     sleep 0.1
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
-    echo -e "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
 fi
@@ -196,7 +193,7 @@ sleep 1
 cd /root/aptos-core
 sleep 0.1
 echo -e "\e[1m\e[33m[ 2/2 ] Second compiling starts now... \e[0m"
-sleep 2
+sleep 1
 echo ""
 echo ""
 echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
