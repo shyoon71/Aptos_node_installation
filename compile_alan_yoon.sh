@@ -166,11 +166,6 @@ then
     echo -e "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
     echo ""
-    echo -e "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
-    sleep 6
-    echo ""
-    echo ""
-    
 else
     sleep 0.1
     sed -n 9,11p /root/aptos-core/public_full_node.yaml > /root/v2_or_not.txt
@@ -186,11 +181,8 @@ else
     echo -e "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
-    echo -e "\e[1m\e[33mFinally compiling and starting now! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
-    sleep 6
-    echo ""
-    echo ""
 fi
+sleep 0.1
 rm -r /root/default_seed.txt 2> /dev/null
 sleep 0.1
 rm -r /root/v2_or_not.txt 2> /dev/null
@@ -203,5 +195,9 @@ cd /root/aptos-core
 sleep 0.1
 echo -e "\e[1m\e[33m[ 3/3 ] Final compiling starts now... \e[0m"
 sleep 2
+echo ""
+echo ""
+echo -e "\e[1m\e[33m[ 3/3 ] Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+sleep 5
 echo ""
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
