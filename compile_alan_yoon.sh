@@ -97,9 +97,10 @@ else
     echo ""
     cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
-    ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
-    sleep 0.1
-    ID=${ID//$'\r'/}
+#   ID=$(sed -n 2p /root/private-key.yaml | sed 's/\(.*\):/\1/')
+#   sleep 0.1
+#   ID=${ID//$'\r'/}
+    ID=$(cat /root/private-key.txt.pub)
     sleep 0.1
     PRIVATE_KEY=$(cat /root/private-key.txt)
     sleep 0.1
