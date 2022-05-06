@@ -200,6 +200,8 @@ rm -r /root/seed.txt 2> /dev/null
 sleep 1
 cd /root/aptos-core
 sleep 0.1
+rm -r /root/compile_alan_yoon.sh
+sleep 0.1
 echo -e "\e[1m\e[33m[ 2/2 ] Second compiling starts now... \e[0m"
 sleep 1
 echo ""
