@@ -33,6 +33,9 @@ curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.5
+echo -e "\e[1m\e[33m[ 1/3 ] First compiling starts now... \e[0m"
+sleep 2
+echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
 cd aptos-core
@@ -66,8 +69,11 @@ else
 fi
 cd /root/aptos-core
 sleep 0.1
+echo -e "\e[1m\e[33mDownloading genesis and waypoint file... \e[0m"
+sleep 2
+echo ""
 wget https://devnet.aptoslabs.com/genesis.blob
-sleep 0.1
+sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
@@ -81,8 +87,14 @@ else
     sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
+    echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
+    sleep 2
+    echo ""
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.1
+    echo -e "\e[1m\e[33m[ 2/3 ] Second compiling starts now... \e[0m"
+    sleep 2
+    echo ""
     cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
@@ -187,5 +199,8 @@ sleep 0.1
 rm -r /root/seed.txt 2> /dev/null
 sleep 1
 cd /root/aptos-core
-sleep 6
+sleep 0.1
+echo -e "\e[1m\e[33m[ 3/3 ] Final compiling starts now... \e[0m"
+sleep 2
+echo ""
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
