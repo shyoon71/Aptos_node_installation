@@ -95,7 +95,7 @@ else
     echo -e "\e[1m\e[33m[ 2/3 ] Second compiling starts now... \e[0m"
     sleep 2
     echo ""
-    cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+#   cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
     sleep 0.1
 #   ID=$(sed -n 2p /root/private-key.yaml | sed 's/\(.*\):/\1/')
 #   sleep 0.1
