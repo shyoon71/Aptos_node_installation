@@ -100,15 +100,13 @@ else
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
     sleep 0.1
     echo ""
-    aptos key generate --key-type x25519 --output-file /root/private-key.txt
-    sleep 5
-    echo ""
-#   cargo run -p aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
-    sleep 0.1
-#   ID=$(sed -n 2p /root/private-key.yaml | sed 's/\(.*\):/\1/')
-#   sleep 0.1
-#   ID=${ID//$'\r'/}
-    ID=$(cat /root/private-key.txt.pub)
+    docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
+    cd
+    aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt
+    aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+    exit
+    ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
+    ID=${ID//$'\r'/}
     sleep 0.1
     PRIVATE_KEY=$(cat /root/private-key.txt)
     sleep 0.1
