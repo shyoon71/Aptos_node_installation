@@ -1,7 +1,7 @@
 base:
   # This is the location Aptos will store its database. It is backed by a dedicated docker volume
   # for persistence.
-  data_dir: "/opt/aptos/data"
+  data_dir: "./data"
   role: "full_node"
   waypoint:
     # This is a checkpoint into the blockchain for added security.
