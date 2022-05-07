@@ -38,7 +38,12 @@ sleep 5
 git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
 cd aptos-core
+sleep 0.1
+mkdir data
+sleep 0.1
 curl https://sh.rustup.rs -sSf | sh
+sleep 0.1
+./scripts/dev_setup.sh
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
@@ -47,13 +52,7 @@ sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 0.1
-./scripts/dev_setup.sh
-sleep 0.1
-source $HOME/.cargo/env
-sleep 0.1
 cargo build
-sleep 0.1
-mkdir data
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
 then
