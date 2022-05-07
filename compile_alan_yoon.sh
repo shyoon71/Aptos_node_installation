@@ -222,4 +222,4 @@ echo -e "\e[1m\e[33mStarting your node by binary files... Thanks you for using m
 sleep 5
 echo ""
 echo ""
-./aptos-node -f /aptos-home/public_full_node.yaml
+./aptos-node -f /root/aptos-core/public_full_node.yaml
