@@ -33,16 +33,14 @@ else
     touch ./public_full_node.yaml
     sleep 0.1
 fi
+echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... \e[0m"
+sleep 5
 git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
 curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
-sleep 2
-echo ""
-echo ""
-echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... \e[0m"
-sleep 5
+sleep 0.1
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
