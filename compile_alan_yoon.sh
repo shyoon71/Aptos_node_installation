@@ -113,7 +113,9 @@ else
     cd target/debug
     sleep 0.1
     ./aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt
+    sleep 0.5
     ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+    sleep 0.1
     cd /root/aptos-core
     sleep 2
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
