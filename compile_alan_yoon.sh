@@ -35,14 +35,14 @@ else
 fi
 echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... \e[0m"
 sleep 5
-git clone https://github.com/shyoon71/aptos-core.git | echo "y"
+git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
-curl https://sh.rustup.rs -sSf | sh | echo "1"
+curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
 echo ""
-cargo install --git https://github.com/aptos-labs/aptos-core.git aptos | echo "y"
+cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
 cd aptos-core
 
