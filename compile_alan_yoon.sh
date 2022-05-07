@@ -50,6 +50,8 @@ echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
 sleep 2
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
+sleep 0.1
+which aptos
 # cargo build
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
