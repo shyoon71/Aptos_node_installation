@@ -95,6 +95,10 @@ else
     rm /root/public_full_node.yaml > /dev/null
     sleep 0.1
     cp /root/aptos-core/config/src/config/test_data/public_full_node.yaml /root
+    sleep 0.1
+    cp /root/aptos-core/config/src/config/test_data/public_full_node.yaml /root/aptos-core
+    sleep 0.1
+
 #    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
