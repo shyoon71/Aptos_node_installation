@@ -33,8 +33,6 @@ else
     touch ./public_full_node.yaml
     sleep 0.1
 fi
-echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... \e[0m"
-sleep 5
 git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
 cd aptos-core
@@ -51,6 +49,8 @@ git checkout --track origin/devnet
 sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
+echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
+sleep 5
 cargo build
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
@@ -213,10 +213,16 @@ cd /root/aptos-core
 sleep 0.1
 rm -r /root/compile_alan_yoon.sh > /dev/null
 sleep 0.1
+echo -e "\e[1m\e[33mAll configuration completed!! \e[0m"
+sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mStarting your node by binary files... Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
-sleep 5
+echo -e "\e[1m\e[33mFinal compiling starts and runs your node by binary files... \e[0m"
+sleep 2
+echo ""
+echo ""
+echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+sleep 1
 echo ""
 echo ""
 cargo run -p aptos-node --release -- -f ./public_full_node.yaml
