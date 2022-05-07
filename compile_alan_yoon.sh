@@ -17,7 +17,7 @@ echo -e "\e[1m\e[33mPreparing compile environment and cloning github source code
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[35mYou should select and inpout yes or 1 for all question form script from now... \e[0m"
+echo -e "\e[1m\e[35mYou should select and inpout yes or 1 for all questions form script from now... \e[0m"
 sleep 5
 echo ""
 echo ""
