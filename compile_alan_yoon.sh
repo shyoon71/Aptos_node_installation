@@ -79,7 +79,7 @@ fi
 
 cd /root/aptos-core
 sleep 0.1
-echo -e "\e[1m\e[33mUpdating source files from devnet github... \e[0m"
+echo -e "\e[1m\e[33mUpdating source files from APTOS devnet repo... \e[0m"
 sleep 2
 echo ""
 echo ""
