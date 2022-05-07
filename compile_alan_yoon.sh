@@ -109,9 +109,6 @@ else
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
     sleep 2
     echo ""
-    echo -e "\e[1m\e[35mEntering docker container now, prepare to input two commands for key generating manually... \e[0m"
-    sleep 5
-    echo ""
 #   docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
     cd target/debug
     sleep 0.1
@@ -222,4 +219,4 @@ echo -e "\e[1m\e[33mStarting your node by binary files... Thanks you for using m
 sleep 5
 echo ""
 echo ""
-./aptos-node -f /root/aptos-core/public_full_node.yaml
+cargo run -p aptos-node --release -- -f ./public_full_node.yaml
