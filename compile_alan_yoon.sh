@@ -46,7 +46,7 @@ sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
 echo ""
-echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
+echo -e "\e[1m\e[33mInstalling APTOS CLI tools for generating key and id... \e[0m"
 sleep 2
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
