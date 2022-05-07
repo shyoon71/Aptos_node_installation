@@ -46,12 +46,9 @@ sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
 echo ""
-echo -e "\e[1m\e[33mInstalling APTOS CLI tools for generating key and id... \e[0m"
-sleep 2
-echo ""
-cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
-sleep 0.1
-which aptos
+# cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
+# sleep 0.1
+# which aptos
 # cargo build
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
@@ -79,13 +76,20 @@ else
     echo ""
     echo ""
 fi
+
 cd /root/aptos-core
+sleep 0.1
+echo -e "\e[1m\e[33mUpdating source files from devnet github... \e[0m"
+sleep 2
+echo ""
+echo ""
+git checkout --track origin/devnet
+sleep 0.1
+cargo build
 sleep 0.1
 echo -e "\e[1m\e[33mDownloading new configurarion files for your node update... \e[0m"
 sleep 5
 echo ""
-git checkout --track origin/devnet
-sleep 0.1
 wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
@@ -211,7 +215,7 @@ cd /root/aptos-core
 sleep 0.1
 rm -r /root/compile_alan_yoon.sh > /dev/null
 sleep 0.1
-echo -e "\e[1m\e[33mAll configuration processes completed!! \e[0m"
+echo -e "\e[1m\e[33mEditing public_full_node.yaml file completed successfully!! \e[0m"
 sleep 2
 echo ""
 echo ""
