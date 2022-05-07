@@ -37,18 +37,22 @@ echo -e "\e[1m\e[33mCloning APTOS github repo and compiling source files now... 
 sleep 5
 git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
+cd aptos-core
 curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
+git checkout --track origin/devnet
+sleep 0.1
 echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
-sleep 1
-cd aptos-core
-
 sleep 0.1
 ./scripts/dev_setup.sh
-sleep 1
+sleep 0.1
+source $HOME/.cargo/env
+sleep 0.1
+mkdir data
+sleep 0.1
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
@@ -108,11 +112,12 @@ else
     echo -e "\e[1m\e[35mEntering docker container now, prepare to input two commands for key generating manually... \e[0m"
     sleep 5
     echo ""
-    docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
-    cd
-#   aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt
-#   aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
-#   exit
+#   docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
+    cd target/debug
+    sleep 0.1
+    ./aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt
+    ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+    cd /root/aptos-core
     sleep 2
     ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
     ID=${ID//$'\r'/}
@@ -218,4 +223,7 @@ echo ""
 echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 sleep 5
 echo ""
-cargo run -p aptos-node --release -- -f ./public_full_node.yaml
+# cargo run -p aptos-node --release -- -f ./public_full_node.yaml
+cd /root/aptos-core
+sleep 0.1
+./aptos-node -f ./public_full_node.yaml
