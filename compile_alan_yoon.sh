@@ -45,11 +45,10 @@ sleep 0.1
 sleep 0.1
 source $HOME/.cargo/env
 sleep 0.1
-git checkout --track origin/devnet
-sleep 0.1
 echo ""
 echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
-# sleep 2
+sleep 2
+echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 # cargo build
 sleep 0.1
@@ -83,6 +82,8 @@ sleep 0.1
 echo -e "\e[1m\e[33mDownloading new configurarion files for your node update... \e[0m"
 sleep 5
 echo ""
+git checkout --track origin/devnet
+sleep 0.1
 wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
@@ -108,8 +109,6 @@ else
     sleep 2
     echo ""
 #   docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
-    cd target/debug
-    sleep 0.1
     aptos key generate --key-type x25519 --output-file /root/private-key.txt
     sleep 0.5
 #   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
