@@ -49,7 +49,7 @@ echo ""
 echo -e "\e[1m\e[33mInstalling APTOS CLI tools for generating key and id... \e[0m"
 sleep 2
 echo ""
-cargo install --git https://github.com/shyoon71/aptos-core.git aptos
+cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 0.1
 which aptos
 # cargo build
