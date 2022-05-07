@@ -1,6 +1,0 @@
-'y'
-'1'
-'y'
-'aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt'
-'aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml'
-'exit'
