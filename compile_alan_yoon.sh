@@ -48,11 +48,11 @@ sleep 0.1
 git checkout --track origin/devnet
 sleep 0.1
 echo ""
+# echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
+# sleep 2
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
-echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
-sleep 2
-cargo build
-sleep 0.1
+# cargo build
+# sleep 0.1
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
