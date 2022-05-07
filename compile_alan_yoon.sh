@@ -97,7 +97,7 @@ else
     echo ""
     rm /root/public_full_node.yaml
     sleep 0.1
-    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
+#    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
     sleep 0.1
     echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
     sleep 2
