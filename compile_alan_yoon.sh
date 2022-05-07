@@ -94,9 +94,10 @@ else
     echo ""
     rm /root/public_full_node.yaml > /dev/null
     sleep 0.1
-    cp /root/aptos-core/config/src/config/test_data/public_full_node.yaml /root
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_source.yaml
+    mv ./public_full_node_source.yaml ./public_full_node.yaml
     sleep 0.1
-    cp /root/aptos-core/config/src/config/test_data/public_full_node.yaml /root/aptos-core
+    cp ./public_full_node.yaml /root/aptos-core
     sleep 0.1
 
 #    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /root
