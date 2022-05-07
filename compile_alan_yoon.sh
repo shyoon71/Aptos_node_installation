@@ -47,6 +47,7 @@ echo ""
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 sleep 1
 cd aptos-core
+
 sleep 0.1
 ./scripts/dev_setup.sh
 sleep 1
@@ -86,7 +87,8 @@ wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
 sleep 0.1
-if [ -s /root/public_full_node.yaml ]
+cp config/src/config/test_data/public_full_node.yaml /root
+if [ -f /root/private-key.txt ]
 then
     echo ""
     echo ""
