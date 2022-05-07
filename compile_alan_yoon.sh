@@ -213,7 +213,7 @@ echo -e "\e[1m\e[33mAll configuration completed!! \e[0m"
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mFinal compiling starts and runs your node by binary files... \e[0m"
+echo -e "\e[1m\e[33mFinal compiling starts and your node will run by binary files after compiling ends... \e[0m"
 sleep 2
 echo ""
 echo ""
