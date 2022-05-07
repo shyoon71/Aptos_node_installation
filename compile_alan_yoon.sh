@@ -50,7 +50,7 @@ sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 echo -e "\e[1m\e[33mCompiling starts now... \e[0m"
-sleep 5
+sleep 2
 cargo build
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
@@ -79,8 +79,6 @@ else
     echo ""
 fi
 cd /root/aptos-core
-sleep 0.1
-mkdir data
 sleep 0.1
 echo -e "\e[1m\e[33mDownloading new configurarion files for your node update... \e[0m"
 sleep 5
@@ -134,8 +132,6 @@ grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /roo
 sleep 0.1
 if [ -s /root/default_seed.txt ]
 then
-    echo ""
-    echo ""
     sleep 0.1
 else
     sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
@@ -186,7 +182,6 @@ then
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
     echo ""
-    echo ""
 else
     sleep 0.1
     sed -n 9,11p /root/aptos-core/public_full_node.yaml > /root/v2_or_not.txt
@@ -199,7 +194,6 @@ else
     sleep 0.1
     cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
-    echo ""
     echo ""
 fi
 sleep 0.1
