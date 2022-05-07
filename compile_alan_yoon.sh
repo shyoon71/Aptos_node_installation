@@ -116,7 +116,7 @@ else
 #   sleep 0.1
     cd /root/aptos-core
     sleep 2
-    ID=$(sed -n 2p /root/peer-info.yaml | sed 's/\(.*\):/\1/')
+    ID=$(sed -n 2p /root/private-key.txt.pub | sed 's/\(.*\):/\1/')
     ID=${ID//$'\r'/}
     sleep 0.1
     PRIVATE_KEY=$(cat /root/private-key.txt)
