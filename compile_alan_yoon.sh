@@ -51,6 +51,7 @@ git checkout --track origin/devnet
 sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
+cargo build
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
 then
@@ -214,13 +215,6 @@ sleep 1
 cd /root/aptos-core
 sleep 0.1
 rm -r /root/compile_alan_yoon.sh > /dev/null
-sleep 0.1
-echo -e "\e[1m\e[33mFinal compiling for starting your node... \e[0m"
-sleep 5
-echo ""
-cargo build
-echo ""
-echo -e "\e[1m\e[33mFinally compiling is done!! \e[0m"
 sleep 0.1
 echo ""
 echo ""
