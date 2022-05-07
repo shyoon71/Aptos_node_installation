@@ -49,7 +49,7 @@ echo ""
 echo -e "\e[1m\e[33mInstalling APTOS CLI tools for generating key and id... \e[0m"
 sleep 2
 echo ""
-cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
+cargo install --git https://github.com/shyoon71/aptos-core.git aptos
 sleep 0.1
 which aptos
 # cargo build
@@ -223,4 +223,4 @@ echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @
 sleep 1
 echo ""
 echo ""
-cargo run -p aptos-node --release -- -f ./public_full_node.yaml
+cargo run -p aptos-node --release -- -f /root/public_full_node.yaml
