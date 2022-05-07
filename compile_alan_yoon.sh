@@ -208,7 +208,7 @@ cd /root/aptos-core
 sleep 0.1
 rm -r /root/compile_alan_yoon.sh > /dev/null
 sleep 0.1
-echo -e "\e[1m\e[33mAll configuration completed!! \e[0m"
+echo -e "\e[1m\e[33mAll configuration processes completed!! \e[0m"
 sleep 2
 echo ""
 echo ""
