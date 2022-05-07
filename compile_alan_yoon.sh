@@ -13,7 +13,7 @@ echo "==========================================="
 sleep 1
 echo ""
 echo ""
-echo -e "\e[1m\e[33mPreparing compile environment and cloning github source code now... \e[0m"
+echo -e "\e[1m\e[33mPreparing source code compiling environment now... \e[0m"
 sleep 2
 echo ""
 echo ""
