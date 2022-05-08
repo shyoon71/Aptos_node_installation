@@ -3,7 +3,7 @@
 clear
 cd ~
 sleep 0.1
-apt-get install figlet > /dev/null &&
+apt-get install figlet &> /dev/null &&
 echo ""
 echo ""
 echo "==========================================="
