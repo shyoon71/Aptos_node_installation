@@ -105,9 +105,9 @@ else
     rm /root/public_full_node.yaml > /dev/null
     sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_docker.yaml -P /root
-    mv ./public_full_node_docker.yaml ./public_full_node.yaml
+    mv /root/public_full_node_docker.yaml ./public_full_node.yaml
     sleep 0.1
-    cp ./public_full_node.yaml /root
+    cp /root//public_full_node.yaml /root/aptos-core
     sleep 0.1
     echo "Generating your private key and peer id... "
     sleep 2
