@@ -199,7 +199,7 @@ echo ""
 echo ""
 echo "========================================================================"
 
-echo "\e[1m\e[32mDocker mode Aptos node command list  >> input commands at /root/aptos directory!! \e[0m"
+echo "\e[1m\e[32mDocker mode Aptos node command list  >> input at /root/aptos directory!! \e[0m"
 
 echo "========================================================================"
 
