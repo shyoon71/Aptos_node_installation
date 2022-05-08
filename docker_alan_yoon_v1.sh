@@ -50,7 +50,7 @@ sleep 1
 echo "Main script for installing and updating identiable aptos node starts now. "
 echo ""
 sleep 2
-apt-get update
+apt-get -y update
 sleep 0.1
 apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
 sleep 0.1
@@ -58,7 +58,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 sleep 0.1
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sleep 0.1
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get -y install docker-ce docker-ce-cli containerd.io
 sleep 0.1
 docker --version
 sleep 0.1
