@@ -24,10 +24,10 @@ then
     echo -e ' 
 '$ID':
     addresses: 
-    - "/ip4/\e[1m\e[30m'$IP'\e[0m/tcp/6180/ln-noise-ik/'$ID'/ln-handshake/0"
+    - "/ip4/\e[1m\e[35m'$IP'\e[0m/tcp/6180/ln-noise-ik/'$ID'/ln-handshake/0"
     role: "Upstream"'
     echo "=================================================================================================================================="
-    echo -e "\e[1m\e[30mUpper IP address is private, so it should be changed to your server's external IP address. \e[0m"
+    echo -e "\e[1m\e[35mUpper IP address is private, so it should be changed to your server's external IP address. \e[0m"
     echo -en "\n"
     echo -en "\n"
     echo -e "\e[1m\e[33mYour ID and Keys \e[0m" 
