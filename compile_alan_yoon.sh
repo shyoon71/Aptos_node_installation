@@ -40,10 +40,6 @@ mkdir data
 sleep 0.1
 curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
-./scripts/dev_setup.sh
-sleep 0.1
-source /root/.cargo/env
-sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
 # sleep 0.1
@@ -82,7 +78,11 @@ echo "Updating source files from APTOS devnet repo... "
 sleep 2
 echo ""
 echo ""
+./scripts/dev_setup.sh
+sleep 0.1
 git checkout --track origin/devnet
+sleep 0.1
+source /root/.cargo/env
 sleep 0.1
 cargo build
 sleep 0.1
