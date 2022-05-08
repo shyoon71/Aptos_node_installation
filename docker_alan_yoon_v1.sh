@@ -85,6 +85,7 @@ echo "Checking your state_sync_driver's version and seed status now... Don't tou
 echo ""
 echo ""
 cd aptos
+sleep 0.1
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
 sleep 2
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
