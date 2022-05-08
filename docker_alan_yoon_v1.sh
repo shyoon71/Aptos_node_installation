@@ -21,7 +21,7 @@ then
     sleep 2
 else
     touch ./public_full_node.yaml &&
-    mkdir aptos
+    mkdir /root/aptos
     sleep 2
 fi
 if [ -s /root/public_full_node.yaml ]
