@@ -166,18 +166,18 @@ sleep 1
 echo ""
 echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, and copy it printed from command 'cat my_seed_format.txt'. \e[0m"
 sleep 5
-rm -r /root/default_seed.txt 2> /dev/null &&
-rm -r /root/v2_or_not.txt 2> /dev/null &&
-rm -r /root/aptos.sh 2> /dev/null &&
-rm -r /root/kaptos_alan_yoon_v2.sh 2> /dev/null &&
-rm -r /root/aptos_identity.sh 2> /dev/null &&
-rm -r /root/127001.txt 2> /dev/null &&
-rm -r /root/seed.txt 2> /dev/null &&
+rm -r /root/default_seed.txt &> /dev/null &&
+rm -r /root/v2_or_not.txt &> /dev/null &&
+rm -r /root/aptos.sh &> /dev/null &&
+rm -r /root/kaptos_alan_yoon_v2.sh &> /dev/null &&
+rm -r /root/aptos_identity.sh &> /dev/null &&
+rm -r /root/127001.txt &> /dev/null &&
+rm -r /root/seed.txt &> /dev/null &&
 sleep 5
 echo ""
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
@@ -185,7 +185,7 @@ echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
 echo ""
@@ -198,7 +198,7 @@ echo ""
 echo ""
 wget -q -O command_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/command_alan_yoon.sh && chmod +x command_alan_yoon.sh
 sleep 0.2
-mv /root/command_alan_yoon.sh /root/aptos-core 2> /dev/null &&
+mv /root/command_alan_yoon.sh /root/aptos-core &> /dev/null &&
 sleep 0.2
 echo "========================================================================"
 
@@ -219,6 +219,6 @@ echo "\e[1m\e[32mTo check the Aptos node Logs: \e[0m"
 echo "\e[1m\e[39m    journalctl -u aptos-fullnode -f \n \e[0m" 
 
 echo "\e[1m\e[32mTo check the node syncd status:  >> The third [synced] number is matter!! \e[0m" 
-echo "\e[1m\e[39m    curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type \n \e[0m"
+echo "\e[1m\e[39m    curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type \n \e[0m"
 echo ""
 echo ""
