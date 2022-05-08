@@ -20,11 +20,11 @@ echo "You should select and inpout yes or 1 for all questions form script from n
 sleep 5
 echo ""
 echo ""
-if [ -f /$HOME/aptos-core/public_full_node.yaml ]
+if [ -f /root/aptos-core/public_full_node.yaml ]
 then
-    cp /$HOME/aptos-core/public_full_node.yaml ./public_full_node.yaml.old
+    cp /root/aptos-core/public_full_node.yaml ./public_full_node.yaml.old
     sleep 0.1
-    cp /$HOME/aptos-core/public_full_node.yaml ./
+    cp /root/aptos-core/public_full_node.yaml ./
     sleep 0.1
     rm -r aptos-core
     sleep 0.1
@@ -42,7 +42,7 @@ curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 ./scripts/dev_setup.sh
 sleep 0.1
-source $HOME/.cargo/env
+source root/.cargo/env
 sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
@@ -50,19 +50,19 @@ echo ""
 # which aptos
 # cargo build
 sleep 0.1
-if [ -s /$HOME/public_full_node.yaml ]
+if [ -s /root/public_full_node.yaml ]
 then
     echo ""
     echo ""
     echo ""
     sleep 0.1
-    echo "Your 'public_full_node.yaml' file was copied and saved in /'$HOME' directory. Backup is completed! "
+    echo "Your 'public_full_node.yaml' file was copied and saved in /'root' directory. Backup is completed! "
     echo ""
     echo "If you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. "
     sleep 6
     echo ""
     echo ""
-    rm -r /$HOME/aptos-core/target/release 2> /dev/null
+    rm -r /root/aptos-core/target/release 2> /dev/null
     sleep 0.1
     echo ""
     echo ""
@@ -76,7 +76,7 @@ else
     echo ""
 fi
 
-cd /$HOME/aptos-core
+cd /root/aptos-core
 sleep 0.1
 echo "Updating source files from APTOS devnet repo... "
 sleep 2
@@ -95,125 +95,125 @@ wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
 sleep 0.1
-if [ -f /$HOME/private-key.txt ]
+if [ -f /root/private-key.txt ]
 then
     echo ""
     echo ""
 else
     echo ""
     echo ""
-    rm /$HOME/public_full_node.yaml > /dev/null
+    rm /root/public_full_node.yaml > /dev/null
     sleep 0.1
-    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_docker.yaml -P /$HOME
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_docker.yaml -P /root
     mv ./public_full_node_docker.yaml ./public_full_node.yaml
     sleep 0.1
-    cp ./public_full_node.yaml /$HOME
+    cp ./public_full_node.yaml /root
     sleep 0.1
     echo "Generating your private key and peer id... "
     sleep 2
     echo ""
-#   docker run -i -t -v /$HOME:/$HOME aptoslab/tools:devnet /bin/bash
-    cargo run -p aptos-operational-tool -- generate-key --encoding hex --key-type x25519 --key-file /$HOME/private_key.txt
+#   docker run -i -t -v /root:/root aptoslab/tools:devnet /bin/bash
+    cargo run -p aptos-operational-tool -- generate-key --encoding hex --key-type x25519 --key-file /root/private_key.txt
     sleep 0.5
-    cargo run -p aptos-operational-tool -- extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /$HOME/peer_info.yaml
+    cargo run -p aptos-operational-tool -- extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /root/peer_info.yaml
     sleep 0.5
-#   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /$HOME/private-key.txt --output-file /$HOME/peer-info.yaml
+#   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
 #   sleep 0.1
-    cd /$HOME/aptos-core
+    cd /root/aptos-core
     sleep 2
-#   ID=$(sed -n 2p /$HOME/private-key.txt.pub | sed 's/\(.*\):/\1/')
+#   ID=$(sed -n 2p /root/private-key.txt.pub | sed 's/\(.*\):/\1/')
 #   ID=${ID//$'\r'/}
-    ID=$(sed -n 2p /$HOME/peer_info.yaml | sed 's/.$//')
+    ID=$(sed -n 2p /root/peer_info.yaml | sed 's/.$//')
     sleep 0.1
-    PRIVATE_KEY=$(cat /$HOME/private-key.txt)
+    PRIVATE_KEY=$(cat /root/private-key.txt)
     sleep 0.1
-    sed -i'' -e "s/<PEER-ID>/$ID/g" /$HOME/public_full_node.yaml
+    sed -i'' -e "s/<PEER-ID>/$ID/g" /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -e "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /$HOME/public_full_node.yaml
+    sed -i'' -e "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /root/public_full_node.yaml
     sleep 0.1
 fi
-cd /$HOME/aptos-core 2> /dev/null
+cd /root/aptos-core 2> /dev/null
 sleep 0.1
-grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /$HOME/public_full_node.yaml > /$HOME/default_seed.txt
+grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
 sleep 0.1
-if [ -s /$HOME/default_seed.txt ]
+if [ -s /root/default_seed.txt ]
 then
     sleep 0.1
 else
-    sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /$HOME/public_full_node.yaml
+    sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e "/identity:/i\          addresses:" /$HOME/public_full_node.yaml
+    sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /$HOME/public_full_node.yaml
+    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /$HOME/public_full_node.yaml
+    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml
     sleep 0.1
 fi
-WAYPOINT=$(cat /$HOME/aptos-core/waypoint.txt)
+WAYPOINT=$(cat /root/aptos-core/waypoint.txt)
 sleep 0.1
-sed -i'' -e "s/<WAYPOINT>/$WAYPOINT/g" /$HOME/public_full_node.yaml
+sed -i'' -e "s/<WAYPOINT>/$WAYPOINT/g" /root/public_full_node.yaml
 sleep 0.1
-grep -o "seeds: {}" /$HOME/public_full_node.yaml > /$HOME/seed.txt
+grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 sleep 0.1
-if [ -s /$HOME/seed.txt ]
+if [ -s /root/seed.txt ]
 then
     sleep 0.1
-    sed -i'' -e '/seeds:/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/seeds:/d' /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /$HOME/public_full_node.yaml
+    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /root/public_full_node.yaml
     sleep 0.1
 else
     sleep 0.1  
-    sed -i'' -e '/{}/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/{}/d' /root/public_full_node.yaml
     sleep 0.1
 fi
-grep -o "127.0.0.1" /$HOME/public_full_node.yaml > /$HOME/127001.txt
+grep -o "127.0.0.1" /root/public_full_node.yaml > /root/127001.txt
 sleep 0.1
-if [ -s /$HOME/127001.txt ]
+if [ -s /root/127001.txt ]
 then
     sleep 0.1
-    sed -i'' -e '/127.0.0.1/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/127.0.0.1/d' /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' /$HOME/public_full_node.yaml
+    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' /root/public_full_node.yaml
     sleep 0.1
 else
     echo ""
 fi
 sleep 0.1
-grep -o "state_sync" /$HOME/public_full_node.yaml > /$HOME/v2_or_not.txt
+grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt
 sleep 0.1
-if [ -s /$HOME/v2_or_not.txt ]
+if [ -s /root/v2_or_not.txt ]
 then
     echo ""
-    cp /$HOME/public_full_node.yaml /$HOME/aptos-core
+    cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
     echo ""
 else
     sleep 0.1
-    sed -n 9,11p /$HOME/aptos-core/public_full_node.yaml > /$HOME/v2_or_not.txt
+    sed -n 9,11p /root/aptos-core/public_full_node.yaml > /root/v2_or_not.txt
     sleep 0.1
-    sed -i'' -r -e "/execution:/i\state_sync:" /$HOME/public_full_node.yaml
+    sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e "/execution:/i\  state_sync_driver:" /$HOME/public_full_node.yaml
+    sed -i'' -r -e "/execution:/i\  state_sync_driver:" /root/public_full_node.yaml
     sleep 0.1
-    sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /$HOME/public_full_node.yaml
+    sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml
     sleep 0.1
-    cp /$HOME/public_full_node.yaml /$HOME/aptos-core
+    cp /root/public_full_node.yaml /root/aptos-core
     sleep 0.1
     echo ""
 fi
 sleep 0.1
-rm -r /$HOME/default_seed.txt 2> /dev/null
+rm -r /root/default_seed.txt 2> /dev/null
 sleep 0.1
-rm -r /$HOME/v2_or_not.txt 2> /dev/null
+rm -r /root/v2_or_not.txt 2> /dev/null
 sleep 0.1
-rm -r /$HOME/127001.txt 2> /dev/null
+rm -r /root/127001.txt 2> /dev/null
 sleep 0.1
-rm -r /$HOME/seed.txt 2> /dev/null
+rm -r /root/seed.txt 2> /dev/null
 sleep 1
-cd /$HOME/aptos-core
+cd /root/aptos-core
 sleep 0.1
-rm -r /$HOME/compile_alan_yoon.sh > /dev/null
+rm -r /root/compile_alan_yoon.sh > /dev/null
 sleep 0.1
 echo "Editing public_full_node.yaml file completed successfully!! "
 sleep 2
