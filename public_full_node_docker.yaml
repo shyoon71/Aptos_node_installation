@@ -1,7 +1,7 @@
 base:
   # This is the location Aptos will store its database. It is backed by a dedicated docker volume
   # for persistence.
-  data_dir: "/root/aptos-core/data"
+  data_dir: "/root/aptos/data"
   role: "full_node"
   waypoint:
     # This is a checkpoint into the blockchain for added security.
@@ -12,7 +12,7 @@ state_sync:
 execution:
   # Path to a genesis transaction. Note, this must be paired with a waypoint. If you update your
   # waypoint without a corresponding genesis, the file location should be an empty path.
-  genesis_file_location: "/root/aptos-core/genesis.blob"
+  genesis_file_location: "/root/aptos/genesis.blob"
 full_node_networks:
   - network_id: "public"
     discovery_method: "onchain"
