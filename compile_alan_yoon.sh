@@ -34,8 +34,6 @@ else
 fi
 git clone https://github.com/shyoon71/aptos-core.git
 sleep 0.1
-curl https://sh.rustup.rs -sSf | sh
-sleep 0.1
 cd /root/aptos-core
 sleep 0.1
 mkdir data
@@ -80,6 +78,8 @@ echo ""
 ./scripts/dev_setup.sh
 sleep 0.1
 source ~/.cargo/env
+sleep 0.1
+curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 git checkout --track origin/devnet
 sleep 0.1
