@@ -106,7 +106,7 @@ else
     rm /$HOME/public_full_node.yaml > /dev/null
     sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
-    mv ./public_full_node_source.yaml ./public_full_node.yaml
+    mv ./public_full_node_docker.yaml ./public_full_node.yaml
     sleep 0.1
     cp ./public_full_node.yaml /$HOME
     sleep 0.1
@@ -226,4 +226,20 @@ echo "Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149
 sleep 1
 echo ""
 echo ""
-cargo run -p aptos-node --release -- -f /$HOME/public_full_node.yaml
+apt-get -y update
+sleep 0.1
+apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
+sleep 0.1
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sleep 0.1
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sleep 0.1
+apt-get -y install docker-ce docker-ce-cli containerd.io
+sleep 0.1
+docker --version
+sleep 0.1
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+sleep 0.1
+docker compose up -d
