@@ -76,6 +76,7 @@ else
     cd aptos
     slepp 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
+    mv ./public_full_node_source.yaml ./public_full_node.yaml
     sleep 0.1
     cp /root/aptos/public_full_node.yaml /root/public_full_node.yaml &&
     sleep 2
