@@ -46,12 +46,24 @@ else
     echo ""
 fi
 sleep 1
-echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. "
+echo "\e[1m\e[35mMain script for installing and updating identiable aptos node starts now. "
 echo ""
 sleep 2
-wget https://desktop-stage.docker.com/linux/main/amd64/78933/docker-desktop-4.8.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
+apt-get update
 sleep 0.1
-wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64.sha256
+apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
+sleep 0.1
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sleep 0.1
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sleep 0.1
+apt-get install docker-ce docker-ce-cli containerd.io
+sleep 0.1
+docker --version
+sleep 0.1
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 sleep 0.1
 if [ -s /root/public_full_node.yaml ]
 then
