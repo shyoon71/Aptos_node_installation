@@ -197,6 +197,10 @@ echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 echo ""
 echo ""
+wget -q -O command_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/command_alan_yoon.sh && chmod +x command_alan_yoon.sh
+sleep 0.2
+mv /root/command_alan_yoon.sh /root/aptos-core 2> /dev/null &&
+sleep 0.2
 echo "========================================================================"
 
 echo "\e[1m\e[32mBinary mode Aptos node command list  >> input at /root/aptos-core directory!! \e[0m"
