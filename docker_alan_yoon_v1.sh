@@ -21,6 +21,7 @@ then
     sleep 2
 else
     touch ./public_full_node.yaml &&
+    mkdir aptos
     sleep 2
 fi
 if [ -s /root/public_full_node.yaml ]
@@ -72,6 +73,10 @@ then
 else
     echo ""
     echo ""
+    cd aptos
+    slepp 0.1
+    wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/public_full_node.yaml
+    sleep 0.1
     cp /root/aptos/public_full_node.yaml /root/public_full_node.yaml &&
     sleep 2
 fi
