@@ -3,7 +3,7 @@
 clear
 cd ~
 sleep 0.1
-apt-get install figlet > /dev/null &&
+apt-get install figlet &> /dev/null &&
 echo ""
 echo ""
 echo "==========================================="
@@ -34,7 +34,7 @@ then
     echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
     echo ""
     echo ""
-    rm -r /var/lib/docker/volumes/aptos_db/_data/db > /dev/null &&
+    rm -r /var/lib/docker/volumes/aptos_db/_data/db &> /dev/null &&
     echo ""
     echo ""
 else
