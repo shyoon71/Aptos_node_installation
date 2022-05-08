@@ -75,7 +75,7 @@ else
     echo ""
     cd aptos
     slepp 0.1
-    wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/public_full_node.yaml
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
     sleep 0.1
     cp /root/aptos/public_full_node.yaml /root/public_full_node.yaml &&
     sleep 2
