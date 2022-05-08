@@ -69,8 +69,6 @@ echo "Updating source files from APTOS devnet repo... "
 sleep 2
 echo ""
 echo ""
-curl https://sh.rustup.rs -sSf | sh
-sleep 0.1
 ./script/dev_setup.sh
 sleep 0.1
 source ~/.cargo/env
