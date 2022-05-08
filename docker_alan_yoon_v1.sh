@@ -30,7 +30,7 @@ then
     echo ""
     echo ""
     sleep 1
-    echo "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! "
+    echo "Your 'public_full_node.yaml' file was copied and saved in /root directory. Backup is completed! "
     echo ""
     echo "If you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. "
     echo ""
@@ -47,7 +47,7 @@ else
     echo ""
 fi
 sleep 1
-echo "\e[1m\e[35mMain script for installing and updating identiable aptos node starts now. "
+echo "Main script for installing and updating identiable aptos node starts now. "
 echo ""
 sleep 2
 apt-get update
@@ -80,7 +80,7 @@ else
     cp /root/aptos/public_full_node.yaml /root/public_full_node.yaml &&
     sleep 2
 fi
-echo "\e[1m\e[35mChecking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. "
+echo "Checking your state_sync_driver's version and seed status now... Don't touch your keyboard, please. "
 echo ""
 echo ""
 cd aptos
@@ -140,7 +140,7 @@ then
     sleep 2
     echo ""
     echo ""
-    echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! "
+    echo "Your node is running and checking health status now. Wait until checking process is completed! "
     echo ""
     sleep 5
     timeout 6 docker stats
@@ -167,14 +167,14 @@ else
     sleep 5
     echo ""
     echo ""
-    echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! "
+    echo "Your node is running and checking health status now. Wait until checking process is completed! "
     echo ""
     sleep 5
     timeout 6 docker stats
     echo ""
     echo ""
 fi
-echo "\e[1m\e[35mAnd from now another script for extracting your identity info and seed format for sharing starts... "
+echo "And from now another script for extracting your identity info and seed format for sharing starts... "
 sleep 2
 wget -q -O aptos_seed_format_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_seed_format_alan_yoon.sh && chmod +x aptos_seed_format_alan_yoon.sh && sudo /bin/bash aptos_seed_format_alan_yoon.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > /dev/null && sed -i "s/'/\"/g" ../my_seed_format.txt
 cat ../my_seed_format.txt
@@ -182,7 +182,7 @@ sleep 1
 echo "Process for extracting identity info is completed! You can copy upper seed format on the screen directly. "
 sleep 1
 echo ""
-echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, and copy it printed from command 'cat my_seed_format.txt'. "
+echo "You can find your correct seed format file at /root directory, and copy it printed from command 'cat my_seed_format.txt'. "
 sleep 5
 rm -r /root/default_seed.txt 2> /dev/null &&
 rm -r /root/v2_or_not.txt 2> /dev/null &&
@@ -199,7 +199,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 5
 echo ""
 echo ""
-echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. "
+echo "Your node is syncing Now, so be patient for a while. "
 sleep 5
 echo ""
 echo ""
@@ -207,7 +207,7 @@ curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep 
 sleep 2
 echo ""
 echo ""
-echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. "
+echo "If docker is running and synced number is increasing continuously, your node can be considered as normal running state. "
 sleep 3
 echo ""
 echo ""
