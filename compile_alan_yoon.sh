@@ -32,7 +32,7 @@ else
     touch /root/public_full_node.yaml
     sleep 0.1
 fi
-git clone https://github.com/<shyoon71>/aptos-core
+git clone https://github.com/shyoon71/aptos-core
 sleep 0.1
 cd /root/aptos-core
 sleep 0.1
