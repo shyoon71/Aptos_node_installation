@@ -105,7 +105,7 @@ else
     echo ""
     rm /$HOME/public_full_node.yaml > /dev/null
     sleep 0.1
-    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_docker.yaml -P /$HOME
     mv ./public_full_node_docker.yaml ./public_full_node.yaml
     sleep 0.1
     cp ./public_full_node.yaml /$HOME
