@@ -105,13 +105,10 @@ else
     echo ""
     rm /$HOME/public_full_node.yaml > /dev/null
     sleep 0.1
-    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_source.yaml
+    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
     mv ./public_full_node_source.yaml ./public_full_node.yaml
     sleep 0.1
     cp ./public_full_node.yaml /$HOME
-    sleep 0.1
-
-#    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
     sleep 0.1
     echo "Generating your private key and peer id... "
     sleep 2
