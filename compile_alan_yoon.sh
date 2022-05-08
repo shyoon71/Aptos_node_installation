@@ -95,7 +95,7 @@ wget https://devnet.aptoslabs.com/genesis.blob
 sleep 1
 wget https://devnet.aptoslabs.com/waypoint.txt
 sleep 0.1
-if [ -f /root/private-key.txt ]
+if [ -f /root/private_key.txt ]
 then
     echo ""
     echo ""
@@ -117,15 +117,15 @@ else
     sleep 0.5
     cargo run -p aptos-operational-tool -- extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /root/peer_info.yaml
     sleep 0.5
-#   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml
+#   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /root/peer-info.yaml
 #   sleep 0.1
     cd /root/aptos-core
     sleep 2
-#   ID=$(sed -n 2p /root/private-key.txt.pub | sed 's/\(.*\):/\1/')
+#   ID=$(sed -n 2p /root/private_key.txt.pub | sed 's/\(.*\):/\1/')
 #   ID=${ID//$'\r'/}
     ID=$(sed -n 2p /root/peer_info.yaml | sed 's/.$//')
     sleep 0.1
-    PRIVATE_KEY=$(cat /root/private-key.txt)
+    PRIVATE_KEY=$(cat /root/private_key.txt)
     sleep 0.1
     sed -i'' -e "s/<PEER-ID>/$ID/g" /root/public_full_node.yaml
     sleep 0.1
