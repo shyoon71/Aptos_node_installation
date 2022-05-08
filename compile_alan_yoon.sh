@@ -3,21 +3,21 @@
 clear
 cd ~
 sleep 0.1
-apt-get install figlet > /dev/null
-sleep 0.1
+# apt-get install figlet > /dev/null
+# sleep 0.1
 echo ""
 echo ""
-echo "==========================================="
-figlet AlanYoon
-echo "==========================================="
-sleep 1
+echo "============================================================="
+echo "This script is made for binary compiling mode. From Alan Yoon"
+echo "============================================================="
+sleep 5
 echo ""
 echo ""
-echo -i'' -e "\e[1m\e[33mPreparing source code compiling environment now... \e[0m"
+echo "Preparing source code compiling environment now... "
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[35mYou should select and inpout yes or 1 for all questions form script from now... \e[0m"
+echo "You should select and inpout yes or 1 for all questions form script from now... "
 sleep 5
 echo ""
 echo ""
@@ -57,9 +57,9 @@ then
     echo ""
     echo ""
     sleep 0.1
-    echo -e "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in /$HOME directory. Backup is completed! \e[0m"
+    echo "Your 'public_full_node.yaml' file was copied and saved in /'$HOME' directory. Backup is completed! "
     echo ""
-    echo -e "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
+    echo "If you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. "
     sleep 6
     echo ""
     echo ""
@@ -70,7 +70,7 @@ then
 else
     echo ""
     echo ""
-    echo -e "\e[1m\e[33mYou don't have any old files, so backup and restoring process will be possible when you update node next time. \e[0m"
+    echo "You don't have any old files, so backup and restoring process will be possible when you update node next time. "
     sleep 6
     echo ""
     echo ""
@@ -79,7 +79,7 @@ fi
 
 cd /$HOME/aptos-core
 sleep 0.1
-echo -e "\e[1m\e[33mUpdating source files from APTOS devnet repo... \e[0m"
+echo "Updating source files from APTOS devnet repo... "
 sleep 2
 echo ""
 echo ""
@@ -87,7 +87,7 @@ git checkout --track origin/devnet
 sleep 0.1
 cargo build
 sleep 0.1
-echo -e "\e[1m\e[33mDownloading new configurarion files for your node update... \e[0m"
+echo "Downloading new configurarion files for your node update... "
 sleep 5
 echo ""
 wget https://devnet.aptoslabs.com/genesis.blob
@@ -111,7 +111,7 @@ else
 
 #    wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml -P /$HOME
     sleep 0.1
-    echo -e "\e[1m\e[33mGenerating your private key and peer id... \e[0m"
+    echo "Generating your private key and peer id... "
     sleep 2
     echo ""
 #   docker run -i -t -v /$HOME:/$HOME aptoslab/tools:devnet /bin/bash
@@ -215,15 +215,15 @@ cd /$HOME/aptos-core
 sleep 0.1
 rm -r /$HOME/compile_alan_yoon.sh > /dev/null
 sleep 0.1
-echo -e "\e[1m\e[33mEditing public_full_node.yaml file completed successfully!! \e[0m"
+echo "Editing public_full_node.yaml file completed successfully!! "
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mFinal compiling starts and your node will run by binary files after compiling ends... \e[0m"
+echo "Final compiling starts and your node will run by binary files after compiling ends... "
 sleep 2
 echo ""
 echo ""
-echo -e "\e[1m\e[33mThanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
+echo "Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). "
 sleep 1
 echo ""
 echo ""
