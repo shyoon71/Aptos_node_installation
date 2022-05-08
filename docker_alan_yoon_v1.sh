@@ -23,6 +23,30 @@ else
     touch ./public_full_node.yaml &&
     mkdir /root/aptos
     sleep 2
+    apt-get -y update
+    sleep 0.1
+    apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
+    sleep 0.1
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    sleep 0.1
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sleep 0.1
+    apt-get -y install docker-ce docker-ce-cli containerd.io
+    sleep 0.1
+    docker --version
+    sleep 0.1
+    curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    docker-compose --version
+    sleep 0.1
+    cargo run -p aptos-operational-tool -- generate-key --encoding hex --key-type x25519 --key-file /root/private_key.txt
+    sleep 0.5
+    cargo run -p aptos-operational-tool -- extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /root/peer_info.yaml
+    sleep 0.5
+#   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /root/peer-info.yaml
+#   sleep 0.1
+    cd /root/aptos-core
+    sleep 2
 fi
 if [ -s /root/public_full_node.yaml ]
 then
@@ -49,23 +73,7 @@ fi
 sleep 1
 echo "Main script for installing and updating identiable aptos node starts now. "
 echo ""
-sleep 2
-apt-get -y update
-sleep 0.1
-apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
-sleep 0.1
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-sleep 0.1
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sleep 0.1
-apt-get -y install docker-ce docker-ce-cli containerd.io
-sleep 0.1
-docker --version
-sleep 0.1
-curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-docker-compose --version
-sleep 0.1
+
 if [ -s /root/public_full_node.yaml ]
 then
     echo ""
@@ -107,6 +115,17 @@ else
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
 fi
+#   ID=$(sed -n 2p /root/private_key.txt.pub | sed 's/\(.*\):/\1/')
+#   ID=${ID//$'\r'/}
+ID=$(sed -n 2p /root/peer_info.yaml | sed 's/.$//')
+sleep 0.1
+PRIVATE_KEY=$(cat /root/private_key.txt)
+sleep 0.1
+sed -i'' -e "s/<PEER-ID>/$ID/g" /root/public_full_node.yaml
+sleep 0.1
+sed -i'' -e "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /root/public_full_node.yaml
+sleep 0.1
+sleep 2
 grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 if [ -s /root/seed.txt ]
 then
