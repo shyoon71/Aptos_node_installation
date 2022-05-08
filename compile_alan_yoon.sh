@@ -87,6 +87,8 @@ git checkout --track origin/devnet
 sleep 0.1
 cargo build
 sleep 0.1
+echo ""
+echo ""
 echo "Downloading new configurarion files for your node update... "
 sleep 5
 echo ""
