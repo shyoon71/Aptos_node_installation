@@ -3,14 +3,13 @@
 clear
 cd ~
 sleep 0.1
-# apt-get install figlet > /dev/null
-# sleep 0.1
+apt-get install figlet > /dev/null &&
 echo ""
 echo ""
-echo "============================================================="
-echo "This script is made for binary compiling mode. From Alan Yoon"
-echo "============================================================="
-sleep 5
+echo "==========================================="
+figlet AlanYoon
+echo "==========================================="
+sleep 0.1
 echo ""
 echo ""
 echo "Preparing source code compiling environment now... "
