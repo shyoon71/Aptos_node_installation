@@ -153,8 +153,8 @@ else
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     sleep 5
-    timeout 6 docker stats
-    echo ""
+#    timeout 6 docker stats
+#    echo ""
     echo ""
 fi
 echo "\e[1m\e[35mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
