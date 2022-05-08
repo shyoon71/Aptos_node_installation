@@ -51,7 +51,7 @@ echo ""
 echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 2
-wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
+# wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
@@ -107,7 +107,6 @@ fi
 #else
     echo ""
     echo ""
-fi
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
