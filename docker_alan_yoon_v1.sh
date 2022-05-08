@@ -73,6 +73,8 @@ then
 else
     echo ""
     echo ""
+    mkdir aptos
+    sleep 0.1
     cd aptos
     slepp 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node.yaml
