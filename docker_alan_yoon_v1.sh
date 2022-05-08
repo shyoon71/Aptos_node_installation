@@ -25,6 +25,12 @@ else
     sleep 2
     apt-get -y update
     sleep 0.1
+    curl https://sh.rustup.rs -sSf | sh
+    sleep 0.1
+    ./scripts/dev_setup.sh
+    sleep 0.1
+    source /root/.cargo/env
+    sleep 0.1
     apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
     sleep 0.1
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
