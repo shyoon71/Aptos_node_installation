@@ -16,7 +16,10 @@ then
     ID=$(sed -n 2p $HOME/aptos/identity/peer-info.yaml | sed 's/\(.*\):/\1/')
     ID=${ID//$'\r'/}
     PRIVATE_KEY=$(cat $HOME/aptos/identity/private-key.txt)
-    IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
+    curl icanhazip.com > ip.txt
+    sleep 0.1
+    IP=$(cat ./ip.txt)
+    sleep 0.1
     echo -en "\n"
     echo -en "\n"
     echo -e "\e[1m\e[33mYour Seed Format \e[0m" 
