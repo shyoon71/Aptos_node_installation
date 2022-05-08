@@ -114,7 +114,9 @@ else
     sleep 2
     echo ""
 #   docker run -i -t -v /$HOME:/$HOME aptoslab/tools:devnet /bin/bash
-    aptos key generate --key-type x25519 --output-file /$HOME/private-key.txt
+    cargo run -p aptos-operational-tool -- generate-key --encoding hex --key-type x25519 --key-file /$HOME/private_key.txt
+    sleep 0.5
+    cargo run -p aptos-operational-tool -- extract-peer-from-file --encoding hex --key-file /root/private_key.txt --output-file /$HOME/peer_info.yaml
     sleep 0.5
 #   ./aptos-operational-tool extract-peer-from-file --encoding hex --key-file /$HOME/private-key.txt --output-file /$HOME/peer-info.yaml
 #   sleep 0.1
@@ -122,7 +124,7 @@ else
     sleep 2
 #   ID=$(sed -n 2p /$HOME/private-key.txt.pub | sed 's/\(.*\):/\1/')
 #   ID=${ID//$'\r'/}
-    ID=$(cat /$HOME/private-key.txt.pub)
+    ID=$(sed -n 2p /$HOME/peer_info.yaml | sed 's/.$//')
     sleep 0.1
     PRIVATE_KEY=$(cat /$HOME/private-key.txt)
     sleep 0.1
@@ -226,20 +228,18 @@ echo "Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149
 sleep 1
 echo ""
 echo ""
-apt-get -y update
-sleep 0.1
-apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
-sleep 0.1
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-sleep 0.1
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sleep 0.1
-apt-get -y install docker-ce docker-ce-cli containerd.io
-sleep 0.1
-docker --version
-sleep 0.1
-curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-docker-compose --version
-sleep 0.1
-docker compose up -d
+#apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release
+#sleep 0.1
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+#sleep 0.1
+#echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+#sleep 0.1
+#apt-get -y install docker-ce docker-ce-cli containerd.io
+#sleep 0.1
+#docker --version
+#sleep 0.1
+#curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#chmod +x /usr/local/bin/docker-compose
+#docker-compose --version
+#sleep 0.1
+cargo run -p aptos-node --release -- -f ./public_full_node.yaml
