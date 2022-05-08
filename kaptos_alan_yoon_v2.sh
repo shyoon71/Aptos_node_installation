@@ -67,7 +67,7 @@ echo "\e[1m\e[35mChecking your state_sync_driver's version and seed status now..
 echo ""
 echo ""
 cd aptos
-docker compose down &&
+# docker compose down &&
 sleep 2
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
 sleep 3
@@ -119,15 +119,15 @@ then
     echo ""
     echo ""
     sleep 2
-    docker compose up -d &&
-    sleep 2
-    echo ""
-    echo ""
+#    docker compose up -d &&
+#    sleep 2
+#    echo ""
+#    echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     sleep 5
-    timeout 6 docker stats
-    echo ""
+#    timeout 6 docker stats
+#    echo ""
     echo ""
 else
     sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt &&
