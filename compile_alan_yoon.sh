@@ -13,7 +13,7 @@ echo "==========================================="
 sleep 1
 echo ""
 echo ""
-echo -e "\e[1m\e[33mPreparing source code compiling environment now... \e[0m"
+echo -i'' -e "\e[1m\e[33mPreparing source code compiling environment now... \e[0m"
 sleep 2
 echo ""
 echo ""
@@ -127,9 +127,9 @@ else
     sleep 0.1
     PRIVATE_KEY=$(cat /$HOME/private-key.txt)
     sleep 0.1
-    sed -i "s/<PEER-ID>/$ID/g" /$HOME/public_full_node.yaml
+    sed -i'' -e "s/<PEER-ID>/$ID/g" /$HOME/public_full_node.yaml
     sleep 0.1
-    sed -i "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /$HOME/public_full_node.yaml
+    sed -i'' -e "s/<PRIVATE_KEY>/$PRIVATE_KEY/g" /$HOME/public_full_node.yaml
     sleep 0.1
 fi
 cd /$HOME/aptos-core 2> /dev/null
@@ -151,20 +151,20 @@ else
 fi
 WAYPOINT=$(cat /$HOME/aptos-core/waypoint.txt)
 sleep 0.1
-sed -i "s/<WAYPOINT>/$WAYPOINT/g" /$HOME/public_full_node.yaml
+sed -i'' -e "s/<WAYPOINT>/$WAYPOINT/g" /$HOME/public_full_node.yaml
 sleep 0.1
 grep -o "seeds: {}" /$HOME/public_full_node.yaml > /$HOME/seed.txt
 sleep 0.1
 if [ -s /$HOME/seed.txt ]
 then
     sleep 0.1
-    sed -i '/seeds:/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/seeds:/d' /$HOME/public_full_node.yaml
     sleep 0.1
     sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /$HOME/public_full_node.yaml
     sleep 0.1
 else
     sleep 0.1  
-    sed -i '/{}/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/{}/d' /$HOME/public_full_node.yaml
     sleep 0.1
 fi
 grep -o "127.0.0.1" /$HOME/public_full_node.yaml > /$HOME/127001.txt
@@ -172,7 +172,7 @@ sleep 0.1
 if [ -s /$HOME/127001.txt ]
 then
     sleep 0.1
-    sed -i '/127.0.0.1/d' /$HOME/public_full_node.yaml
+    sed -i'' -e '/127.0.0.1/d' /$HOME/public_full_node.yaml
     sleep 0.1
     sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' /$HOME/public_full_node.yaml
     sleep 0.1
