@@ -42,7 +42,7 @@ curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 ./scripts/dev_setup.sh
 sleep 0.1
-source root/.cargo/env
+source /root/.cargo/env
 sleep 0.1
 echo ""
 # cargo install --git https://github.com/aptos-labs/aptos-core.git aptos
