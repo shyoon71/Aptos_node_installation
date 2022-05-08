@@ -55,10 +55,7 @@ then
     sleep 6
     echo ""
     echo ""
-    rm -r /root/aptos-core/target/release 2> /dev/null
     sleep 0.1
-    echo ""
-    echo ""
 else
     echo ""
     echo ""
@@ -68,18 +65,15 @@ else
     echo ""
     echo ""
 fi
-
-cd /root/aptos-core
-sleep 0.1
 echo "Updating source files from APTOS devnet repo... "
 sleep 2
 echo ""
 echo ""
-./scripts/dev_setup.sh
+curl https://sh.rustup.rs -sSf | sh
+sleep 0.1
+./script/dev_setup.sh
 sleep 0.1
 source ~/.cargo/env
-sleep 0.1
-curl https://sh.rustup.rs -sSf | sh
 sleep 0.1
 git checkout --track origin/devnet
 sleep 0.1
