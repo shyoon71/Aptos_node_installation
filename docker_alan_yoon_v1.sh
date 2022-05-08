@@ -76,7 +76,7 @@ else
     mkdir aptos
     sleep 0.1
     cd aptos
-    slepp 0.1
+    sleep 0.1
     wget https://raw.githubusercontent.com/shyoon71/installation-script/main/public_full_node_docker.yaml
     mv ./public_full_node_docker.yaml ./public_full_node.yaml
     sleep 0.1
