@@ -1,10 +1,13 @@
 #!/bin/bash
 
-echo "=================================================="
+echo "========================================================================"
 
-echo "\e[1m\e[32mBinary mode Aptos node command list \e[0m"
+echo "\e[1m\e[32mBinary mode Aptos node command list  >> input commands at /root/aptos-core directory!! \e[0m"
 
-echo "=================================================="
+echo "========================================================================"
+
+echo "\e[1m\e[32mTo print this command list: \e[0m" 
+echo "\e[1m\e[39m    sh command_alan_yoon.sh  or  sh command* \n \e[0m" 
 
 echo "\e[1m\e[32mTo stop the Aptos node: \e[0m" 
 echo "\e[1m\e[39m    systemctl stop aptos-fullnode \n \e[0m" 
@@ -19,11 +22,14 @@ echo "\e[1m\e[32mTo check the node syncd status:  >> The third [synced] number i
 echo "\e[1m\e[39m    curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type \n \e[0m"
 
 
-echo "==============================================================================="
+echo "========================================================================"
 
 echo "\e[1m\e[32mDocker mode Aptos node command list  >> input commands at /root/aptos directory!! \e[0m"
 
-echo "==============================================================================="
+echo "========================================================================"
+
+echo "\e[1m\e[32mTo print this command list: \e[0m" 
+echo "\e[1m\e[39m    sh command_alan_yoon.sh  or  sh command* \n \e[0m" 
 
 echo "\e[1m\e[32mTo stop the Aptos node: \e[0m" 
 echo "\e[1m\e[39m    docker compose stop \n \e[0m" 
