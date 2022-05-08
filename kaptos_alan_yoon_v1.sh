@@ -197,11 +197,14 @@ echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
 echo ""
 echo ""
-echo "========================================================================================="
+echo "========================================================================"
 
-echo "\e[1m\e[32mDocker mode Aptos node command list  >> input command at /root/aptos directory!! \e[0m"
+echo "\e[1m\e[32mDocker mode Aptos node command list  >> input commands at /root/aptos directory!! \e[0m"
 
-echo "========================================================================================="
+echo "========================================================================"
+
+echo "\e[1m\e[32mTo print this command list: \e[0m" 
+echo "\e[1m\e[39m    sh command_alan_yoon.sh  or  sh command* \n \e[0m" 
 
 echo "\e[1m\e[32mTo stop the Aptos node: \e[0m" 
 echo "\e[1m\e[39m    docker compose stop \n \e[0m" 
