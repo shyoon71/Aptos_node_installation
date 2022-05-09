@@ -49,18 +49,18 @@ git checkout origin/devnet &> /dev/null
 echo "=================================================="
 
 echo -e "\e[1m\e[32m3. Installing required Aptos dependencies... \e[0m" && sleep 1
-echo y | ./scripts/dev_setup.sh
+echo y | ./scripts/dev_setup.sh --force
 source ~/.cargo/env
 
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-cargo build -p aptos-node --release --force
+cargo build -p aptos-node --release
 
 echo "=================================================="
 
 echo -e "\e[1m\e[32m5. Compiling aptos-operational-tool ... \e[0m" && sleep 1
-cargo build -p aptos-operational-tool --release --force
+cargo build -p aptos-operational-tool --release
 
 echo "=================================================="
 
