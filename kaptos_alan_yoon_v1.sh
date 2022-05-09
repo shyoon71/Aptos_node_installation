@@ -174,7 +174,7 @@ sleep 5
 echo ""
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
@@ -182,7 +182,7 @@ echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
 echo ""
@@ -195,13 +195,12 @@ echo ""
 echo ""
 wget -q -O command_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/command_alan_yoon.sh && chmod +x command_alan_yoon.sh
 sleep 0.2
-mv /root/command_alan_yoon.sh /root/aptos &> /dev/null &&
-sleep 0.2
-echo "========================================================================"
+echo ""
+echo "============================================================================"
 
 echo "\e[1m\e[32mDocker mode Aptos node command list  >> input at /root/aptos directory!! \e[0m"
 
-echo "========================================================================"
+echo "============================================================================"
 
 echo "\e[1m\e[32mTo print this command list: \e[0m" 
 echo "\e[1m\e[39m    sh command_alan_yoon.sh  or  sh command* \n \e[0m" 
