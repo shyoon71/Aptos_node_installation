@@ -167,7 +167,6 @@ rm -r /root/default_seed.txt &> /dev/null &&
 rm -r /root/v2_or_not.txt &> /dev/null &&
 rm -r /root/aptos.sh &> /dev/null &&
 rm -r /root/kaptos_alan_yoon_v1.sh &> /dev/null &&
-rm -r /root/aptos_identity.sh &> /dev/null &&
 rm -r /root/127001.txt &> /dev/null &&
 rm -r /root/seed.txt &> /dev/null &&
 sleep 5
