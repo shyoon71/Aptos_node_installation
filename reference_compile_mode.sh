@@ -23,9 +23,9 @@ sudo apt-get update & sudo apt-get install git -y
 sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64  &> /dev/null
 sudo chmod a+x /usr/local/bin/yq
 cd $HOME
-rm -rf aptos-core
-rm /usr/local/bin/aptos*
-rm -rf /opt/aptos/data/db
+rm -rf aptos-core &> /dev/null
+rm /usr/local/bin/aptos* &> /dev/null
+rm -rf /opt/aptos/data/db &> /dev/null
 sudo mkdir -p /opt/aptos/data aptos aptos/identity
 systemctl stop aptos-fullnode &> /dev/null
 
@@ -55,12 +55,12 @@ source ~/.cargo/env
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-cargo build -p aptos-node --release --locked
+cargo build -p aptos-node --release
 
 echo "=================================================="
 
 echo -e "\e[1m\e[32m5. Compiling aptos-operational-tool ... \e[0m" && sleep 1
-cargo build -p aptos-operational-tool --release --locked
+cargo build -p aptos-operational-tool --release
 
 echo "=================================================="
 
