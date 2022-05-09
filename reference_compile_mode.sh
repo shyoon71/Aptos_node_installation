@@ -55,12 +55,12 @@ source ~/.cargo/env
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-cargo build -p aptos-node --release
+cargo build -p aptos-node --release --force
 
 echo "=================================================="
 
 echo -e "\e[1m\e[32m5. Compiling aptos-operational-tool ... \e[0m" && sleep 1
-cargo build -p aptos-operational-tool --release
+cargo build -p aptos-operational-tool --release --force
 
 echo "=================================================="
 
