@@ -49,7 +49,7 @@ git checkout origin/devnet &> /dev/null
 echo "=================================================="
 
 echo -e "\e[1m\e[32m3. Installing required Aptos dependencies... \e[0m" && sleep 1
-echo y | ./scripts/dev_setup.sh --force
+echo y | ./scripts/dev_setup.sh --force &> /dev/null
 source ~/.cargo/env
 
 echo "=================================================="
