@@ -44,7 +44,7 @@ wget -P $HOME/aptos https://devnet.aptoslabs.com/waypoint.txt
 /usr/local/bin/yq e -i '.base.waypoint.from_config="'$(cat $HOME/aptos/waypoint.txt)'"' $HOME/aptos/public_full_node.yaml
 /usr/local/bin/yq e -i '.execution.genesis_file_location = "'$HOME/aptos/genesis.blob'"' $HOME/aptos/public_full_node.yaml
 cd $HOME/aptos-core
-#git checkout origin/devnet &> /dev/null
+git checkout origin/devnet &> /dev/null
 
 echo "=================================================="
 
@@ -55,7 +55,6 @@ source ~/.cargo/env
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-git checkout origin/devnet &> /dev/null
 cargo build -p aptos-node --release
 
 echo "=================================================="
