@@ -105,8 +105,8 @@ fi
 #    sed -i'' -r -e '/prevent remote, incoming connections/a\    listen_address: "/ip4/0.0.0.0/tcp/6180"' /root/public_full_node.yaml &&
 #    sleep 2
 #else
-    echo ""
-    echo ""
+echo ""
+echo ""
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
