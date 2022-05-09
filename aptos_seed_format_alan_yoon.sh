@@ -1,8 +1,8 @@
 #!/bin/bash
 echo ""
 echo ""
-apt-get update > /dev/null &&
-apt-get install figlet > /dev/null &&
+apt-get update &> /dev/null &&
+apt-get install figlet &> /dev/null &&
 echo "==========================================="
 figlet AlanYoon
 echo "==========================================="
@@ -45,7 +45,8 @@ then
 else
     echo -e "\e[1m\e[32mCan't find 'private-key.txt' file: "$HOME/aptos/identity"  \e[0m" 
 fi
-rm aptos_seed_format_alan_yoon.sh > /dev/null &&
+rm aptos_seed_format_alan_yoon.sh &> /dev/null &&
+rm ip.txt &> /dev/null &&
 echo ""
 echo ""
 echo ""
