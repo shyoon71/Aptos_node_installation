@@ -198,11 +198,11 @@ echo ""
 wget -q -O command_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/command_alan_yoon.sh && chmod +x command_alan_yoon.sh
 sleep 0.2
 echo ""
-echo "========================================================================"
+echo "============================================================================"
 
 echo "\e[1m\e[32mBinary mode Aptos node command list  >> input at /root/aptos-core directory!! \e[0m"
 
-echo "========================================================================"
+echo "============================================================================"
 
 echo "\e[1m\e[32mTo print this command list: \e[0m" 
 echo "\e[1m\e[39m    sh command_alan_yoon.sh  or  sh command* \n \e[0m" 
