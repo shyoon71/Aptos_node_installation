@@ -165,7 +165,7 @@ echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, 
 sleep 5
 rm /root/default_seed.txt &> /dev/null &&
 rm /root/v2_or_not.txt &> /dev/null &&
-rm /root/aptos/aptos.sh &> /dev/null &&
+rm /root/aptos.sh &> /dev/null &&
 rm /root/kaptos_alan_yoon_v1.sh &> /dev/null &&
 rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
