@@ -51,8 +51,8 @@ echo ""
 echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 2
-wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
-#wget -q -O reference_compile_mode.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/reference_compile_mode.sh && chmod +x reference_compile_mode.sh && sudo /bin/bash reference_compile_mode.sh
+#wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
+wget -q -O reference_compile_mode.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/reference_compile_mode.sh && chmod +x reference_compile_mode.sh && sudo /bin/bash reference_compile_mode.sh
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
