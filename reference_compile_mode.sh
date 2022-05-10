@@ -55,6 +55,7 @@ echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
 git checkout origin/devnet &> /dev/null
+cargo install sccache
 cargo build -p aptos-node --release
 
 echo "=================================================="
