@@ -168,7 +168,7 @@ echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, 
 sleep 5
 rm -r /root/default_seed.txt &> /dev/null &&
 rm -r /root/v2_or_not.txt &> /dev/null &&
-rm -r /root/aptos.sh &> /dev/null &&
+rm -r /root/aptos/aptos.sh &> /dev/null &&
 rm -r /root/kaptos_alan_yoon_v2.sh &> /dev/null &&
 rm -r /root/127001.txt &> /dev/null &&
 rm -r /root/seed.txt &> /dev/null &&
@@ -177,7 +177,7 @@ sleep 5
 echo ""
 echo ""
 echo ""
-127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
@@ -185,7 +185,7 @@ echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
-127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
 echo ""
