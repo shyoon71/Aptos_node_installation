@@ -55,7 +55,7 @@ source ~/.cargo/env
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-cargo build -p aptos-node --release
+cargo build -p aptos-node --locked --release
 
 echo "=================================================="
 
