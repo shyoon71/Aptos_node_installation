@@ -60,7 +60,7 @@ cargo build -p aptos-node --locked --release
 echo "=================================================="
 
 echo -e "\e[1m\e[32m5. Compiling aptos-operational-tool ... \e[0m" && sleep 1
-cargo build -p aptos-operational-tool --release
+cargo build -p aptos-operational-tool --locked --release
 
 echo "=================================================="
 
