@@ -172,7 +172,6 @@ rm /root/reference_compile_mode.sh &> /dev/null &&
 rm /root/kaptos_alan_yoon_v2.sh &> /dev/null &&
 rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
-# rm -r /root/reference_compile_mode.sh &> /dev/null &&
 sleep 5
 echo ""
 echo ""
