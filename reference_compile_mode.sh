@@ -60,7 +60,7 @@ git checkout origin/devnet &> /dev/null
 sleep 1
 cargo install sccache &&
 sleep 2
-cargo build -p aptos-node --release
+cargo build -p aptos-node --release --locked --force
 
 echo "=================================================="
 
