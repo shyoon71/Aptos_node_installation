@@ -48,6 +48,8 @@ cd $HOME/aptos-core
 echo "=================================================="
 
 echo -e "\e[1m\e[32m3. Installing required Aptos dependencies... \e[0m" && sleep 1
+cargo clean
+cargo install sccache &&
 echo y | ./scripts/dev_setup.sh
 sleep 0.2
 source ~/.cargo/env
@@ -58,9 +60,6 @@ echo "=================================================="
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
 git checkout origin/devnet &> /dev/null
 sleep 1
-cargo clean
-cargo install sccache &&
-sleep 2
 cargo build -p aptos-node --release --locked --force
 
 echo "=================================================="
