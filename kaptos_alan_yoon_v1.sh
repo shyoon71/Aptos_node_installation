@@ -69,13 +69,24 @@ echo ""
 cd aptos
 docker compose down &&
 sleep 2
+grep -o "6180:6180" /root/aptos/docker-compose.yaml > /root/6180.txt
+sleep 0.5
+if [ -s /root/6180.txt ]
+then
+    echo ""
+    echo ""
+    sleep 0.5
+else
+    sed -i'' -r -e '/volumes:/i\      - "6180:6180"' /root/aptos/docker-compose.yaml
+    sleep 0.5
+fi
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
-sleep 3
+sleep 2
 if [ -s /root/default_seed.txt ]
 then
     echo ""
     echo ""
-    sleep 2
+    sleep 1
 else
     sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
     sleep 1
