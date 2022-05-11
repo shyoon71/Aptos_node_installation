@@ -51,8 +51,8 @@ echo ""
 echo "\e[1m\e[33mThis main script was made by Andrew | zValid(discord id: @drawrowfly#4024), thanks to Andrew! \e[0m"
 echo ""
 sleep 2
-#wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
-wget -q -O reference_compile_mode.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/reference_compile_mode.sh && chmod +x reference_compile_mode.sh && sudo /bin/bash reference_compile_mode.sh
+wget -q -O aptos.sh https://api.zvalid.com/aptos2.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
+#wget -q -O reference_compile_mode.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/reference_compile_mode.sh && chmod +x reference_compile_mode.sh && sudo /bin/bash reference_compile_mode.sh
 sleep 1
 if [ -s /root/public_full_node.yaml ]
 then
@@ -168,7 +168,7 @@ echo "\e[1m\e[35mYou can find your correct seed format file at /root directory, 
 sleep 5
 rm /root/default_seed.txt &> /dev/null &&
 rm /root/v2_or_not.txt &> /dev/null &&
-rm /root/reference_compile_mode.sh &> /dev/null &&
+rm /root/aptos.sh &> /dev/null &&
 rm /root/kaptos_alan_yoon_v2.sh &> /dev/null &&
 rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
