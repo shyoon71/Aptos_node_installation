@@ -187,7 +187,7 @@ sleep 5
 echo ""
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 5
 echo ""
 echo ""
@@ -195,7 +195,7 @@ echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
 sleep 5
 echo ""
 echo ""
-curl 127.0.0.1:9101/metrics &> /dev/null | grep aptos_state_sync_version | grep type &&
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
 sleep 2
 echo ""
 echo ""
