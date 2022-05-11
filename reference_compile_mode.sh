@@ -57,7 +57,7 @@ source ~/.cargo/env
 echo "=================================================="
 
 echo -e "\e[1m\e[32m4. Compiling aptos-node ... \e[0m" && sleep 1
-git checkout origin/devnet &> /dev/null
+git checkout origin/devnet
 sleep 1
 cargo build -p aptos-node --release --locked
 
