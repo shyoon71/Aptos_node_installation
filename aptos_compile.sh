@@ -49,6 +49,7 @@ git checkout origin/devnet &> /dev/null
 echo "=================================================="
 
 echo -e "\e[1m\e[32m3. Installing required Aptos dependencies... \e[0m" && sleep 1
+cargo install --version 0.2.16 sccache
 echo y | ./scripts/dev_setup.sh
 source ~/.cargo/env
 
