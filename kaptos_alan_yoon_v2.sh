@@ -70,6 +70,15 @@ echo ""
 cd aptos
 # docker compose down &&
 sleep 2
+grep -o "identity:" /root/public_full_node.yaml > /root/identity.txt
+if [ -s /root/identity.txt ]
+then
+    sleep 1
+else
+    sleep 1
+    sed -i'' -r -e '/api:/a\    identity:' /root/public_full_node.yaml &&
+    sleep 1
+fi
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
 sleep 3
 if [ -s /root/default_seed.txt ]
@@ -94,7 +103,7 @@ then
     sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /root/public_full_node.yaml &&
     sleep 1
 else
-    sleep 1    
+    sleep 1
     sed -i '/{}/d' /root/public_full_node.yaml &&
     sleep 1
 fi
@@ -173,6 +182,7 @@ rm /root/aptos.sh &> /dev/null &&
 rm /root/kaptos_alan_yoon_v2.sh &> /dev/null &&
 rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
+rm /root/identity.txt &> /dev/null &&
 sleep 5
 echo ""
 echo ""
