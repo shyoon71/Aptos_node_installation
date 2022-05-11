@@ -48,12 +48,11 @@ cd $HOME/aptos-core
 echo "=================================================="
 
 echo -e "\e[1m\e[32m3. Installing required Aptos dependencies... \e[0m" && sleep 1
-curl https://sh.rustup.rs -sSf | sh && sleep 1
+
+echo y | ./scripts/dev_setup.sh && sleep 1
 cargo install sccache && sleep 1
-echo y | ./scripts/dev_setup.sh
-sleep 0.2
+echo y | ./scripts/dev_setup.sh && sleep 1
 source ~/.cargo/env
-sleep 0.2
 
 echo "=================================================="
 
