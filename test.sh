@@ -1,9 +1,13 @@
 #!/bin/bash
 
-grep -o "127.0.0.1" /root/public_full_node.yaml > /root/127001.txt
-sleep 0.1
-if [ -s /root/127001.txt ]
-then
-    sed -i "s/127.0.0.1/0.0.0.0/g" /root/public_full_node.yaml &&
-    sleep 0.1
-fi
+TOTAL=$(df -P | grep -v ^Filesystem | awk '{sum += $2} END { print sum/1024/1024 " GB" }')
+USED=$(df -P | grep -v ^Filesystem | awk '{sum += $3} END { print sum/1024/1024 " GB" }')
+RATIO=`echo "100*$USED/$TOTAL" | bc -l`
+
+echo "====================================================="
+echo -en "\n"
+echo -e "DISK Total Size: \e[0m" $TOTAL
+echo -e "DISK Used  Size: \e[0m" $USED
+echo -e "DISK Used Ratio: \e[0m" $RATIO
+echo "====================================================="
+echo -en "\n"
