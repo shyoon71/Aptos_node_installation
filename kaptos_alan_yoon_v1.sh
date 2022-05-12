@@ -206,6 +206,8 @@ echo ""
 echo ""
 wget -q -O command_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/command_alan_yoon.sh && chmod +x command_alan_yoon.sh
 sleep 0.2
+wget -q -O disk.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/disk.sh && chmod +x disk.sh && sudo /bin/bash disk.sh
+sleep 0.2
 echo ""
 echo "========================================================================"
 
