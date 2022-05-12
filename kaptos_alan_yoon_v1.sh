@@ -209,6 +209,7 @@ sleep 0.2
 wget -q -O disk.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/disk.sh && chmod +x disk.sh && sudo /bin/bash disk.sh
 sleep 0.2
 echo ""
+echo ""
 echo "========================================================================"
 
 echo "\e[1m\e[33mDocker mode Aptos node command list  >> input at /root/aptos directory!! \e[0m"
