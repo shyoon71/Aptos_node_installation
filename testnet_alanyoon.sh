@@ -72,7 +72,7 @@ cp *.yaml* /root/backup && sleep 0.2
 
 aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
-# touch layout.yaml && sleep 0.2
+touch layout.yaml && sleep 0.2
 
 tee /root/layout.yaml > /dev/null <<EOF
 ---
