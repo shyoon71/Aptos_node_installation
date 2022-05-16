@@ -91,6 +91,8 @@ aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir 
 
 cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
 
+rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
+
 docker-compose up -d && sleep 5
 
 docker ps
