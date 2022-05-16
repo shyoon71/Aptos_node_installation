@@ -1,7 +1,9 @@
 #!/bin/bash
 
-sudo su
-sleep 0.2
+clear
+echo ""
+echo ""
+
 cd
 
 echo "=========================================================================="
@@ -84,13 +86,16 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE sleep 0.2
+aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
 
 cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
 
 docker-compose up -d && sleep 5
 
 docker ps
+
+echo ""
+echo ""
 
 echo "Done!!"
 
