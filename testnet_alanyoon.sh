@@ -12,6 +12,9 @@ echo "==========================================================================
 
 sleep 2
 
+echo ""
+echo ""
+
 read -p "What's your IP address? : " IP
 
 echo ""
