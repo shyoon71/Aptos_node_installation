@@ -20,7 +20,7 @@ read -p "What's your ID? Don't use '#' or 'space' " ID
 
 echo ""
 
-sudo apt-get update && sleep 0.2
+sudo apt-get update -y && sleep 0.2
 
 apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
 
