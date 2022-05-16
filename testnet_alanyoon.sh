@@ -12,11 +12,11 @@ echo "==========================================================================
 
 sleep 2
 
-read -p "What's your IP address? " IP
+read -p "What's your IP address? : " IP
 
 echo ""
 
-read -p "What's your ID? Don't use '#' or 'space' " ID
+read -p "What's your ID? Don't use '#' or 'space' : " ID
 
 echo ""
 
