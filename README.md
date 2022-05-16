@@ -1,4 +1,4 @@
-installation-script
+Installation-script
 
   I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
