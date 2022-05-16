@@ -74,7 +74,7 @@ aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-reposi
 
 touch layout.yaml && sleep 0.2
 
-tee /root/layout.yaml > /dev/null <<EOF
+tee /root/layout.yaml > /dev/null <<EOF \
 ---
 root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
 users:
