@@ -91,7 +91,7 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 #sed -i'' -r -e '/---/a\root_key: "0x'$ROOT'"' layout.yaml && sleep 1
 
-sed -i'' -r -e '/shared:/a\        ipv4_address:  172.16.1.10' docker-compose.yaml && sleep 1
+sed -i'' -r -e '/shared:/a\        ipv4_address:  172.16.1.10/' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e '/      - 9101/a\
   fullnode:
@@ -125,12 +125,12 @@ sed -i'' -r -e '/      - 9101/a\
       - 80
       - 9103
 
-' docker-compose.yaml && sleep 1
+/' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:
-    name: aptos-fullnode' docker-compose.yaml && sleep 1
+    name: aptos-fullnode/' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e 's/<Validator IP>/172.16.1.10/g' fullnode.yaml && sleep 1
+sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 1
 
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
