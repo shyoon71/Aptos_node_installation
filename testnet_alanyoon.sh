@@ -73,6 +73,18 @@ aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
 aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
+touch layout.yaml && sleep 0.2
+
+aptos key generate --output-file root-key.yaml && sleep 0.5
+
+ROOT=$(cat root-key.yaml) && sleep 0.2
+
+echo '---
+root_key: "'$ROOT'"
+users:
+  - '$ID'
+chain_id: 23' > layout.yaml && sleep 0.5
+
 # sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
 # sed -i'' -r -e '/- 9101/a\    \
@@ -116,18 +128,6 @@ aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-reposi
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
 unzip framework.zip && rm framework.zip && sleep 0.2
-
-touch layout.yaml && sleep 0.2
-
-aptos key generate --output-file root-key.yaml && sleep 0.5
-
-ROOT=$(cat root-key.yaml) && sleep 0.2
-
-echo '---
-root_key: "'$ROOT'"
-users:
-  - '$ID'
-chain_id: 23' > layout.yaml && sleep 0.5
 
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
