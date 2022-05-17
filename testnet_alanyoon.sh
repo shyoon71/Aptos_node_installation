@@ -74,16 +74,21 @@ aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
 touch layout.yaml && sleep 0.2
-
-aptos key generate --output-file root-key.yaml && sleep 0.5
-
-ROOT=$(cat root-key.yaml) && sleep 0.2
-
 echo '---
-root_key: "'$ROOT'"
+root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
 users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.5
+
+# aptos key generate --output-file root-key.yaml && sleep 0.5
+
+# ROOT=$(cat root-key.yaml) && sleep 0.2
+
+# echo '---
+# root_key: "'$ROOT'"
+# users:
+#   - '$ID'
+# chain_id: 23' > layout.yaml && sleep 0.5
 
 # sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
