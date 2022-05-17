@@ -91,14 +91,14 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 #sed -i'' -r -e '/---/a\root_key: "0x'$ROOT'"' layout.yaml && sleep 1
 
-sed -i'' -r -e '/shared:/a\        ipv4_address:  172.16.1.10/' docker-compose.yaml && sleep 1
+sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e '/      - 9101/a\
+sed -i'' -r -e '/volumes:/i\
   fullnode:
     image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"
     networks:
       shared:
-        ipv4_address:  172.16.1.11
+        ipv4_address: 172.16.1.11
     volumes:
       - type: volume
         source: aptos-fullnode
