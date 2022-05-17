@@ -61,11 +61,15 @@ mkdir ~/$WORKSPACE && sleep 0.2
 
 cd ~/$WORKSPACE && sleep 0.2
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+
+wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
+
+wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
@@ -134,10 +138,6 @@ chain_id: 23' > layout.yaml && sleep 0.5
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
 
 rm docker-compose.yaml && rm fullnode.yaml && sleep 0.5
-
-wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
-
-wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
 
 cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
 
