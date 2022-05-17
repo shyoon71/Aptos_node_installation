@@ -85,7 +85,7 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 aptos key generate --output-file root-key.yaml && sleep 1
 
-ROOT=$(cat root-key.yaml) && sleep 0.2
+ROOT=$(cat root-key.yaml.pub) && sleep 0.2
 
 #sed -i '/root_key:/d' layout.yaml && sleep 0.5
 
