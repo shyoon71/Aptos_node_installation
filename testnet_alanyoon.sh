@@ -89,7 +89,7 @@ ROOT=$(cat root-key.yaml) && sleep 0.2
 
 sed -i '/root_key:/d' layout.yaml
 
-sed -i'' -r -e "/---/a\root_key: $ROOT/" layout.yaml && sleep 1
+sed -i'' -r -e '/---/a\root_key: "$ROOT"/' layout.yaml && sleep 1
 
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
