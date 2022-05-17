@@ -93,7 +93,7 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e '/networks:/a\    \
+sed -i'' -r -e '/- 9101/a\    \
   fullnode:\
     image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
     networks:\
