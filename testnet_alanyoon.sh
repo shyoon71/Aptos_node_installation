@@ -135,6 +135,12 @@ unzip framework.zip && rm framework.zip && sleep 0.2
 
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
 
+rm docker-compose.yaml && rm fullnode.yaml && sleep 0.5
+
+wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
+
+wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
+
 cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
 
 rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
