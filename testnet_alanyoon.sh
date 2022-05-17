@@ -123,7 +123,8 @@ sed -i'' -r -e '/- 9101/a\    \
     expose:\
       - 6182\
       - 80\
-      - 9103\' docker-compose.yaml && sleep 1
+      - 9103\
+' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
     name: aptos-fullnode' docker-compose.yaml && sleep 1
