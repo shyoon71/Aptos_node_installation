@@ -71,10 +71,6 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
-mkdir -p /root/backup && sleep 0.2
-
-cp *.yaml* /root/backup && sleep 0.2
-
 aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
 # sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
@@ -135,9 +131,9 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
-rm docker-compose.yaml && rm fullnode.yaml && sleep 0.5
+mkdir -p /root/backup && sleep 0.2
 
-cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
+cp cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
 
 rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
 
