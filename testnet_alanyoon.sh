@@ -89,7 +89,7 @@ ROOT=$(cat root-key.yaml) && sleep 0.2
 
 sed -i '/root_key:/d' layout.yaml && sleep 0.5
 
-sed -i'' -r -e '/---/a\root_key: "0x'$ROOT'"' layout.yaml && sleep 1
+sed -i'' -r -e '/---/a\root_key: "'$ROOT'"' layout.yaml && sleep 1
 
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
