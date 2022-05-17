@@ -93,41 +93,41 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e '/volumes:/i\
-  fullnode:
-    image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"
-    networks:
-      shared:
-        ipv4_address: 172.16.1.11
-    volumes:
-      - type: volume
-        source: aptos-fullnode
-        target: /opt/aptos/data
-      - type: bind
-        source: ./fullnode.yaml
-        target: /opt/aptos/etc/fullnode.yaml
-      - type: bind
-        source: ./genesis.blob
-        target: /opt/aptos/genesis/genesis.blob
-      - type: bind
-        source: ./waypoint.txt
-        target: /opt/aptos/genesis/waypoint.txt
-      - type: bind
-        source: ./validator-full-node-identity.yaml
-        target: /opt/aptos/genesis/validator-full-node-identity.yaml
-    command: ["/opt/aptos/bin/aptos-node", "-f", "/opt/aptos/etc/fullnode.yaml"]
-    ports:
-      - "6182:6182"
-      - "80:8080"
-      - "9103:9101"
-    expose:
-      - 6182
-      - 80
-      - 9103
-
+sed -i'' -r -e '/volumes:/i\\
+  fullnode:\
+    image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
+    networks:\
+      shared:\
+        ipv4_address: 172.16.1.11\
+    volumes:\
+      - type: volume\
+        source: aptos-fullnode\
+        target: /opt/aptos/data\
+      - type: bind\
+        source: ./fullnode.yaml\
+        target: /opt/aptos/etc/fullnode.yaml\
+      - type: bind\
+        source: ./genesis.blob\
+        target: /opt/aptos/genesis/genesis.blob\
+      - type: bind\
+        source: ./waypoint.txt\
+        target: /opt/aptos/genesis/waypoint.txt\
+      - type: bind\
+        source: ./validator-full-node-identity.yaml\
+        target: /opt/aptos/genesis/validator-full-node-identity.yaml\
+    command: ["/opt/aptos/bin/aptos-node", "-f", "/opt/aptos/etc/fullnode.yaml"]\
+    ports:\
+      - "6182:6182"\
+      - "80:8080"\
+      - "9103:9101"\
+    expose:\
+      - 6182\
+      - 80\
+      - 9103\
+\
 /' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:
+sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
     name: aptos-fullnode/' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 1
