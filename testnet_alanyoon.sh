@@ -99,9 +99,7 @@ cp *.yaml /root/backup && cp *.txt /root/backup && sleep 0.2
 
 rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
 
-cd testnet && sleep 0.2
-
-docker-compose up -d && sleep 2
+/root/testnet/docker-compose up -d && sleep 2
 
 docker ps
 
