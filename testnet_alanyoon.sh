@@ -61,15 +61,11 @@ mkdir ~/$WORKSPACE && sleep 0.2
 
 cd ~/$WORKSPACE && sleep 0.2
 
-#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
-
-wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
-
-wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
@@ -122,6 +118,10 @@ aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-reposi
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
 unzip framework.zip && rm framework.zip && sleep 0.2
+
+#wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
+
+#wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
 
 touch layout.yaml && sleep 0.2
 
