@@ -79,7 +79,7 @@ touch layout.yaml && sleep 0.2
 
 aptos key generate --output-file root-key.yaml && sleep 0.5
 
-ROOT=$(cat root-key.yaml) && sleep 0.2
+ROOT=$(cat root-key.yaml | tr '[A-Z]' '[a-z]') && sleep 0.2
 
 echo '---
 root_key: "'$ROOT'"
