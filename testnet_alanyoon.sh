@@ -10,8 +10,6 @@ echo "==========================================================================
 echo "This script is made for testnet validator node setup only. From Alan Yoon."
 echo "=========================================================================="
 
-sleep 2
-
 echo ""
 echo ""
 
@@ -61,11 +59,15 @@ mkdir ~/$WORKSPACE && sleep 0.2
 
 cd ~/$WORKSPACE && sleep 0.2
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
+wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
+
+wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
+
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
@@ -119,10 +121,6 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-#wget -q -O docker-compose.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml && chmod +x docker-compose.yaml && sleep 0.5
-
-#wget -q -O fullnode.yaml https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml && chmod +x fullnode.yaml && sleep 0.5
-
 touch layout.yaml && sleep 0.2
 
 aptos key generate --output-file root-key.yaml && sleep 0.5
@@ -135,7 +133,7 @@ users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.5
 
-aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
+aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
 rm docker-compose.yaml && rm fullnode.yaml && sleep 0.5
 
