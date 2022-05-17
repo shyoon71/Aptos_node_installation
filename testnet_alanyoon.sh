@@ -73,7 +73,7 @@ mkdir -p /root/backup && sleep 0.2
 
 cp *.yaml* /root/backup && sleep 0.2
 
-aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username '$ID' --validator-host '$IP':6180 --full-node-host '$IP':6182 && sleep 0.2
+aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
 touch layout.yaml && sleep 0.2
 
@@ -87,7 +87,7 @@ aptos key generate --output-file root-key.yaml && sleep 0.2
 
 ROOT=$(cat root-key.yaml.pub) && sleep 0.2
 
-sed -i "s/0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956/'$ROOT'/g" /root/layout.yaml && sleep 0.5
+sed -i 's/0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956/'$ROOT'/g' /root/layout.yaml && sleep 0.5
 
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
