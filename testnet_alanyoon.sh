@@ -93,7 +93,7 @@ chain_id: 23' > layout.yaml && sleep 0.5
 
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
 
-sed -i'' -r -e '/volumes:/i\\
+sed -i'' -r -e '/volumes:/i\    \
   fullnode:\
     image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
     networks:\
@@ -125,10 +125,10 @@ sed -i'' -r -e '/volumes:/i\\
       - 80\
       - 9103\
 \
-/' docker-compose.yaml && sleep 1
+' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
-    name: aptos-fullnode/' docker-compose.yaml && sleep 1
+    name: aptos-fullnode' docker-compose.yaml && sleep 1
 
 sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 1
 
