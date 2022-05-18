@@ -13,7 +13,11 @@ echo "==========================================================================
 echo ""
 echo ""
 
-read -p "What's your IP address? : " IP
+read -p "What's your validator IP address? : " IPV
+
+echo ""
+
+read -p "What's your validator IP address? : " IPF
 
 echo ""
 
@@ -59,19 +63,15 @@ mkdir ~/$WORKSPACE && sleep 0.2
 
 cd ~/$WORKSPACE && sleep 0.2
 
-wget https://raw.githubusercontent.com/shyoon71/installation-script/main/docker-compose.yaml
-
-wget https://raw.githubusercontent.com/shyoon71/installation-script/main/fullnode.yaml
-
-#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
-aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
+aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IPV:6180 --full-node-host $IPF:6182 && sleep 0.2
 
 touch layout.yaml && sleep 0.2
 echo '---
