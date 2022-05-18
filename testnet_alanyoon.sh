@@ -103,7 +103,7 @@ sed -i'' -r -e '/- 9101/a\    \
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
     name: aptos-fullnode' docker-compose.yaml && sleep 0.5
 
-sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
+sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 0.5
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
