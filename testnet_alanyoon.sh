@@ -13,11 +13,7 @@ echo "==========================================================================
 echo ""
 echo ""
 
-read -p "What's your validator IP address? : " IPV
-
-echo ""
-
-read -p "What's your validator IP address? : " IPF
+read -p "What's your validator IP address? : " IP
 
 echo ""
 
@@ -71,7 +67,7 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
-aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IPV:6180 --full-node-host $IPF:6182 && sleep 0.2
+aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
 touch layout.yaml && sleep 0.2
 echo '---
