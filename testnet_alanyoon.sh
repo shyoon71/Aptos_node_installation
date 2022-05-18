@@ -138,7 +138,7 @@ aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir 
 
 mkdir -p /root/backup && sleep 0.2
 
-cp cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
+cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
 
 rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
 
