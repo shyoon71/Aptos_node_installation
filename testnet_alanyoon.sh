@@ -63,9 +63,9 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml && sleep 0.5
 
-sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 1
+sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 0.5
 
 sed -i'' -r -e '/- 9101/a\    \
   fullnode:\
@@ -98,12 +98,12 @@ sed -i'' -r -e '/- 9101/a\    \
       - 6182\
       - 80\
       - 9103\
-' docker-compose.yaml && sleep 1
+' docker-compose.yaml && sleep 0.5
 
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
-    name: aptos-fullnode' docker-compose.yaml && sleep 1
+    name: aptos-fullnode' docker-compose.yaml && sleep 0.5
 
-sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 1
+sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
 aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
 
@@ -116,17 +116,15 @@ users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.5
 
-aptos key generate --output-file root-key.yaml && sleep 0.5
+# aptos key generate --output-file root-key.yaml && sleep 0.5
 
-ROOT=$(cat root-key.yaml) && sleep 0.2
+# ROOT=$(cat root-key.yaml) && sleep 0.2
 
-echo '---
-root_key: "'$ROOT'"
-users:
-  - '$ID'
-chain_id: 23' > layout.yaml && sleep 0.5
-
-
+# echo '---
+# root_key: "'$ROOT'"
+# users:
+#   - '$ID'
+# chain_id: 23' > layout.yaml && sleep 0.5
 
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
