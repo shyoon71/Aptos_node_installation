@@ -132,6 +132,8 @@ unzip framework.zip && rm framework.zip && sleep 0.2
 
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
+rm ~/$WORKSPACE/fullnode.yaml && sleep 0.2
+
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
