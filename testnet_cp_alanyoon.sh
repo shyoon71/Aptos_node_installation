@@ -32,6 +32,7 @@ cp $HOME/aptos-core/config/src/config/test_data/public_full_node.yaml $HOME/apto
 # /usr/local/bin/yq e -i '.execution.genesis_file_location = "'$HOME/aptos/genesis.blob'"' $HOME/aptos/public_full_node.yaml
 cd $HOME/aptos-core
 git checkout origin/devnet &> /dev/null
+cargo install sccache
 echo y | ./scripts/dev_setup.sh
 source ~/.cargo/env
 git checkout --track origin/testnet
