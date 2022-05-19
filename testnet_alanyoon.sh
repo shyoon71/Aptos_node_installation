@@ -132,13 +132,26 @@ unzip framework.zip && rm framework.zip && sleep 0.2
 
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+
+sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
+
+rm ~/$WORKSPACE/genesis.blob && sleep 0.2
+rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
+rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
+
+cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
+cp ~/waypoint.txt ~/$WORKSPACE/ && sleep 0.2
+cp ~/validator-full-node-identity.yaml ~/$WORKSPACE/ && sleep 0.2
+
 mkdir -p /root/backup && sleep 0.2
 
 cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
 
 rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
 
-docker-compose up -d && sleep 2
+docker-compose up -f docker-compose-fullnode.yaml -d && sleep 2
 
 docker ps
 
