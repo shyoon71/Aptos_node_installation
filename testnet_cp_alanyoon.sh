@@ -1,9 +1,15 @@
 #!/bin/bash
 echo ""
+echo ""
+
 read -p "What's your validator IP address? : " IP
+
 echo ""
+
 read -p "What's your ID? Don't use '#' or 'space' : " ID
+
 echo ""
+
 sudo apt-get update & sudo apt-get install git -y
 
 sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64  &> /dev/null
@@ -13,7 +19,7 @@ rm -rf aptos-core
 rm /usr/local/bin/aptos*
 rm -rf /opt/aptos/data/db
 sudo mkdir -p /opt/aptos/data aptos aptos/identity
-systemctl stop aptos-fullnode &> /dev/null
+# systemctl stop aptos-fullnode &> /dev/null
 git clone https://github.com/aptos-labs/aptos-core.git
 cd $HOME/aptos
 rm *
