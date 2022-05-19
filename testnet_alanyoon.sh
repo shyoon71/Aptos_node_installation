@@ -143,7 +143,8 @@ rm ~/$WORKSPACE/genesis.blob && sleep 0.2
 rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
 rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
 
-cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
+#cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
+wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 cp ~/waypoint.txt ~/$WORKSPACE/ && sleep 0.2
 cp ~/validator-full-node-identity.yaml ~/$WORKSPACE/ && sleep 0.2
 
