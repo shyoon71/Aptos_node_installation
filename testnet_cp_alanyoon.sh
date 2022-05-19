@@ -1,5 +1,9 @@
 #!/bin/bash
-
+echo ""
+read -p "What's your validator IP address? : " IP
+echo ""
+read -p "What's your ID? Don't use '#' or 'space' : " ID
+echo ""
 sudo apt-get update & sudo apt-get install git -y
 
 sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64  &> /dev/null
@@ -28,11 +32,6 @@ git checkout --track origin/testnet
 export WORKSPACE=testnet
 mkdir ~/$WORKSPACE
 cargo run --release -p aptos -- genesis generate-keys --output-dir ~/$WORKSPACE
-echo ""
-read -p "What's your validator IP address? : " IP
-echo ""
-read -p "What's your ID? Don't use '#' or 'space' : " ID
-echo ""
 cargo run --release -p aptos -- genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182
 touch ~/$WORKSPACE/layout.yaml
 echo '---
