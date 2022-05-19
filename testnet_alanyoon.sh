@@ -145,8 +145,8 @@ rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
 wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
-cp ~/waypoint.txt ~/$WORKSPACE/ && sleep 0.2
-cp ~/validator-full-node-identity.yaml ~/$WORKSPACE/ && sleep 0.2
+wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
+wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
 rm ~/$WORKSPACE/docker-compose.yaml && sleep 0.2
 mv ~/$WORKSPACE/docker-compose-fullnode.yaml ~/$WORKSPACE/docker-compose.yaml  
