@@ -147,6 +147,9 @@ cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
 cp ~/waypoint.txt ~/$WORKSPACE/ && sleep 0.2
 cp ~/validator-full-node-identity.yaml ~/$WORKSPACE/ && sleep 0.2
 
+rm ~/$WORKSPACE/docker-compose.yaml && sleep 0.2
+mv ~/$WORKSPACE/docker-compose-fullnode.yaml ~/$WORKSPACE/docker-compose.yaml  
+
 mkdir -p /root/backup && sleep 0.2
 
 cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
