@@ -139,12 +139,10 @@ if [ -s /root/v2_or_not.txt ]
 then
     echo ""
     cp /root/public_full_node.yaml /root/aptos &&
-    echo "\e[1m\e[33mYour 'public_full_node.yaml' file was restored successfully! \e[0m"
     echo ""
-    echo ""
-    sleep 2
+    sleep 1
     docker compose up -d &&
-    sleep 2
+    sleep 1
     echo ""
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
