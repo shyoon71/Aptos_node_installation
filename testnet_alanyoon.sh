@@ -6,12 +6,9 @@ cd ~
 echo "=========================================================================="
 echo "This script is made for testnet validator node setup only. From Alan Yoon."
 echo "=========================================================================="
-
 echo ""
 echo ""
-
 read -p "What's your validator IP address? : " IP
-
 echo ""
 
 read -p "What's your ID? Don't use '#' or 'space' : " ID
