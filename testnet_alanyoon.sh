@@ -130,7 +130,7 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-# aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
+aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
 
 rm ~/$WORKSPACE/fullnode.yaml && sleep 0.2
 
@@ -144,9 +144,9 @@ rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
 rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
-wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
+#wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
-wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
+#wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
 rm ~/$WORKSPACE/docker-compose.yaml && sleep 0.2
 mv ~/$WORKSPACE/docker-compose-fullnode.yaml ~/$WORKSPACE/docker-compose.yaml  
