@@ -112,7 +112,7 @@ fi
 #     sleep 1
 #     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
 #     sleep 1
-fi
+#fi
 grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 if [ -s /root/seed.txt ]
 then
