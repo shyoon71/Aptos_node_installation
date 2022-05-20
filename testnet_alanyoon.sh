@@ -53,11 +53,11 @@ mv aptos /usr/bin && sleep 0.2
 
 chmod +x /usr/bin/aptos && sleep 0.2
 
-export WORKSPACE=testnet && sleep 0.2
+#export WORKSPACE=testnet && sleep 0.2
 
-mkdir ~/$WORKSPACE && sleep 0.2
+mkdir ~/testnet && sleep 0.2
 
-cd ~/$WORKSPACE && sleep 0.2
+cd ~/testnet && sleep 0.2
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 
@@ -105,9 +105,9 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 # sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 0.5
 
-aptos genesis generate-keys --output-dir ~/$WORKSPACE && sleep 0.2
+aptos genesis generate-keys --output-dir ~/testnet && sleep 0.2
 
-aptos genesis set-validator-configuration --keys-dir ~/$WORKSPACE --local-repository-dir ~/$WORKSPACE --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
+aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
 touch layout.yaml && sleep 0.2
 echo '---
@@ -132,26 +132,26 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
+aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
-rm ~/$WORKSPACE/fullnode.yaml && sleep 0.2
+rm ~/testnet/fullnode.yaml && sleep 0.2
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
-#rm ~/$WORKSPACE/genesis.blob && sleep 0.2
-#rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
-rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
+#rm ~/testnet/genesis.blob && sleep 0.2
+#rm ~/testnet/waypoint.txt && sleep 0.2
+rm ~/testnet/validator-full-node-identity.yaml && sleep 0.2
 
-#cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
+#cp ~/genesis.blob ~/testnet/ && sleep 0.2
 #wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
 #wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
-rm ~/$WORKSPACE/docker-compose.yaml && sleep 0.2
-mv ~/$WORKSPACE/docker-compose-fullnode.yaml ~/$WORKSPACE/docker-compose.yaml  
+rm ~/testnet/docker-compose.yaml && sleep 0.2
+mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
 
 mkdir -p /root/backup && sleep 0.2
 
