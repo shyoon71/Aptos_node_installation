@@ -3,9 +3,7 @@
 clear
 echo ""
 echo ""
-
 cd
-
 echo "=========================================================================="
 echo "This script is made for testnet validator node setup only. From Alan Yoon."
 echo "=========================================================================="
