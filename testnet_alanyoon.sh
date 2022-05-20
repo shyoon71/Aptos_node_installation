@@ -7,57 +7,31 @@ echo ""
 echo ""
 read -p "What's your validator IP address? : " IP
 echo ""
-
 read -p "What's your ID? Don't use '#' or 'space' : " ID
-
 echo ""
-
 apt-get update && sleep 0.2
-
 apt-get install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
-
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sleep 0.2
-
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
 apt-get -y update && sleep 0.2
-
 apt-get -y install docker-ce docker-ce-cli containerd.io -y && sleep 0.2
-
 curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sleep 0.2
-
 chmod +x /usr/local/bin/docker-compose && sleep 0.2
-
 curl https://sh.rustup.rs -sSf | sh && sleep 0.2
-
 source /root/.cargo/env && sleep 0.2
-
 rm -r aptos &> /dev/null && sleep 0.2
-
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-cli-v0.1.1/aptos-cli-0.1.1-Ubuntu-x86_64.zip && sleep 0.2
-
 apt install unzip &> /dev/null && sleep 0.2
-
 unzip aptos-cli-0.1.1-Ubuntu-x86_64.zip && rm aptos-cli-0.1.1-Ubuntu-x86_64.zip && sleep 0.2
-
 mv aptos /usr/bin && sleep 0.2
-
 chmod +x /usr/bin/aptos && sleep 0.2
-
 #export WORKSPACE=testnet && sleep 0.2
-
 mkdir ~/testnet && sleep 0.2
-
 cd ~/testnet && sleep 0.2
-
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
-
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
-
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
-
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 0.5
-
 sed -i'' -r -e '/- 9101/a\    \
   fullnode:\
     image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
@@ -90,16 +64,11 @@ sed -i'' -r -e '/- 9101/a\    \
       - 80\
       - 9103\
 ' docker-compose.yaml && sleep 0.5
-
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
     name: aptos-fullnode' docker-compose.yaml && sleep 0.5
-
 sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml
-
 aptos genesis generate-keys --output-dir ~/testnet
-
 aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182
-
 touch layout.yaml && sleep 0.2
 echo '---
 root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
