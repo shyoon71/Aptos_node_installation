@@ -65,45 +65,45 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml && sleep 0.5
 
-# sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 0.5
+sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 0.5
 
-# sed -i'' -r -e '/- 9101/a\    \
-#   fullnode:\
-#     image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
-#     networks:\
-#       shared:\
-#         ipv4_address: 172.16.1.11\
-#     volumes:\
-#       - type: volume\
-#         source: aptos-fullnode\
-#         target: /opt/aptos/data\
-#       - type: bind\
-#         source: ./fullnode.yaml\
-#         target: /opt/aptos/etc/fullnode.yaml\
-#       - type: bind\
-#         source: ./genesis.blob\
-#         target: /opt/aptos/genesis/genesis.blob\
-#       - type: bind\
-#         source: ./waypoint.txt\
-#         target: /opt/aptos/genesis/waypoint.txt\
-#       - type: bind\
-#         source: ./validator-full-node-identity.yaml\
-#         target: /opt/aptos/genesis/validator-full-node-identity.yaml\
-#     command: ["/opt/aptos/bin/aptos-node", "-f", "/opt/aptos/etc/fullnode.yaml"]\
-#     ports:\
-#       - "6182:6182"\
-#       - "80:8080"\
-#       - "9103:9101"\
-#     expose:\
-#       - 6182\
-#       - 80\
-#       - 9103\
-# ' docker-compose.yaml && sleep 0.5
+sed -i'' -r -e '/- 9101/a\    \
+  fullnode:\
+    image: "${VALIDATOR_IMAGE_REPO:-aptoslab/validator}:${IMAGE_TAG:-testnet}"\
+    networks:\
+      shared:\
+        ipv4_address: 172.16.1.11\
+    volumes:\
+      - type: volume\
+        source: aptos-fullnode\
+        target: /opt/aptos/data\
+      - type: bind\
+        source: ./fullnode.yaml\
+        target: /opt/aptos/etc/fullnode.yaml\
+      - type: bind\
+        source: ./genesis.blob\
+        target: /opt/aptos/genesis/genesis.blob\
+      - type: bind\
+        source: ./waypoint.txt\
+        target: /opt/aptos/genesis/waypoint.txt\
+      - type: bind\
+        source: ./validator-full-node-identity.yaml\
+        target: /opt/aptos/genesis/validator-full-node-identity.yaml\
+    command: ["/opt/aptos/bin/aptos-node", "-f", "/opt/aptos/etc/fullnode.yaml"]\
+    ports:\
+      - "6182:6182"\
+      - "80:8080"\
+      - "9103:9101"\
+    expose:\
+      - 6182\
+      - 80\
+      - 9103\
+' docker-compose.yaml && sleep 0.5
 
-# sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
-#     name: aptos-fullnode' docker-compose.yaml && sleep 0.5
+sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
+    name: aptos-fullnode' docker-compose.yaml && sleep 0.5
 
-# sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 0.5
+sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
 aptos genesis generate-keys --output-dir ~/testnet && sleep 0.2
 
@@ -116,7 +116,7 @@ users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.5
 
-cp layout.yaml /root
+#cp layout.yaml /root
 
 # aptos key generate --output-file root-key.yaml && sleep 0.5
 
@@ -136,18 +136,18 @@ unzip framework.zip && rm framework.zip && sleep 0.2
 
 rm ~/testnet/fullnode.yaml && sleep 0.2
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
+#wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
 #rm ~/testnet/genesis.blob && sleep 0.2
 #rm ~/testnet/waypoint.txt && sleep 0.2
-rm ~/testnet/validator-full-node-identity.yaml && sleep 0.2
+#rm ~/testnet/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/testnet/ && sleep 0.2
 wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
-wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
+#wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
 wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
 rm ~/testnet/docker-compose.yaml && sleep 0.2
