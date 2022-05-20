@@ -97,22 +97,22 @@ else
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
 fi
-grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
-sleep 2
-if [ -s /root/default_seed.txt ]
-then
-    echo ""
-    echo ""
-    sleep 1
-else
-    sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /root/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
-    sleep 1
+# grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
+# sleep 2
+# if [ -s /root/default_seed.txt ]
+# then
+#     echo ""
+#     echo ""
+#     sleep 1
+# else
+#     sed -i'' -r -e "/identity:/i\      a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml
+#     sleep 1
+#     sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
+#     sleep 1
+#     sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/ln-noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/ln-handshake/0"' /root/public_full_node.yaml
+#     sleep 1
+#     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
+#     sleep 1
 fi
 grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 if [ -s /root/seed.txt ]
