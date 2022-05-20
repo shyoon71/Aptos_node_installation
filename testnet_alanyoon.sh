@@ -21,11 +21,11 @@ read -p "What's your ID? Don't use '#' or 'space' : " ID
 
 echo ""
 
-echo "y"\ | apt-get update && sleep 0.2
+apt-get update && sleep 0.2
 
-echo "y"\ | apt-get install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
+apt-get install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
 
-echo "y"\ | curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sleep 0.2
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sleep 0.2
 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
@@ -109,14 +109,14 @@ aptos genesis generate-keys --output-dir ~/testnet && sleep 0.2
 
 aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
-# touch layout.yaml && sleep 0.2
-# echo '---
-# root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
-# users:
-#   - '$ID'
-# chain_id: 23' > layout.yaml && sleep 0.5
+touch layout.yaml && sleep 0.2
+echo '---
+root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
+users:
+  - '$ID'
+chain_id: 23' > layout.yaml && sleep 0.5
 
-#cp layout.yaml /root
+# cp layout.yaml /root
 
 # aptos key generate --output-file root-key.yaml && sleep 0.5
 
@@ -131,8 +131,6 @@ aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repositor
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
 unzip framework.zip && rm framework.zip && sleep 0.2
-
-wget https://github.com/shyoon71/installation-script/blob/main/layout.yaml
 
 aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
