@@ -130,7 +130,7 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 1
+aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE && sleep 0.2
 
 rm ~/$WORKSPACE/fullnode.yaml && sleep 0.2
 
