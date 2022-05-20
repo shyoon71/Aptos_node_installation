@@ -116,6 +116,8 @@ users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.5
 
+cp layout.yaml /root
+
 # aptos key generate --output-file root-key.yaml && sleep 0.5
 
 # ROOT=$(cat root-key.yaml) && sleep 0.2
