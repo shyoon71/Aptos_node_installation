@@ -21,11 +21,11 @@ read -p "What's your ID? Don't use '#' or 'space' : " ID
 
 echo ""
 
-echo y | apt-get update && sleep 0.2
+echo "y"\ | apt-get update && sleep 0.2
 
-echo y | apt-get install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
+echo "y"\ | apt-get install apt-transport-https ca-certificates curl gnupg lsb-release && sleep 0.2
 
-echo y | curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sleep 0.2
+echo "y"\ | curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sleep 0.2
 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
@@ -132,7 +132,7 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
+#aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
 rm ~/testnet/fullnode.yaml && sleep 0.2
 
