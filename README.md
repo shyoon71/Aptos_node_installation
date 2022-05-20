@@ -16,6 +16,6 @@ Auto Setup Script :
   
   wget -q -O kaptos_alan_yoon_v2.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/kaptos_alan_yoon_v2.sh && chmod +x kaptos_alan_yoon_v2.sh && sudo sh ./kaptos_alan_yoon_v2.sh
 
-Notion page:
+Notion page for step-by-step:
 
   https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-6cc0e1081bda4e47b2a8b9fa0d81ef47
