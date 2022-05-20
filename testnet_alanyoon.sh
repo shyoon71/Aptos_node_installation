@@ -139,8 +139,8 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
-rm ~/$WORKSPACE/genesis.blob && sleep 0.2
-rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
+#rm ~/$WORKSPACE/genesis.blob && sleep 0.2
+#rm ~/$WORKSPACE/waypoint.txt && sleep 0.2
 rm ~/$WORKSPACE/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/$WORKSPACE/ && sleep 0.2
