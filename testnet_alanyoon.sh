@@ -134,7 +134,7 @@ unzip framework.zip && rm framework.zip && sleep 0.2
 
 #aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
-rm ~/testnet/fullnode.yaml && sleep 0.2
+#rm ~/testnet/fullnode.yaml && sleep 0.2
 
 #wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
 #wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
@@ -150,8 +150,8 @@ wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 #wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
 wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
-rm ~/testnet/docker-compose.yaml && sleep 0.2
-mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
+#rm ~/testnet/docker-compose.yaml && sleep 0.2
+#mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
 
 mkdir -p /root/backup && sleep 0.2
 
