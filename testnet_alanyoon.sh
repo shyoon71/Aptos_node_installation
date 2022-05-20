@@ -68,15 +68,14 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 #     name: aptos-fullnode' docker-compose.yaml && sleep 0.5
 # sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml
 aptos genesis generate-keys --output-dir ~/testnet
-#aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182
-aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --full-node-host $IP:6182
+aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182
 touch layout.yaml && sleep 0.2
 echo '---
 root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
 users:
   - '$ID'
 chain_id: 23' > layout.yaml && sleep 0.2
-
+aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 # cp layout.yaml /root
 
 # aptos key generate --output-file root-key.yaml && sleep 0.5
@@ -92,8 +91,6 @@ chain_id: 23' > layout.yaml && sleep 0.2
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.1.0/framework.zip && sleep 0.2
 
 unzip framework.zip && rm framework.zip && sleep 0.2
-
-aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
 #rm ~/testnet/fullnode.yaml && sleep 0.2
 
