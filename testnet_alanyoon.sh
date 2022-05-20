@@ -29,9 +29,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-echo y | apt-get -y update && sleep 0.2
+apt-get -y update && sleep 0.2
 
-echo y | apt-get -y install docker-ce docker-ce-cli containerd.io -y && sleep 0.2
+apt-get -y install docker-ce docker-ce-cli containerd.io -y && sleep 0.2
 
 curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sleep 0.2
 
@@ -63,7 +63,7 @@ wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose
 
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml && sleep 0.5
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
 sed -i'' -r -e '/      shared:/a\        ipv4_address: 172.16.1.10' docker-compose.yaml && sleep 0.5
 
@@ -103,18 +103,18 @@ sed -i'' -r -e '/- 9101/a\    \
 sed -i'' -r -e '/    name: aptos-validator/a\  aptos-fullnode:\
     name: aptos-fullnode' docker-compose.yaml && sleep 0.5
 
-sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml && sleep 0.5
+sed -i'' -r -e 's/<Validator IP Address>/172.16.1.10/g' fullnode.yaml
 
-aptos genesis generate-keys --output-dir ~/testnet && sleep 0.2
+aptos genesis generate-keys --output-dir ~/testnet
 
-aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
+aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182
 
 touch layout.yaml && sleep 0.2
 echo '---
 root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
 users:
   - '$ID'
-chain_id: 23' > layout.yaml && sleep 0.5
+chain_id: 23' > layout.yaml && sleep 0.2
 
 # cp layout.yaml /root
 
@@ -139,7 +139,7 @@ aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/t
 #wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose-fullnode.yaml
 #wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml
 
-sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
+#sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && sleep 0.5
 
 #rm ~/testnet/genesis.blob && sleep 0.2
 #rm ~/testnet/waypoint.txt && sleep 0.2
@@ -153,13 +153,13 @@ sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && slee
 #rm ~/testnet/docker-compose.yaml && sleep 0.2
 #mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
 
-mkdir -p /root/backup && sleep 0.2
+mkdir -p /root/backup
 
-cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null && sleep 0.2
+cp *.yaml* /root/backup && cp *.txt /root/backup &> /dev/null
 
-rm /root/testnet_alanyoon.sh &> /dev/null && sleep 0.2
+rm /root/testnet_alanyoon.sh &> /dev/null
 
-docker-compose up -d && sleep 2
+docker-compose up -d && sleep 5
 
 docker ps
 
