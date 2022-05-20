@@ -146,9 +146,9 @@ sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && slee
 rm ~/testnet/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/testnet/ && sleep 0.2
-#wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
+wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
-#wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
+wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
 rm ~/testnet/docker-compose.yaml && sleep 0.2
 mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
