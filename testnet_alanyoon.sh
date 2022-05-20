@@ -109,12 +109,12 @@ aptos genesis generate-keys --output-dir ~/testnet && sleep 0.2
 
 aptos genesis set-validator-configuration --keys-dir ~/testnet --local-repository-dir ~/testnet --username $ID --validator-host $IP:6180 --full-node-host $IP:6182 && sleep 0.2
 
-touch layout.yaml && sleep 0.2
-echo '---
-root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
-users:
-  - '$ID'
-chain_id: 23' > layout.yaml && sleep 0.5
+# touch layout.yaml && sleep 0.2
+# echo '---
+# root_key: "0x5243ca72b0766d9e9cbf2debf6153443b01a1e0e6d086c7ea206eaf6f8043956"
+# users:
+#   - '$ID'
+# chain_id: 23' > layout.yaml && sleep 0.5
 
 #cp layout.yaml /root
 
@@ -132,7 +132,9 @@ wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-
 
 unzip framework.zip && rm framework.zip && sleep 0.2
 
-#aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
+wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/layout.yaml
+
+aptos genesis generate-genesis --local-repository-dir ~/testnet --output-dir ~/testnet && sleep 0.2
 
 #rm ~/testnet/fullnode.yaml && sleep 0.2
 
@@ -146,9 +148,9 @@ sed -i'' -r -e 's/<Validator IP Address>/175.118.42.185/g' fullnode.yaml && slee
 #rm ~/testnet/validator-full-node-identity.yaml && sleep 0.2
 
 #cp ~/genesis.blob ~/testnet/ && sleep 0.2
-wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
+#wget https://github.com/shyoon71/installation-script/blob/main/genesis.blob
 #wget https://github.com/shyoon71/installation-script/blob/main/validator-full-node-identity.yaml
-wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
+#wget https://github.com/shyoon71/installation-script/blob/main/waypoint.txt
 
 #rm ~/testnet/docker-compose.yaml && sleep 0.2
 #mv ~/testnet/docker-compose-fullnode.yaml ~/testnet/docker-compose.yaml  
