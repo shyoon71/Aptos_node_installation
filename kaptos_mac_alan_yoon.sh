@@ -16,7 +16,7 @@ echo " =========================================================================
 sleep 1
 echo ""
 echo ""
-echo "\e[1m\e[33mStarting script now... \e[0m"
+echo "\e[1m\e[33mStarting script for Mac OS... \e[0m"
 sleep 3
 if [ -f $HOME/aptos/public_full_node.yaml ]
 then
