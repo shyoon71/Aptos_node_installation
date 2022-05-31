@@ -32,10 +32,10 @@ then
     echo ""
     echo ""
     echo ""
-    sleep 1
     echo "\e[1m\e[35mYour 'public_full_node.yaml' file was copied and saved in $HOME directory. Backup is completed! \e[0m"
     echo ""
     echo "\e[1m\e[33mIf you previously ran this script, that yaml file would have been saved as extension name 'yaml.old'. \e[0m"
+    sleep 2
     echo ""
     echo ""
     rm -r /var/lib/docker/volumes/aptos_db/_data/db &> /dev/null &&
@@ -45,12 +45,13 @@ else
     echo ""
     echo ""
     echo "\e[1m\e[33mYou don't have any old files, so backup and restoring process will be possible when you update node next time. \e[0m"
+    sleep 2
     echo ""
     echo ""
     echo ""
 fi
-sleep 1
 echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
+sleep 2
 echo ""
 #wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
 echo "1. Updating list of dependencies..." && sleep 1
