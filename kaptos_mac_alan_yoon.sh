@@ -55,8 +55,8 @@ sleep 1
 echo ""
 #sudo wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && sudo chmod +x aptos.sh && sudo /bin/bash aptos.sh
 echo "1. Updating list of dependencies..." && sleep 1
-sudo brew update
-sudo brew install jq -y
+brew update
+brew install jq -y
 # Installing yq to modify yaml files
 sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 sudo chmod a+x /usr/local/bin/yq
@@ -70,11 +70,11 @@ if ! command -v docker &> /dev/null
 then
 
     echo "2.1 Installing Docker..." && sleep 1
-    sudo brew install ca-certificates curl gnupg lsb-release sudo wget -y
+    brew install ca-certificates curl gnupg lsb-release sudo wget -y
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --deasudo rmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo brew update
-    sudo brew install docker-ce docker-ce-cli containerd.io -y
+    brew update
+    brew install docker-ce docker-ce-cli containerd.io -y
 fi
 
 echo "=================================================="
