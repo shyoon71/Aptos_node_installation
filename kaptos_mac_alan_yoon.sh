@@ -244,32 +244,32 @@ docker compose down &&
 sleep 1
 grep -o "6180:6180" $HOME/aptos/docker-compose.yaml > $HOME/6180.txt
 sleep 0.5
-if [ -s $HOME/6180.txt ]
-then
-    echo ""
-    echo ""
-    sleep 0.5
-else
-    sed -i'' -r -e '/volumes:/i\      - "6180:6180"' $HOME/aptos/docker-compose.yaml
-    sleep 0.5
-fi
-grep -o "bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" $HOME/public_full_node.yaml > $HOME/admin_seed.txt
-sleep 1
-if [ -s $HOME/admin_seed.txt ]
-then
-    echo ""
-    echo ""
-    sleep 1
-else
-    sed -i'' -r -e "/identity:/i\      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" $HOME/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e "/identity:/i\          addresses:" $HOME/public_full_node.yaml &&
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          - "/dns4/pfn0.node.devnet.aptoslabs.com/tsudo cp/6182/ln-noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/ln-handshake/0"' $HOME/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          role: "Upstream"' $HOME/public_full_node.yaml &&
-    sleep 1
-fi
+# if [ -s $HOME/6180.txt ]
+# then
+#     echo ""
+#     echo ""
+#     sleep 0.5
+# else
+#     sed -i'' -r -e '/volumes:/i\      - "6180:6180"' $HOME/aptos/docker-compose.yaml
+#     sleep 0.5
+# fi
+# grep -o "bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" $HOME/public_full_node.yaml > $HOME/admin_seed.txt
+# sleep 1
+# if [ -s $HOME/admin_seed.txt ]
+# then
+#     echo ""
+#     echo ""
+#     sleep 1
+# else
+#     sed -i'' -r -e "/identity:/i\      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" $HOME/public_full_node.yaml
+#     sleep 1
+#     sed -i'' -r -e "/identity:/i\          addresses:" $HOME/public_full_node.yaml &&
+#     sleep 1
+#     sed -i'' -r -e '/identity:/i\          - "/dns4/pfn0.node.devnet.aptoslabs.com/tsudo cp/6182/ln-noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/ln-handshake/0"' $HOME/public_full_node.yaml
+#     sleep 1
+#     sed -i'' -r -e '/identity:/i\          role: "Upstream"' $HOME/public_full_node.yaml &&
+#     sleep 1
+# fi
 # grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" $HOME/public_full_node.yaml > $HOME/default_seed.txt
 # sleep 1
 # if [ -s $HOME/default_seed.txt ]
