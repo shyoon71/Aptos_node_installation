@@ -13,7 +13,7 @@ echo "  ██║  ██║███████╗██║  ██║██�
 echo "  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝"
 echo ""
 echo " ============================================================================="
-sleep 1
+sleep 2
 echo ""
 echo ""
 echo "Starting script for Mac OS..."
@@ -117,12 +117,12 @@ echo "=================================================="
 # Checking if aptos node identity exists
 create_identity(){
     echo "4.1 Creating a unique node identity"  
-    docker run --sudo rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
-    docker exec -it aptos_tools aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file $HOME/private-key.txt | grep 'Success' &> /dev/null
+    sudo docker run --rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
+    sudo docker exec -it aptos_tools aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file $HOME/private-key.txt | grep 'Success' &> /dev/null
     if [ $? == 0 ]; then
-        docker exec -it aptos_tools cat $HOME/private-key.txt > $HOME/aptos/identity/private-key.txt
-        docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --encoding hex --key-file $HOME/private-key.txt --output-file $HOME/peer-info.yaml &> /dev/null
-        docker exec -it aptos_tools cat $HOME/peer-info.yaml > $HOME/aptos/identity/peer-info.yaml
+        sudo docker exec -it aptos_tools cat $HOME/private-key.txt > $HOME/aptos/identity/private-key.txt
+        sudo docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --encoding hex --key-file $HOME/private-key.txt --output-file $HOME/peer-info.yaml &> /dev/null
+        sudo docker exec -it aptos_tools cat $HOME/peer-info.yaml > $HOME/aptos/identity/peer-info.yaml
         PEER_ID=$(sed -n 2p $HOME/aptos/identity/peer-info.yaml | sed 's/\(.*\):/\1/')
         PEER_ID=${PEER_ID//$'\r'/}
         PRIVATE_KEY=$(cat $HOME/aptos/identity/private-key.txt)
@@ -147,10 +147,10 @@ create_identity(){
 
 ## If private-key.txt exists and there is no peer-info.yaml file then we will regenerate it by using aptos tools docker 
 generate_peer_info(){
-    docker run --sudo rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
-    docker sudo cp $HOME/aptos/identity/private-key.txt aptos_tools:/$HOME/private-key.txt
-    docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --encoding hex --key-file $HOME/private-key.txt --output-file $HOME/peer-info.yaml &> /dev/null
-    docker exec -it aptos_tools cat $HOME/peer-info.yaml > $HOME/aptos/identity/peer-info.yaml
+    sudo docker run --rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
+    sudo docker cp $HOME/aptos/identity/private-key.txt aptos_tools:/$HOME/private-key.txt
+    sudo docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --encoding hex --key-file $HOME/private-key.txt --output-file $HOME/peer-info.yaml &> /dev/null
+    sudo docker exec -it aptos_tools cat $HOME/peer-info.yaml > $HOME/aptos/identity/peer-info.yaml
     PEER_ID=$(sed -n 2p $HOME/aptos/identity/peer-info.yaml | sed 's/\(.*\):/\1/')
     PEER_ID=${PEER_ID//$'\r'/}
     docker stop aptos_tools &> /dev/null
