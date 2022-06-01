@@ -55,8 +55,8 @@ sleep 1
 echo ""
 #sudo wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && sudo chmod +x aptos.sh && sudo /bin/bash aptos.sh
 echo "1. Updating list of dependencies..." && sleep 1
-brew update
-brew install jq -y
+brew upgrade
+brew install jq
 # Installing yq to modify yaml files
 sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 sudo chmod a+x /usr/local/bin/yq
