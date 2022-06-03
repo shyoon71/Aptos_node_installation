@@ -76,8 +76,9 @@ then
     #brew update
     #brew install docker-ce docker-ce-cli containerd.io -y
     echo ""
+else
+    echo""
 fi
-
 echo "=================================================="
 
 echo "3. Checking if Docker Compose is installed ..." && sleep 1
