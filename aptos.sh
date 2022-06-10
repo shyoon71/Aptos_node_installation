@@ -152,7 +152,7 @@ else
 fi
 
 # Setting node identity
-/usr/local/bin/yq e -i ".full_node_networks[] +=  { 'identity': {'type': 'from_config', 'key': '"$PRIVATE_KEY"', 'peer_id': '"$PEER_ID"'} }" $HOME/aptos/public_full_node.yaml
+/usr/local/bin/yq e -i '.full_node_networks[] +=  { "identity": {"type": "from_config", "key": "'$PRIVATE_KEY'", "peer_id": "'$PEER_ID'"} }' $HOME/aptos/public_full_node.yaml
 
 # Setting peer list
 #/usr/local/bin/yq ea -i 'select(fileIndex==0).full_node_networks[0].seeds = select(fileIndex==1).seeds | select(fileIndex==0)' $HOME/aptos/public_full_node.yaml $HOME/aptos/seeds.yaml
