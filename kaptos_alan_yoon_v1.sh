@@ -161,7 +161,7 @@ then
     cp /root/public_full_node.yaml /root/aptos &&
     echo ""
     sleep 1
-    docker-compose up -d &&
+    docker compose up -d &&
     sleep 1
     echo ""
     echo ""
@@ -188,7 +188,7 @@ else
     # echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     # echo ""
     # echo ""
-    docker-compose up -d &&
+    docker compose up -d &&
     sleep 5
     echo ""
     echo ""
