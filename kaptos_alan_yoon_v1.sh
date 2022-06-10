@@ -48,6 +48,8 @@ else
     echo ""
     echo ""
 fi
+echo "Enter the docker image tag name(ex. devnet_22fd977c): "
+read tag
 sleep 1
 echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
 echo ""
@@ -121,7 +123,7 @@ grep -o "seeds: {}" /root/public_full_node.yaml > /root/seed.txt
 if [ -s /root/seed.txt ]
 then
     sed -i '/seeds:/d' /root/public_full_node.yaml &&
-    sed -i'' -r -e '/Define the upstream peers to connect to/a\    seeds:' /root/public_full_node.yaml &&
+    sed -i'' -r -e '/upstream peers/a\    seeds:' /root/public_full_node.yaml &&
     sleep 1
 else
     sleep 1    
