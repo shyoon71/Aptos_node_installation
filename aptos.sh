@@ -153,7 +153,7 @@ fi
 
 # Setting node identity
 /usr/local/bin/yq e -i '.full_node_networks[] +=  { "identity": {"type": "from_config", "key": "'$PRIVATE_KEY'", "peer_id": "'$PEER_ID'"} }' $HOME/public_full_node.yaml
-sed -i 's/$PRIVATE_KEY/"$PRIVATE_KEY"/g' $HOME/public_full_node.yaml
+sed -i 's/echo "$PRIVATE_KEY"/"$PRIVATE_KEY"/g' $HOME/public_full_node.yaml
 sed -i 's/$PEER_ID/"$PEER_ID"/g' $HOME/public_full_node.yaml
 
 # Setting peer list
