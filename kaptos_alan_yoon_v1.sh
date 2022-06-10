@@ -48,7 +48,7 @@ else
     echo ""
     echo ""
 fi
-echo "Enter the docker image tag name (ex. devnet_22fd977c): "
+echo "\e[1m\e[33mEnter the docker image tag name (ex. devnet_22fd977c):  \e[0m"
 read tag
 echo ""
 echo ""
@@ -74,7 +74,7 @@ echo "\e[1m\e[35mChecking your state_sync_driver's version and seed status now..
 echo ""
 echo ""
 cd aptos
-docker compose down &&
+docker compose down --volumes &&
 sleep 2
 grep -o "6180:6180" /root/aptos/docker-compose.yaml > /root/6180.txt
 sleep 0.5
@@ -139,6 +139,13 @@ then
     sed -i "s/127.0.0.1/0.0.0.0/g" /root/public_full_node.yaml &&
     sleep 1
 fi
+grep -o ":devnet" /root/aptos/docker-compose.yaml > /root/tag.txt &&
+sleep 1
+if [ -s /root/tag.txt ]
+then
+    sed -i "s/:devnet/:$tag/g" /root/aptos/docker-compose.yaml &&
+    sleep 1
+fi
 sleep 3
 grep -o "state_sync" /root/public_full_node.yaml > /root/v2_or_not.txt &&
 sleep 2
@@ -148,7 +155,7 @@ then
     cp /root/public_full_node.yaml /root/aptos &&
     echo ""
     sleep 1
-    docker compose up -d &&
+    docker-compose up -d &&
     sleep 1
     echo ""
     echo ""
@@ -175,7 +182,7 @@ else
     echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
     echo ""
     echo ""
-    docker compose up -d &&
+    docker-compose up -d &&
     sleep 5
     echo ""
     echo ""
