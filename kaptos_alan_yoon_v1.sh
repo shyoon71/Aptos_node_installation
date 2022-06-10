@@ -216,6 +216,7 @@ rm /root/kaptos_alan_yoon_v1.sh &> /dev/null &&
 rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
 rm /root/6180.txt &> /dev/null &&
+rm /root/tag.txt &> /dev/null &&
 #rm /root/admin_seed.txt &> /dev/null &&
 sleep 5
 echo ""
