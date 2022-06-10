@@ -65,8 +65,8 @@ if [ -f $HOME/aptos/docker-compose.yaml ]
 then
     docker compose down -v
 fi
-docker pull aptoslab/validator:devnet
-docker pull aptoslab/tools:devnet
+docker pull aptoslab/validator:$tag
+docker pull aptoslab/tools:$tag
 rm * &> /dev/null
 rm $HOME/aptos/identity/id.json &> /dev/null
 wget -P $HOME/aptos https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
@@ -80,7 +80,7 @@ echo "=================================================="
 # Checking if aptos node identity exists
 create_identity(){
     echo -e "\e[1m\e[32m4.1 Creating a unique node identity \e[0m"
-    docker run --rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
+    docker run --rm --name aptos_tools -d -i aptoslab/tools:$tag &> /dev/null
     docker exec -it aptos_tools aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file $HOME/private-key.txt | grep 'Success' &> /dev/null
     if [ $? == 0 ]; then
         docker exec -it aptos_tools cat $HOME/private-key.txt > $HOME/aptos/identity/private-key.txt
@@ -110,7 +110,7 @@ create_identity(){
 
 ## If private-key.txt exists and there is no peer-info.yaml file then we will regenerate it by using aptos tools docker
 generate_peer_info(){
-    docker run --rm --name aptos_tools -d -i aptoslab/tools:devnet &> /dev/null
+    docker run --rm --name aptos_tools -d -i aptoslab/tools:$tag &> /dev/null
     docker cp $HOME/aptos/identity/private-key.txt aptos_tools:/$HOME/private-key.txt
     docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --encoding hex --key-file $HOME/private-key.txt --output-file $HOME/peer-info.yaml &> /dev/null
     docker exec -it aptos_tools cat $HOME/peer-info.yaml > $HOME/aptos/identity/peer-info.yaml
