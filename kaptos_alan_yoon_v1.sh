@@ -166,22 +166,22 @@ then
     echo ""
     echo ""
 else
-    sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt &&
-    sleep 1
-    sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml &&
-    sleep 1
-    sed -i'' -r -e "/execution:/i\  state_sync_driver:" /root/public_full_node.yaml &&
-    sleep 1
-    sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml &&
-    sleep 1
+    # sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt &&
+    # sleep 1
+    # sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml &&
+    # sleep 1
+    # sed -i'' -r -e "/execution:/i\  state_sync_driver:" /root/public_full_node.yaml &&
+    # sleep 1
+    # sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml &&
+    # sleep 1
     cp /root/public_full_node.yaml /root/aptos
-    echo ""
-    echo ""
-    echo ""
-    sleep 5
-    echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
-    echo ""
-    echo ""
+    # echo ""
+    # echo ""
+    # echo ""
+    # sleep 5
+    # echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
+    # echo ""
+    # echo ""
     docker-compose up -d &&
     sleep 5
     echo ""
@@ -194,7 +194,7 @@ else
     echo ""
 fi
 echo "\e[1m\e[35mAnd from now another script for extracting your identity info and seed format for sharing starts... \e[0m"
-sleep 2
+echo 1
 wget -q -O aptos_seed_format_alan_yoon.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_seed_format_alan_yoon.sh && chmod +x aptos_seed_format_alan_yoon.sh && sudo /bin/bash aptos_seed_format_alan_yoon.sh > ../my_seed_format.txt && sed "s/^M//g" ../my_seed_format.txt > /dev/null && sed -i "s/'/\"/g" ../my_seed_format.txt
 cat ../my_seed_format.txt
 sleep 1
