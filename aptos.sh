@@ -48,7 +48,7 @@ docker compose version &> /dev/null
 if [ $? -ne 0 ]
 then
 
-    echo -e "\e[1m\e[32m3.1 Installing Docker Compose v2.3.3 ... \e[0m" && sleep 1
+    echo -e "\e[1m\e[32m3.1 Installing Docker Compose v2.6.0 ... \e[0m" && sleep 1
     mkdir -p ~/.docker/cli-plugins/
     curl -SL https://github.com/docker/compose/releases/download/v2.6.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
     chmod +x ~/.docker/cli-plugins/docker-compose
