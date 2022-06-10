@@ -48,8 +48,10 @@ else
     echo ""
     echo ""
 fi
-echo "Enter the docker image tag name(ex. devnet_22fd977c): "
+echo "Enter the docker image tag name (ex. devnet_22fd977c): "
 read tag
+echo ""
+echo ""
 sleep 1
 echo "\e[1m\e[35mMain script for installing or updating identiable aptos node starts now. \e[0m"
 echo ""
