@@ -159,7 +159,7 @@ fi
 #rm $HOME/aptos/seeds.yaml
 
 # Add possibility to share your node as a peer
-/usr/local/bin/yq e -i '.full_node_networks[].listen_address="/ip4/0.0.0.0/tcp/6180"' $HOME/aptos/public_full_node.yaml
+/usr/local/bin/yq e -i '.full_node_networks[].listen_address="/ip4/0.0.0.0/tcp/6180"' $HOME/public_full_node.yaml
 /usr/local/bin/yq e -i '.services.fullnode.ports +=  "6180:6180"' $HOME/aptos/docker-compose.yaml
 
 echo -e "\e[1m\e[32m5. Starting Aptos FullNode ... \e[0m" && sleep 1
