@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while true :
+while true
 do
     cd $HOME/aptos
     count=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_storage_synchronizer_errors{error_label="unexpected_error"')
