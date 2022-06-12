@@ -172,16 +172,15 @@ then
     echo ""
     echo ""
 else
-    # sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt &&
-    # sleep 1
-    # sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml &&
-    # sleep 1
-    # sed -i'' -r -e "/execution:/i\  state_sync_driver:" /root/public_full_node.yaml &&
-    # sleep 1
-    # sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml &&
-    # sleep 1
+    sed -n 9,11p /root/aptos/public_full_node.yaml > /root/v2_or_not.txt &&
+    sleep 1
+    sed -i'' -r -e "/execution:/i\state_sync:" /root/public_full_node.yaml &&
+    sleep 1
+    sed -i'' -r -e "/execution:/i\  state_sync_driver:" /root/public_full_node.yaml &&
+    sleep 1
+    sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml &&
+    sleep 1
     cp /root/public_full_node.yaml /root/aptos
-    # echo ""
     # echo ""
     # echo ""
     # sleep 5
