@@ -15,12 +15,15 @@ do
         count4=$((count3 / ref))
         echo "\e[1m\e[33mSynchronizer_error is occurring, your node shoud be restarted now... \e[0m"
         echo "\e[1m\e[33mError count per minute : \e[1m\e[35m"$count4" \e[0m"
-        echo ""
+        today=$(date)
+        echo $today
         docker compose down && docker compose up -d
         echo ""
     else
         echo "\e[1m\e[33mYour node health is ok. \e[0m"
         echo "\e[1m\e[33mError count per minute : \e[1m\e[33m"$count4" \e[0m"
+        today=$(date)
+        echo $today
         echo ""
     fi
 done
