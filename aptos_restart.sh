@@ -14,16 +14,16 @@ do
     count2a=$(echo $counta | grep -o '[0-9]*')
     count2b=$(echo $countb | grep -o '[0-9]*')
     count3=$((count2a + count2b - count1a - count1b))
-    count4=$((count3 / 10))
+    count4=$(echo "scale=1;$count3 / 10" | bc -l)
     if [ $count3 -gt $ref ]
     then
-        echo "Sync error occurring, your node restarts now!! Error count per minute : "$count4""
+        echo "Node restarts now!! Sync error occurred count per minute : "$count4""
         today=$(date)
         echo $today
-        docker compose down && docker compose up -d
+        docker compose down &> /dev/null && docker compose up -d &> /dev/null
         echo ""
     else
-        echo "Node health is ok. Error count per minute : "$count4""
+        echo "Node health is ok. Sync error occurred count per minute : "$count4""
         today=$(date)
         echo $today
         echo ""
