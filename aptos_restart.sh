@@ -7,7 +7,7 @@ do
     sleep 30
     count2=$(echo $count | grep -o '[0-9]*')
     count3=$(expr $count2 - $count1)
-    if [ $count3 -gt 10 ]
+    if [ int($count3) -gt 10 ]
     then
         count4=$(expr $count3 / 10)
         echo "\e[1m\e[33mSynchronizer_error is occurring, so your node shoud be restarted now... \e[0m"
