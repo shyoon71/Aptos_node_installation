@@ -179,7 +179,7 @@ then
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     sleep 2
-    timeout 6 docker stats
+    timeout 3 docker stats
     echo ""
     echo ""
 else
@@ -205,7 +205,7 @@ else
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
     sleep 2
-    timeout 6 docker stats
+    timeout 3 docker stats
     echo ""
     echo ""
 fi
