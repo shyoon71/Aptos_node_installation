@@ -14,7 +14,7 @@ do
     count2a=$(echo $counta | grep -o '[0-9]*')
     count2b=$(echo $countb | grep -o '[0-9]*')
     count3=$((count2a + count2b - count1a - count1b))
-    count4=$((count3 / ref))
+    count4=$((count3 / 600))
     if [ $count3 -gt $ref ]
     then
         echo "Syncer_error and timeout are occurring, your node shoud be restarted now..."
