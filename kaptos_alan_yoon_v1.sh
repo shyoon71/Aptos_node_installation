@@ -145,6 +145,17 @@ then
     sed -i "s/127.0.0.1/0.0.0.0/g" /root/public_full_node.yaml &&
     sleep 1
 fi
+grep -o "  enabled: true" /root/public_full_node.yaml > /root/api.txt
+sleep 2
+if [ -s /root/api.txt ]
+then
+    echo ""
+    echo ""
+    sleep 1
+else
+    sed -i'' -r -e "/address: 0.0.0.0:8080/i\  enabled: true" /root/public_full_node.yaml
+    sleep 1
+fi
 grep -o ":devnet" /root/aptos/docker-compose.yaml > /root/tag.txt &&
 sleep 1
 if [ -s /root/tag.txt ]
@@ -167,7 +178,7 @@ then
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
-    sleep 5
+    sleep 2
     timeout 6 docker stats
     echo ""
     echo ""
@@ -181,19 +192,19 @@ else
     sed -i'' -r -e "/execution:/i\    enable_state_sync_v2: true" /root/public_full_node.yaml &&
     sleep 1
     cp /root/public_full_node.yaml /root/aptos
-    # echo ""
-    # echo ""
-    # sleep 5
-    # echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
-    # echo ""
-    # echo ""
+    echo ""
+    echo ""
+    sleep 1
+    echo "\e[1m\e[33mYour state_sync_driver's version config in 'public_full_node.yaml' was upgraded to v2 successfully. \e[0m"
+    echo ""
+    echo ""
     docker compose up -d &&
-    sleep 5
+    sleep 2
     echo ""
     echo ""
     echo "\e[1m\e[35mYour node is running and checking health status now. Wait until checking process is completed! \e[0m"
     echo ""
-    sleep 5
+    sleep 2
     timeout 6 docker stats
     echo ""
     echo ""
@@ -216,13 +227,14 @@ rm /root/127001.txt &> /dev/null &&
 rm /root/seed.txt &> /dev/null &&
 rm /root/6180.txt &> /dev/null &&
 rm /root/tag.txt &> /dev/null &&
+rm /root/api.txt &> /dev/null &&
 #rm /root/admin_seed.txt &> /dev/null &&
-sleep 5
+sleep 1
 echo ""
 echo ""
 echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
-sleep 5
+sleep 1
 echo ""
 echo ""
 echo "\e[1m\e[35mYour node is syncing Now, so be patient for a while. \e[0m"
@@ -230,11 +242,11 @@ sleep 5
 echo ""
 echo ""
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type &&
-sleep 2
+sleep 1
 echo ""
 echo ""
 echo "\e[1m\e[35mIf docker is running and synced number is increasing continuously, your node can be considered as normal running state. \e[0m"
-sleep 3
+sleep 2
 echo ""
 echo ""
 echo "\e[1m\e[33mDone!! Have a nide day! Thanks you for using my script. From Alan Yoon(discord id: @Alan Yoon#2149). \e[0m"
