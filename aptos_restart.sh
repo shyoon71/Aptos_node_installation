@@ -3,7 +3,9 @@
 while true
 do
     cd $HOME/aptos
-    count=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_storage_synchronizer_errors{error_label="unexpected_error"')
+    counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
+    countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
+    count=$((counta + countb))
     ref=20
     count1=$(echo $count | grep -o '[0-9]*')
     sleep 600
