@@ -4,7 +4,7 @@ while true
 do
     cd $HOME/aptos
     count1=$(echo $count | grep -o '[0-9]*')
-    sleep 600
+    sleep 30
     count2=$(echo $count | grep -o '[0-9]*')
     count3=$(expr $count2 - $count1)
     if [ $count3 -gt 10 ]
