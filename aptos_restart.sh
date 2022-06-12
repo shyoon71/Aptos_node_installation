@@ -17,15 +17,13 @@ do
     count4=$((count3 / 10))
     if [ $count3 -gt $ref ]
     then
-        echo "Syncer_error and timeout are occurring, your node shoud be restarted now..."
-        echo "Error count per minute : "$count4""
+        echo "Sync error occurring, your node restarts now!! Error count per minute : "$count4""
         today=$(date)
         echo $today
         docker compose down && docker compose up -d
         echo ""
     else
-        echo "Your node health is ok."
-        echo "Error count per minute : "$count4""
+        echo "Node health is ok. Error count per minute : "$count4""
         today=$(date)
         echo $today
         echo ""
