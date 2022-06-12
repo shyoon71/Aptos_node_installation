@@ -1,11 +1,13 @@
 #!/bin/bash
-count=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_storage_synchronizer_errors{error_label="unexpected_error"')
+
 while true
 do
     cd $HOME/aptos
+    count=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_storage_synchronizer_errors{error_label="unexpected_error"')
     ref=10
     count1=$(echo $count | grep -o '[0-9]*')
     sleep 600
+    count=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_storage_synchronizer_errors{error_label="unexpected_error"')
     count2=$(echo $count | grep -o '[0-9]*')
     count3=$((count2 - count1))
     if [ $count3 -gt $ref ]
