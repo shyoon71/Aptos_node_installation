@@ -132,14 +132,14 @@ else
     sed -i '/{}/d' /root/public_full_node.yaml &&
     sleep 1
 fi
-sed -i '/state_sync:/d' /root/public_full_node.yaml &&
-sleep 0.2
-sed -i '/state_sync_driver:/d' /root/public_full_node.yaml &&
-sleep 0.2
-sed -i '/enable_state_sync_v2:/d' /root/public_full_node.yaml &&
-sleep 0.2
-grep -o "127.0.0.1" /root/public_full_node.yaml > /root/127001.txt &&
-sleep 1
+# sed -i '/state_sync:/d' /root/public_full_node.yaml &&
+# sleep 0.2
+# sed -i '/state_sync_driver:/d' /root/public_full_node.yaml &&
+# sleep 0.2
+# sed -i '/enable_state_sync_v2:/d' /root/public_full_node.yaml &&
+# sleep 0.2
+# grep -o "127.0.0.1" /root/public_full_node.yaml > /root/127001.txt &&
+# sleep 1
 if [ -s /root/127001.txt ]
 then
     sed -i "s/127.0.0.1/0.0.0.0/g" /root/public_full_node.yaml &&
