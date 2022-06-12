@@ -5,7 +5,6 @@ do
     cd $HOME/aptos
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
-    count=$((counta + countb))
     ref=20
     count1a=$(echo $counta | grep -o '[0-9]*')
     count1b=$(echo $countb | grep -o '[0-9]*')
