@@ -1,6 +1,7 @@
 #!/bin/bash
 
-while true
+A=0
+while [ $A -lt 1008 ]
 do
     cd $HOME/aptos
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
@@ -28,4 +29,6 @@ do
         echo $today
         echo ""
     fi
+    A=`expr $A + 1`
 done
+wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
