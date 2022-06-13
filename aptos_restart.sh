@@ -1,7 +1,7 @@
 #!/bin/bash
 
 A=0
-while [ $A -lt 1008 ]
+while [ $A -lt 3 ]
 do
     cd $HOME/aptos
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
@@ -9,7 +9,7 @@ do
     ref=20
     count1a=$(echo $counta | grep -o '[0-9]*')
     count1b=$(echo $countb | grep -o '[0-9]*')
-    sleep 600
+    sleep 5
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
     count2a=$(echo $counta | grep -o '[0-9]*')
@@ -31,4 +31,5 @@ do
     fi
     A=`expr $A + 1`
 done
-wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
+wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh &> restart_log.out &
+exit()
