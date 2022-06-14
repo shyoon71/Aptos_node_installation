@@ -18,9 +18,9 @@ do
     count2b=$(echo $countb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
     count3=$((count2a + count2b - count1a - count1b))
-    count4=$(echo "scale=1;$count3 / 10" | bc -l)
+    count4=$((count3 / 10))
     count45=$(echo $count5)
-    tilt=$(echo "scale=1;$count45 / 5" | bc -l)
+    tilt=$((count45 / 5))
     count5=$((count2c - count1c))
     if [ $count5 -eq 0 ]
     then
