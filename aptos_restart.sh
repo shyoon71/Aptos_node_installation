@@ -25,7 +25,7 @@ do
         if [ $count3 -ne 0 ]
         then
             today=$(date)
-            echo " "$today"  Node health is ok. Sync error occurred count per minute : "$count4""
+            echo " "$today"  Node health is not bad. Sync error occurred count per minute : "$count4""
             echo ""
         fi
     fi
