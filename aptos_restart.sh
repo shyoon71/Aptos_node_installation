@@ -1,31 +1,53 @@
 #!/bin/bash
 
-A=0
+A=1
 while [ $A -lt 1008 ]
 do
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
-    ref=4000
+    countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_storage_ledger_version')
+    ref=2000
     count1a=$(echo $counta | grep -o '[0-9]*')
     count1b=$(echo $countb | grep -o '[0-9]*')
-    sleep 600
+    count1c=$(echo $countc | grep -o '[0-9]*')
+    sleep 300
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
+    countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_storage_ledger_version')
     count2a=$(echo $counta | grep -o '[0-9]*')
     count2b=$(echo $countb | grep -o '[0-9]*')
+    count2c=$(echo $countc | grep -o '[0-9]*')
     count3=$((count2a + count2b - count1a - count1b))
     count4=$(echo "scale=1;$count3 / 10" | bc -l)
-    if [ $count3 -gt $ref ]
+    count45=$(echo $count5)
+    tilt=$(echo "scale=1;$count45 / 5" | bc -l)
+    count5=$((count2c - count1c))
+    if [ $count5 -eq 0 ]
     then
         today=$(date)
-        echo " "$today"  Node Restarts Now!! Sync error occurred count per minute : "$count4""
-        docker compose restart
+        echo " "$today"  Syncing Stopped!!! Sync error count(/min) : "$count4""
+        docker compose restart &&
         echo ""
     else
-        if [ $count3 -ne 0 ]
+        if [ $count5 -gt $tilt ]
         then
+            if [ $count3 -gt $ref ]
+            then
+                today=$(date)
+                echo " "$today"  Node health is bad. Sync error count(/min) : "$count4""
+                echo ""
+            else
+                if [ $count3 -ne 0 ]
+                then
+                    today=$(date)
+                    echo " "$today"  Node health is not bad. Sync error occurred count per minute : "$count4""
+                    echo ""
+                fi
+            fi
+        else
             today=$(date)
-            echo " "$today"  Node health is not bad. Sync error occurred count per minute : "$count4""
+            echo " "$today"  Syncing speed has fallen below 20%!! Sync error count(/min) : "$count4""
+            docker compose restart &&
             echo ""
         fi
     fi
