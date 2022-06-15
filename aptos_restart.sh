@@ -27,7 +27,6 @@ do
         today=$(date)
         echo " "$today"  Syncing Stopped!!! Sync error count(/min) : "$count4""
         docker compose restart &&
-        echo ""
     else
         if [ $count5 -gt $tilt ]
         then
@@ -35,20 +34,17 @@ do
             then
                 today=$(date)
                 echo " "$today"  Node health is bad. Sync error count(/min) : "$count4""
-                echo ""
             else
                 if [ $count3 -ne 0 ]
                 then
                     today=$(date)
                     echo " "$today"  Node health is not bad. Sync error occurred count per minute : "$count4""
-                    echo ""
                 fi
             fi
         else
             today=$(date)
             echo " "$today"  Syncing speed has fallen below 20%!! Sync error count(/min) : "$count4""
             docker compose restart &&
-            echo ""
         fi
     fi
     A=`expr $A + 1`
