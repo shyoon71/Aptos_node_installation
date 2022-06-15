@@ -39,12 +39,12 @@ do
             if [ $count3 -gt $ref ]
             then
                 today=$(date)
-                echo " "$today"  Node health is bad. Sync error count("/"min) : "$count4""
+                echo " "$today"  Node health is bad. Sync error: "$count4""/"min"
             else
                 if [ $count3 -ne 0 ]
                 then
                     today=$(date)
-                    echo " "$today"  Node health is not bad. Sync error count("/"min) : "$count4""
+                    echo " "$today"  Node health is not bad. Sync error: "$count4""/"min"
                 fi
             fi
         else
@@ -61,7 +61,8 @@ do
                 else
                     today=$(date)
                     echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
-                    echo " "$today"  The error count level is not so high, no need to restart now. But node health should be checked."
+                    echo " "$today"  The error count level is not so high. Sync error: "$count4""/"min"
+                    echo " "$today"  No need to restart now. But node health should be checked!!"
                 fi
             fi
         fi
