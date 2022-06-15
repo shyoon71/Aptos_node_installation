@@ -1,8 +1,7 @@
-Installation-script
-
-  I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
 # Auto Setup/Update Script :
+
+I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
   1. Docker mode for devnet
   
@@ -17,26 +16,26 @@ Installation-script
   wget -q -O kaptos_alan_yoon_v2.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/kaptos_alan_yoon_v2.sh && chmod +x kaptos_alan_yoon_v2.sh && sudo sh ./kaptos_alan_yoon_v2.sh
 
 # Auto Restart Script :
-
-  1. Docker mode for common
   
   sudo wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
 
-< restart criteria >
+< operational criteria >
 
-  1.1 scan term: 5 min
+  1. log scan term: 5 min
   
-  1.2 target log phrase: aptos_state_sync_continuous_syncer_errors, aptos_state_sync_timeout
+  2. target log phrase: aptos_state_sync_continuous_syncer_errors, aptos_state_sync_timeout
   
-  1.3 print error count(/min) if there are difference beween terms  
+  3. print error count(/min) if there are errors occurred between terms
   
-  1.4 target log figure: aptos_storage_ledger_version
+  4. target log figure: aptos_storage_ledger_version
   
-  1.5 restart node if syncing speed has fallen below 20% between terms
+  5. restart node if ledger version stuck or syncing speed has fallen below 20% between terms
   
-  1.6 download and update restart script, refresh log(~/aptos/restart_log.out) every two days 
+  6. print message with ledger version if node completes catchup version 
+  
+  7. download and update restart script, refresh log(~/aptos/restart_log.out) every two days 
 
-# Notion guide page :
+# Notion Guide Page :
 
  Main - https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-Guide-6cc0e1081bda4e47b2a8b9fa0d81ef47
 
