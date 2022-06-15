@@ -53,9 +53,16 @@ do
                 today=$(date)
                 echo " "$today"  Node looks like catchup completed now. Former_version : "$count1c", Present_version : "$count2c""
             else
-                today=$(date)
-                echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
-                docker compose restart
+                if [ $count3 -gt $ref ]
+                then
+                    today=$(date)
+                    echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
+                    docker compose restart
+                else
+                    today=$(date)
+                    echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
+                    echo " "$today"  The error count level is not so high, no need to restart now. But node health should be checked."
+                fi
             fi
         fi
     fi
