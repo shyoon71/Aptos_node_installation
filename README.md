@@ -2,7 +2,7 @@ Installation-script
 
   I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
-# Auto Setup Script :
+# Auto Setup/Update Script :
 
   1. Docker mode for devnet
   
