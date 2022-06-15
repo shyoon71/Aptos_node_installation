@@ -48,6 +48,8 @@ Installation-script
 
   4. Auto Script (Auto Restart) - https://www.notion.so/Auto-Script-Auto-Restart-589bcb66304f4a4294439bd960042fd0
 
-  5. Monitoring (Prometheus and Grafana: No kubernetes) - https://www.notion.so/Monitoring-Prometheus-and-Grafana-3462e2dfc3b64a4a94d659b84ac19182
+  5. Monitoring (Prometheus and Grafana: Korean) - https://www.notion.so/Monitoring-Prometheus-and-Grafana-3462e2dfc3b64a4a94d659b84ac19182
 
-  6. Memory Solution for Low Spec. Server - https://www.notion.so/Memory-Solution-for-Low-Spec-Server-ad02e5f103e14fa48bbdea6809f67cde
+  6. Monitoring (Prometheus and Grafana: English) - https://superb-mulberry-ce1.notion.site/Monitoring-Node-Using-Prometheus-Service-52f03d307c5b405fb7483569c6fd47ca
+
+  7. Memory Swap Solution for Low Spec. Server - https://www.notion.so/Memory-Solution-for-Low-Spec-Server-ad02e5f103e14fa48bbdea6809f67cde
