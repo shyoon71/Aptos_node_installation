@@ -42,9 +42,15 @@ do
                 fi
             fi
         else
-            today=$(date)
-            echo " "$today"  Syncing speed has fallen below 20%!! Sync error count(/min) : "$count4""
-            docker compose restart &&
+            if [ $count3 -eq 0 ]
+            then
+                today=$(date)
+                echo " "$today"  Node looks like catchup completed now. Sync error count(/min) : "$count4""
+            else
+                today=$(date)
+                echo " "$today"  Syncing speed has fallen below 20%!! Sync error count(/min) : "$count4""
+                docker compose restart &&
+            fi
         fi
     fi
     A=`expr $A + 1`
