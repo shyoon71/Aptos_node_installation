@@ -31,11 +31,11 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main inst
   
   1.4 target log figure: aptos_storage_ledger_version
   
-  1.5 restart node if syncing speed has fallen below 20% between terms
+  1.5 restart node if ledger version stuck or syncing speed has fallen below 20% between terms
   
   1.6 download and update restart script, refresh log(~/aptos/restart_log.out) every two days 
 
-# Notion guide page :
+# Notion Guide Page :
 
  Main - https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-Guide-6cc0e1081bda4e47b2a8b9fa0d81ef47
 
