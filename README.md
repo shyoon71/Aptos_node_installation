@@ -2,7 +2,7 @@ Installation-script
 
   I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
-# Auto Setup Script :
+# Auto Setup/Update Script :
 
   1. Docker mode for devnet
   
@@ -22,6 +22,20 @@ Installation-script
   
   sudo wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
 
+< restart criteria >
+
+  1.1 scan term: 5 min
+  
+  1.2 target log phrase: aptos_state_sync_continuous_syncer_errors, aptos_state_sync_timeout
+  
+  1.3 print error count(/min) if there are difference beween terms  
+  
+  1.4 target log figure: aptos_storage_ledger_version
+  
+  1.5 restart node if syncing speed has fallen below 20% between terms
+  
+  1.6 download and update restart script, refresh log(~/aptos/restart_log.out) every two days 
+
 # Notion guide page :
 
  Main - https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-Guide-6cc0e1081bda4e47b2a8b9fa0d81ef47
@@ -34,6 +48,8 @@ Installation-script
 
   4. Auto Script (Auto Restart) - https://www.notion.so/Auto-Script-Auto-Restart-589bcb66304f4a4294439bd960042fd0
 
-  5. Monitoring (Prometheus and Grafana: No kubernetes) - https://www.notion.so/Monitoring-Prometheus-and-Grafana-3462e2dfc3b64a4a94d659b84ac19182
+  5. Monitoring (Prometheus and Grafana: Korean) - https://www.notion.so/Monitoring-Prometheus-and-Grafana-3462e2dfc3b64a4a94d659b84ac19182
 
-  6. Memory Solution for Low Spec. Server - https://www.notion.so/Memory-Solution-for-Low-Spec-Server-ad02e5f103e14fa48bbdea6809f67cde
+  6. Monitoring (Prometheus and Grafana: English) - https://superb-mulberry-ce1.notion.site/Monitoring-Node-Using-Prometheus-Service-52f03d307c5b405fb7483569c6fd47ca
+
+  7. Memory Swap Solution for Low Spec. Server - https://www.notion.so/Memory-Solution-for-Low-Spec-Server-ad02e5f103e14fa48bbdea6809f67cde
