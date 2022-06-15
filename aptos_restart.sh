@@ -30,7 +30,7 @@ do
             echo " "$today"  Node looks like already stopped now."
         else
             today=$(date)
-            echo " "$today"  Syncing Stopped!!! Aptos_storage_ledger_version : "$count2c""
+            echo " "$today"  Syncing Stopped!!! Former_version : "$count1c", Present_version : "$count2c""
             docker compose restart
         fi
     else
@@ -51,7 +51,7 @@ do
             if [ $count3 -eq 0 ]
             then
                 today=$(date)
-                echo " "$today"  Node looks like catchup completed now. Sync error count("/"min) : "$count4""
+                echo " "$today"  Node looks like catchup completed now. Former_version : "$count1c", Present_version : "$count2c""
             else
                 today=$(date)
                 echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
