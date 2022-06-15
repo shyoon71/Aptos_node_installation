@@ -24,9 +24,15 @@ do
     count5=$((count2c - count1c))
     if [ $count5 -eq 0 ]
     then
-        today=$(date)
-        echo " "$today"  Syncing Stopped!!! Sync error count("/"min) : "$count4""
-        docker compose restart
+        if [ $count3 -eq 0 ]
+        then
+            today=$(date)
+            echo " "$today"  Node looks like already stopped now."
+        else
+            today=$(date)
+            echo " "$today"  Syncing Stopped!!! Aptos_storage_ledger_version : "$count2c""
+            docker compose restart
+        fi
     else
         if [ $count5 -gt $tilt ]
         then
@@ -48,7 +54,7 @@ do
                 echo " "$today"  Node looks like catchup completed now. Sync error count("/"min) : "$count4""
             else
                 today=$(date)
-                echo " "$today"  Syncing speed has fallen below 20%!! Sync error count("/"min) : "$count4""
+                echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
                 docker compose restart
             fi
         fi
