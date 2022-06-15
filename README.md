@@ -1,7 +1,8 @@
+# For beginners who want to install node and experience the amazing Aptos network
 
 # Auto Setup/Update Script :
 
-I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script.
+I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main installation script.
 
   1. Docker mode for devnet
   
