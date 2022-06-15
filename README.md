@@ -1,8 +1,7 @@
-Installation-script
-
-  I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
 # Auto Setup/Update Script :
+
+I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
 
   1. Docker mode for devnet
   
@@ -22,13 +21,13 @@ Installation-script
   
   sudo wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
 
-< restart criteria >
+< operational criteria >
 
   1.1 scan term: 5 min
   
   1.2 target log phrase: aptos_state_sync_continuous_syncer_errors, aptos_state_sync_timeout
   
-  1.3 print error count(/min) if there are difference beween terms  
+  1.3 print error count(/min) if there are errors occurred between terms  
   
   1.4 target log figure: aptos_storage_ledger_version
   
