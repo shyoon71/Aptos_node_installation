@@ -1,7 +1,8 @@
+# For beginners who want to install node and experience the amazing Aptos network
 
 # Auto Setup/Update Script :
 
-I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main installation script
+I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main installation script.
 
   1. Docker mode for devnet
   
@@ -29,7 +30,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main inst
   
   4. target log figure: aptos_storage_ledger_version
   
-  5. restart node if ledger version stuck or syncing speed has fallen below 20% between terms
+  5. restart node if ledger version stuck or syncing speed has fallen below 20% between terms with error count > 100 min
   
   6. print message with ledger version if node completes catchup version 
   
@@ -47,8 +48,8 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s script as the main inst
 
   4. Auto Script (Auto Restart) - https://www.notion.so/Auto-Script-Auto-Restart-589bcb66304f4a4294439bd960042fd0
 
-  5. Monitoring (Prometheus and Grafana: Korean) - https://www.notion.so/Monitoring-Prometheus-and-Grafana-3462e2dfc3b64a4a94d659b84ac19182
+  5. Monitoring (Prometheus and Grafana: Korean) - https://superb-mulberry-ce1.notion.site/Monitoring-Node-Background-Service-3462e2dfc3b64a4a94d659b84ac19182
 
-  6. Monitoring (Prometheus and Grafana: English) - https://superb-mulberry-ce1.notion.site/Monitoring-Node-Using-Prometheus-Service-52f03d307c5b405fb7483569c6fd47ca
+  6. Monitoring (Prometheus and Grafana: English) - https://superb-mulberry-ce1.notion.site/Monitoring-Node-English-Version-52f03d307c5b405fb7483569c6fd47ca
 
   7. Memory Swap Solution for Low Spec. Server - https://www.notion.so/Memory-Solution-for-Low-Spec-Server-ad02e5f103e14fa48bbdea6809f67cde
