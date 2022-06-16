@@ -32,7 +32,6 @@ do
             today=$(date)
             echo " "$today"  Syncing Stopped!!! Former_version : "$count1c", Present_version : "$count2c""
             docker compose restart
-            echo "Syncing stopped, so node restarted!!" | mail -s "Node Restarted!!!" shwan.yoon@hotmail.com
         fi
     else
         if [ $count5 -gt $tilt ]
@@ -59,7 +58,6 @@ do
                     today=$(date)
                     echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
                     docker compose restart
-                    echo "Syncing speed too slow, so node restarted!!" | mail -s "Node Restarted!!!" shwan.yoon@hotmail.com
                 else
                     today=$(date)
                     echo " "$today"  Syncing speed has fallen below 20%!! Former_version : "$count1c", Present_version : "$count2c""
