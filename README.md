@@ -22,19 +22,27 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
 
 < operational criteria >
 
-  1. log scan term: 5 min
+  1. log scan term: 1 min
   
-  2. target log phrase: aptos_state_sync_continuous_syncer_errors, aptos_state_sync_timeout
+  2. target log phrase:
+ 
+    2-1. aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}
+
+    2-2. aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}
+    
+    2-3. aptos_state_sync_timeout_total
   
-  3. print error count(/min) if there are errors occurred between terms
+  3. print total error count(/min) if there are errors occurred between terms
   
-  4. target log figure: aptos_storage_ledger_version
+  4. target log figure: 
+
+    4-1. aptos_state_sync_version{type="synced"}
   
-  5. restart node if ledger version stuck or syncing speed has fallen below 20% between terms with error count > 100 min
+  5. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 60 per minute
   
   6. print message with ledger version if node completes catchup version 
   
-  7. download and update restart script, refresh log(~/aptos/restart_log.out) every two days 
+  7. download and update restart script, refresh log(~/aptos/restart_log.out) every 24 hours 
 
 # Notion Guide Page :
 
