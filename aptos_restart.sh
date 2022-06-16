@@ -34,7 +34,7 @@ do
             echo " "$today"  Node looks like already stopped, it's not running now."
         else
             today=$(date)
-            echo " "$today"  Syncing Stopped!!! Former_synced : "$count1c", Present_synced : "$count2c""
+            echo " "$today"  Syncing Stopped!!! Previous_synced : "$count1c", Present_synced : "$count2c""
             docker compose restart
         fi
     else
@@ -55,16 +55,16 @@ do
             if [ $count3 -eq 0 ]
             then
                 today=$(date)
-                echo " "$today"  Node looks like catchup completed now. Former_synced : "$count1c", Present_synced : "$count2c""
+                echo " "$today"  Node looks like catchup completed now. Previous_synced : "$count1c", Present_synced : "$count2c""
             else
                 if [ $count3 -gt $ref ]
                 then
                     today=$(date)
-                    echo " "$today"  Syncing speed has fallen below 20%!! Former_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
                 else
                     today=$(date)
-                    echo " "$today"  Syncing speed has fallen below 20%!! Former_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
                     echo " "$today"  The error count level is not so high. Sync error: "$count4""/"min"
                     echo " "$today"  No need to restart now. But node health should be checked!!"
                 fi
