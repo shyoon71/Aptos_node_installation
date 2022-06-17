@@ -71,8 +71,8 @@ do
                 else
                     today=$(date)
                     echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
-                    echo " "$today"  The error count level is not so high. Sync error: "$count4""/"min"
-                    echo " "$today"  No need to restart now. But node health should be checked!!"
+                    echo " "$today"  The error count level is not so high, so no need to restart now."
+                    echo " "$today"  It looks like stopped manually by you"
                 fi
             fi
         fi
