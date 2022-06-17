@@ -93,7 +93,6 @@ do
                     else
                         today=$(date)
                         echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
-                        echo " "$today"  The error count level is not so high, so no need to restart now."
                         echo " "$today"  I think you just restarted the node manually, didn't you?"
                     fi
                 fi
