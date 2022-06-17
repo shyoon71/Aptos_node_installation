@@ -70,7 +70,7 @@ do
             if [ $count3 -eq 0 ]
             then
                 today=$(date)
-                echo " "$today"  Node looks like catchup completed now. Previous_synced : "$count1c", Present_synced : "$count2c""
+                echo " "$today"  Node is finishing the high speed catchup. Previous_synced : "$count1c", Present_synced : "$count2c""
             else
                 if [ $count3 -gt $ref ]
                 then
