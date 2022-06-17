@@ -69,8 +69,15 @@ do
         else
             if [ $count3 -eq 0 ]
             then
-                today=$(date)
-                echo " "$today"  Node is finishing the high speed catchup. Previous_synced : "$count1c", Present_synced : "$count2c""
+                if [ -z $count2c ]
+                then
+                    today=$(date)
+                    echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  I think you just stopped the node manually, didn't you?"
+                else
+                    today=$(date)
+                    echo " "$today"  Node is finishing catchup now. Previous_synced : "$count1c", Present_synced : "$count2c""
+                fi
             else
                 if [ $count3 -gt $ref ]
                 then
