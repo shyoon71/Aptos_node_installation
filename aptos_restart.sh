@@ -7,7 +7,7 @@ do
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}')
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
-    ref=60
+    ref=10
     count1a=$(echo $counta | grep -o '[0-9]*')
     count1b=$(echo $countb | grep -o '[0-9]*')
     count1bb=$(echo $countbb | grep -o '[0-9]*')
@@ -59,6 +59,7 @@ do
             then
                 today=$(date)
                 echo " "$today"  Node health is bad. Sync error: "$count4""/"min"
+                echo " "$today"  Check your node health or configuration!!"
             else
                 if [ $count3 -ne 0 ]
                 then
