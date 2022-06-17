@@ -22,11 +22,7 @@ do
     count2b=$(echo $countb | grep -o '[0-9]*')
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
-    outbound1=$(echo "${outbound:(-2)}")
-    if [ $outbound1 -eq null ] 2>/dev/null
-    then
-        outbound1=0
-    fi
+    export outbound1='echo "${outbound:(-2)}"'
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
@@ -36,7 +32,7 @@ do
     then
         if [ $count3 -eq 0 ]
         then
-            if [ $outbound1 -eq 0 ]
+            if [ -z $outbound1 ]
             then
                 today=$(date)
                 echo " "$today"  There's no available peers, so syncing stopped"
