@@ -23,6 +23,12 @@ do
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
     outbound1=$(echo $outbound | grep -o '[0-9]*')
+    if [ $outbound1 -eq $outbound1 ] 2>/dev/null
+    then
+        echo ""
+    else
+        outbound1=0
+    fi
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
