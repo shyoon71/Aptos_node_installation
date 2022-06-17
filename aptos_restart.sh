@@ -83,6 +83,7 @@ do
                 if [ $count3 -gt $ref ]
                 then
                     today=$(date)
+                    echo " "$today"  Node health is bad. Sync error: "$count4""/"min"
                     echo " "$today"  Syncing speed has fallen below 20%!!! Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
                 else
