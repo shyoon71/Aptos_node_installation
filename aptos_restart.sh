@@ -34,7 +34,7 @@ do
             then
                 today=$(date)
                 echo " "$today"  Node running now, but no syncing no errors, it looks like no peers."
-                echo " "$today"  No need to restart now. But node health should be checked!!"
+                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"
             else
                 today=$(date)
                 echo " "$today"  Node looks like already stopped, it's not running now. Maybe you stopped the node."
