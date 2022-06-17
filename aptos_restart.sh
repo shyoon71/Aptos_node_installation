@@ -27,7 +27,7 @@ do
     then
         echo ""
     else
-        outbound1=0
+        outbound1=1000
     fi
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
@@ -38,7 +38,7 @@ do
     then
         if [ $count3 -eq 0 ]
         then
-            if [ $outbound1 -eq 0 ]
+            if [ $outbound1 -eq 1000 ]
             then
                 today=$(date)
                 echo " "$today"  There's no available peers, so syncing stopped"
