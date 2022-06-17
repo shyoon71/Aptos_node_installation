@@ -1,7 +1,7 @@
 #!/bin/bash
 
 A=1
-while [ $A -lt 1441 ]
+while [ $A -lt 10081 ]
 do
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
