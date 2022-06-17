@@ -73,7 +73,7 @@ do
                 then
                     today=$(date)
                     echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
-                    echo " "$today"  I think you just stopped the node manually, didn't you?"
+                    echo " "$today"  I think you just stopped the node manually, didn't you? This script won't restart node."
                 else
                     today=$(date)
                     echo " "$today"  Node is finishing catchup now. Previous_synced : "$count1c", Present_synced : "$count2c""
