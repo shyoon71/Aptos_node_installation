@@ -22,7 +22,7 @@ do
     count2b=$(echo $countb | grep -o '[0-9]*')
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
-    outbound1=$(echo $outbound | grep -o '[0-9]*')
+    outbound1=$(echo "${outbound:(-2)}")
     if [ $outbound1 -eq $outbound1 ] 2>/dev/null
     then
         echo ""
