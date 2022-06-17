@@ -22,7 +22,7 @@ do
     count2b=$(echo $countb | grep -o '[0-9]*')
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
-    export outbound1='echo "${outbound:(-2)}"'
+    export outbound1=$(echo "${outbound:(-2)}")
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
