@@ -12,7 +12,7 @@ do
     count1b=$(echo $countb | grep -o '[0-9]*')
     count1bb=$(echo $countbb | grep -o '[0-9]*')
     count1c=$(echo $countc | grep -o '[0-9]*')
-    sleep 60
+    sleep 1
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}')
@@ -28,15 +28,24 @@ do
     count45=$(echo $count5)
     tilt=$((count45 / 5))
     count5=$((count2c - count1c))
+    dockera=$(docker ps | grep aptoslab)
     if [ $count5 -eq 0 ]
     then
         if [ $count3 -eq 0 ]
         then
             if [ -z $outbound1 ]
             then
-                today=$(date)
-                echo " "$today"  There's no available peers, so syncing stopped"
-                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"
+                if [ -z $dockera ]
+                then
+                    today=$(date)
+                    echo " "$today"  Node "already" stopped!! Docker exited, too!!"
+                    echo " "$today"  Maybe you're working on it, this script won't restart node."
+                else
+                    today=$(date)
+                    echo " "$today"  Syncing Stopped!!! There's no actvie outbound connection!!"
+                    echo " "$today"  Check your node health or configuration!!"
+                    docker compose restart
+                fi
             fi
         else
             today=$(date)
