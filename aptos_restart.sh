@@ -36,7 +36,7 @@ do
             then
                 today=$(date)
                 echo " "$today"  There's no available peers, so syncing stopped"
-                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"            
+                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"
             fi
         else
             today=$(date)
