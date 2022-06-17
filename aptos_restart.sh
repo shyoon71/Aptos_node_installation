@@ -17,10 +17,12 @@ do
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_timeout_total')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}')
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
+    outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_connections{direction="outbound"')
     count2a=$(echo $counta | grep -o '[0-9]*')
     count2b=$(echo $countb | grep -o '[0-9]*')
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     count2c=$(echo $countc | grep -o '[0-9]*')
+    outbound1=$(echo $outbound | grep -o '[0-9]*')
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
@@ -30,19 +32,15 @@ do
     then
         if [ $count3 -eq 0 ]
         then
-            if [ "$( docker container inspect -f '{{.State.Running}}' $aptos-fullnode-1 )" == "true" ]
+            if [ $outbound1 -eq 0 ]
             then
                 today=$(date)
-                echo " "$today"  Node running now, but no syncing no errors, it looks like no peers."
-                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"
-            else
-                today=$(date)
-                echo " "$today"  Node looks like already stopped, it's not running now. Maybe you stopped the node."
-                echo " "$today"  Node should be started manually, because this script doesn't know why already stopped."
-            fi    
+                echo " "$today"  There's no available peers, so syncing stopped"
+                echo " "$today"  No need to restart now. But node configuration and health should be checked!!"            
+            fi
         else
             today=$(date)
-            echo " "$today"  Syncing Stopped!!! Previous_synced : "$count1c", Present_synced : "$count2c""
+            echo " "$today"  Syncing Stopped, clearly!!! Version freezed!!! : "$count2c""
             docker compose restart
         fi
     else
