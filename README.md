@@ -42,7 +42,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   6. print message with ledger version if node completes catchup version 
   
-  7. download and update restart script, refresh log(~/aptos/restart_log.out) every 24 hours 
+  7. download and update restart script, refresh log(~/aptos/restart_log.out) every week 
 
 # Notion Guide Page :
 
