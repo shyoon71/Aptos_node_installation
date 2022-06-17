@@ -85,10 +85,17 @@ do
                     echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
                 else
-                    today=$(date)
-                    echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
-                    echo " "$today"  The error count level is not so high, so no need to restart now."
-                    echo " "$today"  I think you just restarted the node manually, didn't you?"
+                    if [ -z $count2c ]
+                    then
+                        today=$(date)
+                        echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
+                        echo " "$today"  I think you just stopped the node manually, didn't you? This script won't restart node."
+                    else
+                        today=$(date)
+                        echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
+                        echo " "$today"  The error count level is not so high, so no need to restart now."
+                        echo " "$today"  I think you just restarted the node manually, didn't you?"
+                    fi
                 fi
             fi
         fi
