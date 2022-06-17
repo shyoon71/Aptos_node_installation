@@ -42,14 +42,14 @@ do
                     echo " "$today"  Maybe you're working on it, This script won't restart node."
                 else
                     today=$(date)
-                    echo " "$today"  Syncing Stopped!!! There's no actvie outbound connection!!"
+                    echo " "$today"  Syncing is definitely Stopped!!! No outbound connection!!"
                     echo " "$today"  Check your node health or configuration!!"
                     docker compose restart
                 fi
             fi
         else
             today=$(date)
-            echo " "$today"  Syncing Stopped, clearly!!! Version freezed!!! : "$count2c""
+            echo " "$today"  Syncing is definitely stopped!!! Version freezed!!! : "$count2c""
             docker compose restart
         fi
     else
@@ -58,13 +58,13 @@ do
             if [ $count3 -gt $ref ]
             then
                 today=$(date)
-                echo " "$today"  Node health is bad. Sync error: "$count4""/"min"
+                echo " "$today"  Node health is bad. Sync error "$count4""/"min occurred."
                 echo " "$today"  Check your node health or configuration!!"
             else
                 if [ $count3 -ne 0 ]
                 then
                     today=$(date)
-                    echo " "$today"  Node health is not bad. Sync error: "$count4""/"min"
+                    echo " "$today"  Node health is not bad. Sync error "$count4""/"min occurred."
                 fi
             fi
         else
@@ -74,27 +74,32 @@ do
                 then
                     today=$(date)
                     echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
-                    echo " "$today"  I think you just stopped the node manually, didn't you? This script won't restart node."
+                    echo " "$today"  I think you just stopped the node manually, didn't you?"
+                    echo " "$today"  This script won't restart node now."
                 else
                     today=$(date)
-                    echo " "$today"  Node is finishing catchup now. Syncing well done. Previous_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Node is finishing catchup now. Syncing well done."
+                    echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                 fi
             else
                 if [ $count3 -gt $ref ]
                 then
                     today=$(date)
-                    echo " "$today"  Node health is bad. Sync error: "$count4""/"min"
-                    echo " "$today"  Syncing speed has fallen below 20%!!! Previous_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Node health is bad. Sync error "$count4""/"min occurred."
+                    echo " "$today"  Syncing speed has fallen below 20%!!!"
+                    echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
                 else
                     if [ -z $count2c ]
                     then
                         today=$(date)
                         echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
-                        echo " "$today"  I think you just stopped the node manually, didn't you? This script won't restart node."
+                        echo " "$today"  I think you just stopped the node manually, didn't you?"
+                        echo " "$today"  This script won't restart node now."
                     else
                         today=$(date)
-                        echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
+                        echo " "$today"  Syncing speed has fallen below 20%!!" 
+                        echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                         echo " "$today"  I think you just restarted the node manually, didn't you?"
                     fi
                 fi
