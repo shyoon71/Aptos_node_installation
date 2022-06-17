@@ -30,8 +30,16 @@ do
     then
         if [ $count3 -eq 0 ]
         then
-            today=$(date)
-            echo " "$today"  Node looks like already stopped, it's not running now."
+            if [ "$( docker container inspect -f '{{.State.Running}}' $aptos-fullnode-1 )" == "true" ]
+            then
+                today=$(date)
+                echo " "$today"  Node running now, but no syncing no errors, it looks like no peers."
+                echo " "$today"  No need to restart now. But node health should be checked!!"
+            else
+                today=$(date)
+                echo " "$today"  Node looks like already stopped, it's not running now. Maybe you stopped the node."
+                echo " "$today"  Node should be started manually, because this script doesn't know why already stopped."
+            fi    
         else
             today=$(date)
             echo " "$today"  Syncing Stopped!!! Previous_synced : "$count1c", Present_synced : "$count2c""
