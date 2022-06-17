@@ -82,7 +82,7 @@ do
                 if [ $count3 -gt $ref ]
                 then
                     today=$(date)
-                    echo " "$today"  Syncing speed has fallen below 20%!! Previous_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Syncing speed has fallen below 20%!!! Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
                 else
                     if [ -z $count2c ]
