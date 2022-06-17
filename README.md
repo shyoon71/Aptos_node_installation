@@ -38,7 +38,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
 
     4-1. aptos_state_sync_version{type="synced"}
   
-  5. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 60 per minute
+  5. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute
   
   6. print message with ledger version if node completes catchup version 
   
