@@ -76,7 +76,7 @@ do
                     echo " "$today"  I think you just stopped the node manually, didn't you? This script won't restart node."
                 else
                     today=$(date)
-                    echo " "$today"  Node is finishing catchup now. Previous_synced : "$count1c", Present_synced : "$count2c""
+                    echo " "$today"  Node is finishing catchup now. Syncing well done. Previous_synced : "$count1c", Present_synced : "$count2c""
                 fi
             else
                 if [ $count3 -gt $ref ]
