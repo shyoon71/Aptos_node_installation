@@ -39,7 +39,7 @@ do
                 then
                     today=$(date)
                     echo " "$today"  Node "already" stopped!! Docker exited, too!!"
-                    echo " "$today"  Maybe you're working on it, this script won't restart node."
+                    echo " "$today"  Maybe you're working on it, This script won't restart node."
                 else
                     today=$(date)
                     echo " "$today"  Syncing Stopped!!! There's no actvie outbound connection!!"
