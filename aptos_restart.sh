@@ -1,6 +1,7 @@
 #!/bin/bash
 
 A=1
+B=1
 while [ $A -lt 10081 ]
 do
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}')
@@ -39,18 +40,29 @@ do
                 then
                     today=$(date)
                     echo " "$today"  Node "already" stopped!! Docker exited, too!!"
-                    echo " "$today"  Maybe you're working on it, This script won't restart node."
+                    echo " "$today"  Maybe you're working on it, This script won't restart node now."
+                    B=`expr $B + 1`
+                    if [ $B -eq 11 ]
+                    then
+                        today=$(date)
+                        echo " "$today"  10 minutes already passed with the node stopped status."
+                        echo " "$today"  The node must continue to run!!"
+                        docker compose up -d
+                        B=1
+                    fi
                 else
                     today=$(date)
                     echo " "$today"  Syncing is definitely Stopped!!! No outbound connection!!"
                     echo " "$today"  Check your node health or configuration!!"
                     docker compose restart
+                    B=1
                 fi
             fi
         else
             today=$(date)
             echo " "$today"  Syncing is definitely stopped!!! Version freezed!!! : "$count2c""
             docker compose restart
+            B=1
         fi
     else
         if [ $count5 -gt $tilt ]
@@ -76,6 +88,16 @@ do
                     echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
                     echo " "$today"  I think you just stopped the node manually, didn't you?"
                     echo " "$today"  This script won't restart node now."
+                    B=`expr $B + 1`
+                    if [ $B -eq 11 ]
+                    then
+                        today=$(date)
+                        echo " "$today"  10 minutes already passed with the node stopped status."
+                        echo " "$today"  The node must continue to run!!"
+                        docker compose restart
+                        docker compose up -d
+                        B=1
+                    fi
                 else
                     today=$(date)
                     echo " "$today"  Node is finishing catchup now. Syncing well done."
@@ -89,6 +111,7 @@ do
                     echo " "$today"  Syncing speed has fallen below 20%!!!"
                     echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose restart
+                    B=1
                 else
                     if [ -z $count2c ]
                     then
@@ -96,6 +119,16 @@ do
                         echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
                         echo " "$today"  I think you just stopped the node manually, didn't you?"
                         echo " "$today"  This script won't restart node now."
+                        B=`expr $B + 1`
+                        if [ $B -eq 11 ]
+                        then
+                            today=$(date)
+                            echo " "$today"  10 minutes already passed with the node stopped status."
+                            echo " "$today"  The node must continue to run!!"
+                            docker compose restart
+                            docker compose up -d
+                            B=1
+                        fi
                     else
                         today=$(date)
                         echo " "$today"  Syncing speed has fallen below 20%!!"
