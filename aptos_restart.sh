@@ -98,7 +98,7 @@ do
                         echo " "$today"  This script won't restart node now."
                     else
                         today=$(date)
-                        echo " "$today"  Syncing speed has fallen below 20%!!" 
+                        echo " "$today"  Syncing speed has fallen below 20%!!"
                         echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                         echo " "$today"  I think you just restarted the node manually, didn't you?"
                     fi
