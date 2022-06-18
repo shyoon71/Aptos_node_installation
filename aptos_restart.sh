@@ -108,5 +108,7 @@ do
     fi
     A=`expr $A + 1`
 done
+rm ./restart_log.old
+mv ./restart_log.out ./restart_log.old
 wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh &> restart_log.out &
 exit()
