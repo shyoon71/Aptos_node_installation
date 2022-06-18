@@ -32,7 +32,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
     
     2-3. aptos_state_sync_timeout_total
   
-  3. print total error count(/min) if there are errors occurred between terms
+  3. print total error count(/min) if there are errors count > 10 per minute between terms
   
   4. target log figure: 
 
@@ -40,9 +40,11 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   5. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute
   
-  6. print message with ledger version if node completes catchup version 
+  6. Forcibly starting the node after 10 minutes has elapsed while the node has already stopped abruptly due to an uncertain cause and the docker remains in the exited state.
   
-  7. download and update restart script, refresh log(~/aptos/restart_log.out) every week 
+  7. print message with ledger version if node completes catchup version 
+  
+  8. download and update restart script, refresh log(~/aptos/restart_log.out) every week 
 
 # Notion Guide Page :
 
