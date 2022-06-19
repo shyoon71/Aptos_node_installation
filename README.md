@@ -42,7 +42,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   6. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute
   
-  7. Forcibly starting the node after 10 minutes has elapsed while the node has already stopped abruptly due to an uncertain cause and the docker remains in the exited state.
+  7. Forcibly starting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
   
   8. print message with ledger version if node completes catchup version 
   
