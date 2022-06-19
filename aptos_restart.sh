@@ -39,13 +39,14 @@ do
                 if [ -z $dockera ]
                 then
                     today=$(date)
-                    echo " "$today"  Node "already" stopped!! Docker exited, too!!"
-                    echo " "$today"  Maybe you're working on it, This script won't restart node now."
+                    echo " "$today"  Node already stopped!! Docker exited, too!!"
+                    echo " "$today"  The cause is unknown. Or maybe you manually down the node."
+                    echo " "$today"  This script won't restart node for now."
                     B=`expr $B + 1`
-                    if [ $B -eq 11 ]
+                    if [ $B -eq 6 ]
                     then
                         today=$(date)
-                        echo " "$today"  10 minutes already passed with the node stopped status."
+                        echo " "$today"  5 minutes already passed with the node stopped status."
                         echo " "$today"  The node must continue to run!!"
                         docker compose up -d
                         B=1
@@ -53,7 +54,7 @@ do
                 else
                     today=$(date)
                     echo " "$today"  Syncing is definitely Stopped!!! No outbound connection!!"
-                    echo " "$today"  Check your node health or configuration!!"
+                    echo " "$today"  The node should be restarted!! Check your node health or configuration!!"
                     docker compose restart
                     B=1
                 fi
@@ -85,14 +86,14 @@ do
                 if [ -z $count2c ]
                 then
                     today=$(date)
-                    echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
-                    echo " "$today"  I think you just stopped the node manually, didn't you?"
-                    echo " "$today"  This script won't restart node now."
+                    echo " "$today"  Node stopped !! Syncing stopped, too!! Previous_synced : "$count1c""
+                    echo " "$today"  The cause is unknown. Or maybe you manually down the node."
+                    echo " "$today"  This script won't restart node for now."
                     B=`expr $B + 1`
-                    if [ $B -eq 11 ]
+                    if [ $B -eq 6 ]
                     then
                         today=$(date)
-                        echo " "$today"  10 minutes already passed with the node stopped status."
+                        echo " "$today"  5 minutes already passed with the node stopped status."
                         echo " "$today"  The node must continue to run!!"
                         docker compose restart
                         docker compose up -d
@@ -116,14 +117,14 @@ do
                     if [ -z $count2c ]
                     then
                         today=$(date)
-                        echo " "$today"  Node stopped !! Previous_synced : "$count1c", Present_synced : "$count2c""
-                        echo " "$today"  I think you just stopped the node manually, didn't you?"
-                        echo " "$today"  This script won't restart node now."
+                        echo " "$today"  Node stopped !! Syncing stopped, too!! Previous_synced : "$count1c""
+                        echo " "$today"  The cause is unknown. Or maybe you manually down the node."
+                        echo " "$today"  This script won't restart node for now."
                         B=`expr $B + 1`
-                        if [ $B -eq 11 ]
+                        if [ $B -eq 6 ]
                         then
                             today=$(date)
-                            echo " "$today"  10 minutes already passed with the node stopped status."
+                            echo " "$today"  5 minutes already passed with the node stopped status."
                             echo " "$today"  The node must continue to run!!"
                             docker compose restart
                             docker compose up -d
@@ -133,7 +134,6 @@ do
                         today=$(date)
                         echo " "$today"  Syncing speed has fallen below 20%!!"
                         echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
-                        echo " "$today"  I think you just restarted the node manually, didn't you?"
                     fi
                 fi
             fi
