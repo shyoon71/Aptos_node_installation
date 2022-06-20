@@ -32,7 +32,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
     
     2-3. aptos_state_sync_timeout_total
   
-  3. print total error count(/min) if there are errors count > 10 per minute between terms
+  3. print total error count(/min) if there are errors count > 1 per minute between terms
   
   4. target log figure: 
 
