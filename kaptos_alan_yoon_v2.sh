@@ -111,7 +111,7 @@ else
     sleep 1
     sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
     sleep 1
-    sed -i'' -r -e '/identity:/i\          - "/ip4/175.118.42.185/tcp/6180/noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/handshake/0"' /root/public_full_node.yaml
+    sed -i'' -r -e '/identity:/i\          - "/ip4/180.71.88.95/tcp/6180/noise-ik/a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c/handshake/0"' /root/public_full_node.yaml
     sleep 1
     sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
