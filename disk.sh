@@ -1,4 +1,11 @@
 #!/bin/bash
+echo ""
+echo "================================"
+echo ""
+echo "Script from  //-\ ][_ //-\ ][\][ ";
+echo ""
+echo "================================"
+echo ""
 
 TOTAL=$(df -P | grep -v ^Filesystem | awk '{sum += $2} END { print sum/1024/1024 " GB" }')
 USED=$(df -P | grep -v ^Filesystem | awk '{sum += $3} END { print sum/1024/1024 " GB" }')
