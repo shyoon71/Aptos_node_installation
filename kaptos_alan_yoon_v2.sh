@@ -90,13 +90,13 @@ then
     echo ""
     sleep 1
 else
-    sed -i'' -r -e "/identity:/i\      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" /root/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          - "/dns4/pfn0.node.devnet.aptoslabs.com/tcp/6182/noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/handshake/0"' /root/public_full_node.yaml
-    sleep 1
-    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
+#    sed -i'' -r -e "/identity:/i\      bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a:" /root/public_full_node.yaml
+#    sleep 1
+#    sed -i'' -r -e "/identity:/i\          addresses:" /root/public_full_node.yaml &&
+#    sleep 1
+#    sed -i'' -r -e '/identity:/i\          - "/dns4/pfn0.node.devnet.aptoslabs.com/tcp/6182/noise-ik/bb14af025d226288a3488b4433cf5cb54d6a710365a2d95ac6ffbd9b9198a86a/handshake/0"' /root/public_full_node.yaml
+#    sleep 1
+#    sed -i'' -r -e '/identity:/i\          role: "Upstream"' /root/public_full_node.yaml &&
     sleep 1
 fi
 grep -o "a950c9360c02c5ef9a02ad9a097f514b97f41a7499a2a798c530d610d3633e5c:" /root/public_full_node.yaml > /root/default_seed.txt
