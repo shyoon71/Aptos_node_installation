@@ -54,21 +54,21 @@ do
                         today=$(date)
                         echo " "$today"  5 minutes already passed with the node stopped status."
                         echo " "$today"  The node must continue to run!!"
-                        docker compose down && docker compose up -d
+                        docker compose restart
                         B=1
                     fi
                 else
                     today=$(date)
                     echo " "$today"  Syncing is definitely Stopped!!! No outbound connection!!"
                     echo " "$today"  The node should be restarted!! Check your node health or configuration!!"
-                    docker compose down && docker compose up -d
+                    docker compose restart
                     B=1
                 fi
             fi
         else
             today=$(date)
             echo " "$today"  Syncing is definitely stopped!!! Version freezed!!! : "$count2c""
-            docker compose down && docker compose up -d
+            docker compose restart
             B=1
         fi
     else
@@ -101,7 +101,7 @@ do
                         today=$(date)
                         echo " "$today"  5 minutes already passed with the node stopped status."
                         echo " "$today"  The node must continue to run!!"
-                        docker compose down && docker compose up -d
+                        docker compose restart
                         B=1
                     fi
                 else
@@ -116,7 +116,7 @@ do
                     echo " "$today"  Node health is bad. Sync error "$count4""/"min occurred."
                     echo " "$today"  Syncing speed has fallen below 20%!!!"
                     echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
-                    docker compose down && docker compose up -d
+                    docker compose restart
                     B=1
                 else
                     if [ -z $count2c ]
@@ -131,7 +131,7 @@ do
                             today=$(date)
                             echo " "$today"  5 minutes already passed with the node stopped status."
                             echo " "$today"  The node must continue to run!!"
-                            docker compose down && docker compose up -d
+                            docker compose restart
                             B=1
                         fi
                     else
