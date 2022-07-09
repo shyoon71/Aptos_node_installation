@@ -6,6 +6,7 @@ echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
 echo "================================"
 echo ""
+count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
 sync3=$(echo $sync | grep -o '[0-9]*')
@@ -20,6 +21,7 @@ echo "================================"
 if [ $sync4 -gt $sync3 ]
 then
     echo "ok."
+    count=$($count+1)
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -34,6 +36,7 @@ echo "================================"
 if [ $in4 -gt 0 ]
 then
     echo "ok."
+    count=$($count+1)
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -67,6 +70,7 @@ echo "================================"
 if [ $v6 -gt $v3 ]
 then
     echo "ok."
+    count=$($count+1)
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -86,6 +90,7 @@ echo "================================"
 if [ $r6 -gt $r3 ]
 then
     echo "ok."
+    count=$($count+1)
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -96,5 +101,18 @@ echo "================================"
 echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period'
 echo "================================"
 echo ""
-echo "Done! From Alan Yoon."
+if [ $v7 -gt 50 ]
+then
+    count=$($count+100)
+fi
+if [ $count -gt 3 ]
+then
+    if [ $count -gt 100 ]
+    then
+        echo "Done! Check result's so amazing!"
+    else
+        echo "Done! Check result's not bad."
+    fi
+fi
+echo "Done. You should check carefully at the parts that are "Not ok!!" now."
 echo ""
