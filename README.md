@@ -1,5 +1,11 @@
 # For beginners who want to install node and experience the amazing Aptos network
 
+# CLI Validator Check Script :
+
+  It is not good to monitor the validator node through the web page because there is a high risk of opening and using metrics and api ports during the AIT test period. So I wrote a script that can automatically execute the main commands so that we can conveniently check the status of the node on the terminal console.
+  
+  wget -q -O cli_checker_validator.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/cli_checker_validator.sh && chmod +x cli_checker_validator.sh && sudo bash ./cli_checker_validator.sh
+
 # Auto Setup/Update Script :
 
 I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main installation script.
@@ -50,7 +56,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
 
 # Notion Guide Page :
 
- Main - https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-Guide-6cc0e1081bda4e47b2a8b9fa0d81ef47
+  Main - https://superb-mulberry-ce1.notion.site/Aptos-Node-Installation-Guide-6cc0e1081bda4e47b2a8b9fa0d81ef47
 
   1. Step By Step (Testnet-Ph1: completed) - https://www.notion.so/Step-By-Step-Testnet-Ph1-1bb8e3491f9642a4a3ce07c5a5c424c3
 
