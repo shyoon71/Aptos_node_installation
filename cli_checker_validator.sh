@@ -113,6 +113,7 @@ then
     else
         echo "Done! Check result's not bad."
     fi
-echo "Done. You should check carefully at the parts that are "Not ok!!" now."
+else
+    echo "Done. You should check carefully at the parts that are "Not ok!!" now."
 fi
 echo ""
