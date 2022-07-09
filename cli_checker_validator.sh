@@ -101,7 +101,7 @@ echo "================================"
 echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period'
 echo "================================"
 echo ""
-if [ $v7 -gt 50 ]
+if [ $v7 -gt 50 |bc ]
 then
     count=`expr $count + 100`
 fi
@@ -113,6 +113,6 @@ then
     else
         echo "Done! Check result's not bad."
     fi
-fi
 echo "Done. You should check carefully at the parts that are "Not ok!!" now."
+fi
 echo ""
