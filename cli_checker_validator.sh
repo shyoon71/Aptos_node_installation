@@ -101,7 +101,7 @@ echo "================================"
 echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period'
 echo "================================"
 echo ""
-if [[ `echo "$v7 > 50" | bc` -eq 1 ]]
+if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
 then
     count=`expr $count + 100`
 fi
