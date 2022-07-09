@@ -21,7 +21,7 @@ echo "================================"
 if [ $sync4 -gt $sync3 ]
 then
     echo "ok."
-    count=$($count+1)
+    count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -36,7 +36,7 @@ echo "================================"
 if [ $in4 -gt 0 ]
 then
     echo "ok."
-    count=$($count+1)
+    count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -70,7 +70,7 @@ echo "================================"
 if [ $v6 -gt $v3 ]
 then
     echo "ok."
-    count=$($count+1)
+    count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -90,7 +90,7 @@ echo "================================"
 if [ $r6 -gt $r3 ]
 then
     echo "ok."
-    count=$($count+1)
+    count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
 fi
@@ -103,7 +103,7 @@ echo "================================"
 echo ""
 if [ $v7 -gt 50 ]
 then
-    count=$($count+100)
+    count=`expr $count + 100`
 fi
 if [ $count -gt 3 ]
 then
