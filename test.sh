@@ -4,7 +4,7 @@ echo "================================"
 echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
-echo -e "================================  This script is for \e[1m\e[33mvalidator only. \e[0m"
+echo -e -i "================================  This script is for \e[1m\e[33mvalidator only \e[0m."
 echo ""
 echo ""
 count=0
