@@ -4,7 +4,8 @@ echo "================================"
 echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
-echo '================================  This script is for "validators installed by docker" only.'
+echo "================================"
+echo 'This script is for "validators installed by docker" only.'
 echo ""
 echo ""
 count=0
