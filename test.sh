@@ -152,9 +152,9 @@ then
 else
     v7=`echo "scale=2;$v6*100/$r6"|bc`
     echo "Voting Success Ratio"
-    echo "================================"
-    echo 'Ratio_now : '$v7'%\e[0m  should be >=25% at the end of the test period.'
-    echo "================================"
+    echo "============================="
+    echo 'Ratio_now : '$v7'%  should be >=25% at the end of the test period.'
+    echo "============================="
     echo ""
     if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
     then
