@@ -101,7 +101,7 @@ v3=$(echo $v1 | grep -o '[0-9]*')
 echo "Voting Progress"
 echo "================================"
 echo "$v1"
-sleep 3
+sleep 4
 v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
