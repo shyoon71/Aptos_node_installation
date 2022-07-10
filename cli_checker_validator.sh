@@ -33,12 +33,17 @@ export in4=$(echo "${in3:(-2)}")
 echo "================================"
 echo "$in"
 echo "================================"
-if [ $in4 -gt 0 ]
+if [ -z $in4 ]
 then
-    echo "ok."
-    count=`expr $count + 1`
-else
     echo ">>>> Not ok!! <<<<"
+else
+    if [ $in4 -eq 0 ]
+    then
+        echo ">>>> Not ok!! <<<<"
+    else
+        echo "ok"
+        count=`expr $count + 1`
+    fi
 fi
 echo ""
 sleep 2
@@ -48,11 +53,16 @@ export out4=$(echo "${out3:(-2)}")
 echo "================================"
 echo "$out"
 echo "================================"
-if [ $out4 -gt 0 ]
+if [ -z $out4 ]
 then
-    echo "ok."
-else
     echo "Validator has no peers. No problem."
+else
+    if [ $out4 -eq 0 ]
+    then
+        echo "Validator has no peers. No problem."
+    else
+        echo "ok"
+    fi
 fi
 echo ""
 sleep 2
