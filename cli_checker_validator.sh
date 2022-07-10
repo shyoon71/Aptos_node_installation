@@ -11,6 +11,7 @@ count=0
 highest=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "highest")
 highest=$(echo "$highest"|sed -n -e '5p')
 highest2=$(echo $highest | grep -o '[0-9]*')
+highest2=`expr $highest2 + 1000000`
 echo "================================"
 echo "$highest"
 sleep 2
@@ -25,8 +26,8 @@ then
 else
     if [ $highest2 -gt $sync4 ]
     then
-        lag=`echo "$highest-$sync4"`
-        echo "You have to catch up with highest_version about '$lag'"
+        lag=`expr $highest2 - $sync4`
+        echo 'You have to catch up with highest_version about '$lag''
     fi
 fi
 echo ""
@@ -51,7 +52,7 @@ fi
 echo ""
 sleep 2
 in=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "inbound")
-$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
+in=$(echo "$in"|sed -n -e '1p')
 in3=$(echo $in | grep -o '[0-9]*')
 export in4=$(echo "${in3:(-2)}")
 echo "================================"
