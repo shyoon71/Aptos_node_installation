@@ -71,7 +71,6 @@ else
         echo "No problem if you are not in AIT period."
     else
         echo "ok."
-        count=`expr $count + 1`
     fi
 fi
 echo ""
