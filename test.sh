@@ -161,6 +161,55 @@ else
         count=`expr $count + 1`
     fi
 fi
+
+
+
+echo ""
+sleep 2
+r1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
+r1=$(echo "$r1"|sed -n -e '3p')
+r3=$(echo $r1 | grep -o '[0-9]*')
+echo "Consensus Round Progess"
+echo "================================"
+echo "$r1"
+sleep 2
+r5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
+r5=$(echo "$r5"|sed -n -e '3p')
+r6=$(echo $r5 | grep -o '[0-9]*')
+echo "$r5"
+echo "================================"
+if [ -z $r6 ]
+then
+    echo "Can't fetch out your consensus status."
+else
+    if [ $r6 -gt $r3 ]
+    then
+        echo "ok."
+        count=`expr $count + 1`
+    else
+        echo ">>>> Not ok!! <<<<"
+    fi
+fi
+echo ""
+if [ -z $r6 ]
+then
+    echo ""
+else
+    v7=`echo "scale=2;$v6*100/$r6"|bc`
+    echo "Voting Success Ratio"
+    echo "============================="
+    echo 'Ratio_now : '$v7'%  should be >=25% at the end of the test period.'
+    echo "============================="
+    echo ""
+    if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
+    then
+        count=`expr $count + 1`
+    fi
+fi
+
+
+
+
 if [ $count -gt 3 ]
 then
     if [ $count -gt 4 ]
@@ -183,7 +232,6 @@ echo ""
 echo "Node uptime"
 echo "================================"
 pro_nm="aptos-node"
-
 pro_sday=`ps -eo lstart,pid,cmd|grep -w "$pro_nm" |grep -v "grep" |
 awk '{ 
        cmd="date -d\""$1 FS $2 FS $3 FS $4 FS $5"\" +\047%Y-%m-%d %H:%M:%S\047"; 
