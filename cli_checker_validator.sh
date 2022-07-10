@@ -170,7 +170,7 @@ then
         echo "Done! Check result's good."
     fi
 else
-    echo "Done. You should check carefully at the parts that are "Not ok!!" now."
+    echo "Done. You should check carefully at the parts that are not ok."
 fi
 echo ""
 echo ""
