@@ -146,20 +146,21 @@ else
     fi
 fi
 echo ""
-v7=`echo "scale=2;$v6*100/$r6"|bc`
-echo -e "\e[1m\e[33mVoting Success Ratio \e[0m"
+
 if [ -z $v7 ]
 then
-    echo "Can't fetch out your connection status."
+    echo ""
 else
+    v7=`echo "scale=2;$v6*100/$r6"|bc`
+    echo -e "\e[1m\e[33mVoting Success Ratio \e[0m"
     echo "================================"
     echo -e 'Ratio_now : \e[1m\e[33m'$v7'%\e[0m  should be >=25% at the end of the test period.'
     echo "================================"
     echo ""
-fi
-if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
-then
-    count=`expr $count + 1`
+    if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
+    then
+        count=`expr $count + 1`
+    fi
 fi
 if [ $count -gt 3 ]
 then
