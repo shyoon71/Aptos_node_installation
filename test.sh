@@ -139,7 +139,7 @@ echo ""
 v7=`echo "scale=2;$v6*100/$r6"|bc`
 echo -e "\e[1m\e[33mVoting Success Ratio \e[0m"
 echo "================================"
-echo -e 'rate_now : \e[1m\e[33m'$v7'%\e[0m  should be >=25% at the end of the test period.'
+echo -e 'Ratio_now : \e[1m\e[33m'$v7'%\e[0m  should be >=25% at the end of the test period.'
 echo "================================"
 echo ""
 if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
@@ -160,7 +160,7 @@ fi
 echo ""
 echo ""
 echo ""
-echo -e "\e[1m\e[33mDisk usage info. \e[0m"
+echo -e "\e[1m\e[33mDisk usage info \e[0m"
 echo "================================"
 df -h | grep "Avail"; df -h | grep "/$"
 echo "================================"
