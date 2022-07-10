@@ -25,7 +25,7 @@ echo "$epoch"
 echo "================================"
 if [ $sync4 -gt $sync3 ]
 then
-    echo -e "\e[1m\e[33mok. \e[0m"
+    echo -e "\e[1m\e[32mok. \e[0m"
     count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
@@ -45,7 +45,7 @@ echo "$sync2"
 echo "================================"
 if [ $sync4 -gt $highest2 ]
 then
-    echo -e "\e[1m\e[33mok.No lag. \e[0m"
+    echo -e "\e[1m\e[32mok.No lag. \e[0m"
 else
     if [ $highest2 -gt $sync4 ]
     then
@@ -70,7 +70,7 @@ else
     then
         echo ">>>> Not ok!! <<<< if you are already in AIT period now."
     else
-        echo -e "\e[1m\e[33mok. \e[0m"
+        echo -e "\e[1m\e[32mok. \e[0m"
         count=`expr $count + 1`
     fi
 fi
@@ -89,9 +89,9 @@ then
 else
     if [ $out4 -eq 0 ]
     then
-        echo -e "\e[1m\e[33mValidators don't need to outbound. No problem. \e[0m"
+        echo -e "\e[1m\e[32mValidators don't need to outbound. No problem. \e[0m"
     else
-        echo -e "\e[1m\e[33mok. \e[0m"
+        echo -e "\e[1m\e[32mok. \e[0m"
     fi
 fi
 echo ""
@@ -109,7 +109,7 @@ echo "$v5"
 echo "================================"
 if [ $v6 -gt $v3 ]
 then
-    echo -e "\e[1m\e[33mok. \e[0m"
+    echo -e "\e[1m\e[32mok. \e[0m"
     count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
@@ -130,7 +130,7 @@ echo "$r5"
 echo "================================"
 if [ $r6 -gt $r3 ]
 then
-    echo -e "\e[1m\e[33mok. \e[0m"
+    echo -e "\e[1m\e[32mok. \e[0m"
     count=`expr $count + 1`
 else
     echo ">>>> Not ok!! <<<<"
@@ -150,9 +150,9 @@ if [ $count -gt 3 ]
 then
     if [ $count -gt 4 ]
     then
-        echo -e "\e[1m\e[33mDone! Check result's so amazing! \e[0m"
+        echo -e "\e[1m\e[32mDone! Check result's so amazing! \e[0m"
     else
-        echo -e "\e[1m\e[33mDone! Check result's good. \e[0m"
+        echo -e "\e[1m\e[32mDone! Check result's good. \e[0m"
     fi
 else
     echo "Done. You should check carefully at the parts that are "Not ok!!" now."
