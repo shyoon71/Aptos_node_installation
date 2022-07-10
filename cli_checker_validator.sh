@@ -11,7 +11,6 @@ count=0
 highest=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "highest")
 highest=$(echo "$highest"|sed -n -e '5p')
 highest2=$(echo $highest | grep -o '[0-9]*')
-highest2=`expr $highest2 + 1000000`
 echo "================================"
 echo "$highest"
 sleep 2
