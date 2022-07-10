@@ -146,8 +146,7 @@ else
     fi
 fi
 echo ""
-
-if [ -z $v7 ]
+if [ -z $r6 ]
 then
     echo ""
 else
