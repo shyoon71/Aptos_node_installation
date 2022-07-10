@@ -68,7 +68,7 @@ then
 else
     if [ $in4 -eq 0 ]
     then
-        echo ">>>> Not ok!! <<<< if you are already in AIT period now."
+        echo "No problem if you are not in AIT period."
     else
         echo "ok."
         count=`expr $count + 1`
