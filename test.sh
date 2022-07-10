@@ -4,7 +4,7 @@ echo "================================"
 echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
-echo "================================  This script is for validator only."
+echo -e "================================  This script is for \e[1m\e[33mvalidator only. \e[0m"
 echo ""
 echo ""
 count=0
@@ -107,12 +107,17 @@ v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
 echo "$v5"
 echo "================================"
-if [ $v6 -gt $v3 ]
+if [ -z $v6 ]
 then
-    echo -e "\e[1m\e[32mok. \e[0m"
-    count=`expr $count + 1`
+    echo "Can't fetch out your connection status."
 else
-    echo ">>>> Not ok!! <<<<"
+    if [ $v6 -gt $v3 ]
+    then
+        echo -e "\e[1m\e[32mok. \e[0m"
+        count=`expr $count + 1`
+    else
+        echo ">>>> Not ok!! <<<<"
+    fi
 fi
 echo ""
 sleep 2
@@ -128,20 +133,30 @@ r5=$(echo "$r5"|sed -n -e '3p')
 r6=$(echo $r5 | grep -o '[0-9]*')
 echo "$r5"
 echo "================================"
-if [ $r6 -gt $r3 ]
+if [ -z $r6 ]
 then
-    echo -e "\e[1m\e[32mok. \e[0m"
-    count=`expr $count + 1`
+    echo "Can't fetch out your connection status."
 else
-    echo ">>>> Not ok!! <<<<"
+    if [ $r6 -gt $r3 ]
+    then
+        echo -e "\e[1m\e[32mok. \e[0m"
+        count=`expr $count + 1`
+    else
+        echo ">>>> Not ok!! <<<<"
+    fi
 fi
 echo ""
 v7=`echo "scale=2;$v6*100/$r6"|bc`
 echo -e "\e[1m\e[33mVoting Success Ratio \e[0m"
-echo "================================"
-echo -e 'Ratio_now : \e[1m\e[33m'$v7'%\e[0m  should be >=25% at the end of the test period.'
-echo "================================"
-echo ""
+if [ -z $v7 ]
+then
+    echo "Can't fetch out your connection status."
+else
+    echo "================================"
+    echo -e 'Ratio_now : \e[1m\e[33m'$v7'%\e[0m  should be >=25% at the end of the test period.'
+    echo "================================"
+    echo ""
+fi
 if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
 then
     count=`expr $count + 1`
