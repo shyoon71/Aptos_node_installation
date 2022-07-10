@@ -40,6 +40,9 @@ sync2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_versio
 sync2=$(echo "$sync2"|sed -n -e '5p')
 sync4=$(echo $sync2 | grep -o '[0-9]*')
 echo "$sync2"
+epoch=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
+epoch=$(echo "$epoch"|sed -n -e '6p')
+echo "$epoch"
 echo "================================"
 if [ $sync4 -gt $sync3 ]
 then
