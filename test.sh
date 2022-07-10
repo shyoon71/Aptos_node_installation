@@ -109,7 +109,7 @@ echo "$v5"
 echo "================================"
 if [ -z $v6 ]
 then
-    echo "Can't fetch out your connection status."
+    echo "Can't fetch out your consensus status."
 else
     if [ $v6 -gt $v3 ]
     then
@@ -135,7 +135,7 @@ echo "$r5"
 echo "================================"
 if [ -z $r6 ]
 then
-    echo "Can't fetch out your connection status."
+    echo "Can't fetch out your consensus status."
 else
     if [ $r6 -gt $r3 ]
     then
