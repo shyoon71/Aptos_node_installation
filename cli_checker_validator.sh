@@ -161,9 +161,46 @@ else
         count=`expr $count + 1`
     fi
 fi
-if [ $count -gt 3 ]
+
+
+
+echo ""
+sleep 2
+tps=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps=$(echo "$tps"|sed -n -e '3p')
+tps3=$(echo $tps | grep -o '[0-9]*')
+echo "Transaction Speed"
+echo "================================"
+echo "$tps"
+sleep 5
+tps2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps2=$(echo "$tps2"|sed -n -e '3p')
+tps4=$(echo $tps2 | grep -o '[0-9]*')
+echo "$tps2"
+echo "================================"
+if [ -z $tps4 ]
 then
-    if [ $count -gt 4 ]
+    echo "Can't fetch out your transaction status."
+else
+    if [ $tps4 -gt $tps3 ]
+    then
+        echo "ok."
+        echo ""
+        count=`expr $count + 1`
+        tps5=`echo "scale=2;($tps4-$tps3)/5"|bc`
+        echo "Transactions Per Second"
+        echo "============================="
+        echo 'TPS_now : '$tps5''
+        echo "============================="
+        echo ""
+    else
+        echo ">>>> Not ok!! <<<<"
+    fi
+fi
+echo ""
+if [ $count -gt 4 ]
+then
+    if [ $count -gt 5 ]
     then
         echo "Done! Check result's so amazing!"
     else
@@ -183,7 +220,6 @@ echo ""
 echo "Node uptime"
 echo "================================"
 pro_nm="aptos-node"
-
 pro_sday=`ps -eo lstart,pid,cmd|grep -w "$pro_nm" |grep -v "grep" |
 awk '{ 
        cmd="date -d\""$1 FS $2 FS $3 FS $4 FS $5"\" +\047%Y-%m-%d %H:%M:%S\047"; 
