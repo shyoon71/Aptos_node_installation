@@ -6,7 +6,30 @@ echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
 echo "================================  This script is for validator only."
 echo ""
+echo ""
 count=0
+highest=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "highest")
+highest=$(echo "$highest"|sed -n -e '5p')
+highest2=$(echo $highest | grep -o '[0-9]*')
+echo "================================"
+echo "$highest"
+sleep 2
+sync2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
+sync2=$(echo "$sync2"|sed -n -e '5p')
+sync4=$(echo $sync2 | grep -o '[0-9]*')
+echo "$sync2"
+echo "================================"
+if [ $sync4 -gt $highest2 ]
+then
+    echo "ok.No lag."
+else
+    if [ $highest2 -gt $sync4 ]
+    then
+        lag=`echo "$highest-$sync4"`
+        echo "You have to catch up with highest_version about '$lag'"
+    fi
+fi
+echo ""
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
 sync3=$(echo $sync | grep -o '[0-9]*')
@@ -28,7 +51,7 @@ fi
 echo ""
 sleep 2
 in=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "inbound")
-in=$(echo "$in"|sed -n -e '1p')
+$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 in3=$(echo $in | grep -o '[0-9]*')
 export in4=$(echo "${in3:(-2)}")
 echo "================================"
