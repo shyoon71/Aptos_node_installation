@@ -193,7 +193,7 @@ pro_cday=`date +%Y-%m-%d`
 pro_sday_sec=`date -d $pro_sday +%s`
 pro_cday_sec=`date -d $pro_cday +%s`
 day_sec_diff=`echo "scale=2;($pro_cday_sec - $pro_sday_sec) / 86400" |bc`
-
+ps -eo pid,etime,cmd | grep aptos-node | grep -v grep
 echo " Process $pro_nm has been running for" $day_sec_diff "days"
 
 echo "================================"
