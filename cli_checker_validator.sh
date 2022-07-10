@@ -152,6 +152,8 @@ else
     echo "Done. You should check carefully at the parts that are "Not ok!!" now."
 fi
 echo ""
+echo ""
+echo ""
 echo "Disk usage info:"
 echo "================================"
 df -h | grep "Avail"; df -h | grep "/$"
