@@ -46,6 +46,7 @@ echo "================================"
 if [ $sync4 -gt $highest2 ]
 then
     echo "ok.No lag."
+    count=`expr $count + 1`
 else
     if [ $highest2 -gt $sync4 ]
     then
