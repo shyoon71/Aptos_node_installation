@@ -166,53 +166,41 @@ fi
 
 echo ""
 sleep 2
-r1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
-r1=$(echo "$r1"|sed -n -e '3p')
-r3=$(echo $r1 | grep -o '[0-9]*')
-echo "Consensus Round Progess"
+tps=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps=$(echo "$tps"|sed -n -e '3p')
+tps3=$(echo $tps | grep -o '[0-9]*')
+echo "Transaction Speed"
 echo "================================"
-echo "$r1"
-sleep 2
-r5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
-r5=$(echo "$r5"|sed -n -e '3p')
-r6=$(echo $r5 | grep -o '[0-9]*')
-echo "$r5"
+echo "$tps"
+sleep 5
+tps2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps2=$(echo "$tps2"|sed -n -e '3p')
+tps4=$(echo $tps2 | grep -o '[0-9]*')
+echo "$tps2"
 echo "================================"
-if [ -z $r6 ]
+if [ -z $tps4 ]
 then
-    echo "Can't fetch out your consensus status."
+    echo "Can't fetch out your transaction status."
 else
-    if [ $r6 -gt $r3 ]
+    if [ $tps4 -gt $tps3 ]
     then
         echo "ok."
+        echo ""
         count=`expr $count + 1`
+        tps5=`echo "scale=2;($tps4-$tps3)/5"|bc`
+        echo "Transactions Per Second"
+        echo "============================="
+        echo 'TPS_now : '$tps5''
+        echo "============================="
+        echo ""
     else
         echo ">>>> Not ok!! <<<<"
     fi
 fi
 echo ""
-if [ -z $r6 ]
+if [ $count -gt 4 ]
 then
-    echo ""
-else
-    v7=`echo "scale=2;$v6*100/$r6"|bc`
-    echo "Voting Success Ratio"
-    echo "============================="
-    echo 'Ratio_now : '$v7'%  should be >=25% at the end of the test period.'
-    echo "============================="
-    echo ""
-    if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
-    then
-        count=`expr $count + 1`
-    fi
-fi
-
-
-
-
-if [ $count -gt 3 ]
-then
-    if [ $count -gt 4 ]
+    if [ $count -gt 5 ]
     then
         echo "Done! Check result's so amazing!"
     else
