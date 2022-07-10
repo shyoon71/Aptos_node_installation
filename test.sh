@@ -193,13 +193,6 @@ pro_cday=`date +%Y-%m-%d`
 pro_sday_sec=`date -d $pro_sday +%s`
 pro_cday_sec=`date -d $pro_cday +%s`
 day_sec_diff=`echo "($pro_cday_sec - $pro_sday_sec) / 86400" |bc`
-
-ps -eo lstart,pid,cmd|grep "process name"
-awk '{ 
-       cmd="date -d\""$1 FS $2 FS $3 FS $4 FS $5"\" +\047%Y-%m-%d %H:%M:%S\047"; 
-       cmd | getline d; close(cmd); $1=$2=$3=$4=$5=""; printf "%s\n",d$0 }' 2>/dev/null |
-       awk '{print $1" "$2}'
-       
 echo " Process $pro_nm is running for" $day_sec_diff "days"
 
 echo "================================"
