@@ -70,7 +70,6 @@ else
     fi
 fi
 echo ""
-sleep 2
 out=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "outbound")
 out=$(echo "$out"|sed -n -e '1p')
 out3=$(echo $out | grep -o '[0-9]*')
@@ -90,13 +89,12 @@ else
     fi
 fi
 echo ""
-sleep 2
 v1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v1=$(echo "$v1"|sed -n -e '3p')
 v3=$(echo $v1 | grep -o '[0-9]*')
 echo "================================"
 echo "$v1"
-sleep 4
+sleep 3
 v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
@@ -130,7 +128,6 @@ else
     echo ">>>> Not ok!! <<<<"
 fi
 echo ""
-sleep 2
 v7=`echo "scale=2;$v6*100/$r6"|bc`
 echo "================================"
 echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period.'
