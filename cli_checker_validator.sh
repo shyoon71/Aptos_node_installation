@@ -4,7 +4,7 @@ echo "================================"
 echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
-echo "================================"
+echo "================================  This script is for validator only."
 echo ""
 count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
@@ -39,7 +39,7 @@ then
 else
     if [ $in4 -eq 0 ]
     then
-        echo ">>>> Not ok!! <<<<"
+        echo ">>>> Not ok!! <<<< if you are already in AIT period now."
     else
         echo "ok"
         count=`expr $count + 1`
