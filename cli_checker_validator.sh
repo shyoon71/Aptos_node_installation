@@ -27,7 +27,8 @@ else
 fi
 echo ""
 sleep 2
-in=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_connections{direction=\"inbound")
+in=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "inbound")
+in=$(echo "$in"|sed -n -e '1p')
 in3=$(echo $in | grep -o '[0-9]*')
 export in4=$(echo "${in3:(-2)}")
 echo "================================"
@@ -47,7 +48,8 @@ else
 fi
 echo ""
 sleep 2
-out=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_connections{direction=\"outbound")
+out=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "outbound")
+out=$(echo "$out"|sed -n -e '1p')
 out3=$(echo $out | grep -o '[0-9]*')
 export out4=$(echo "${out3:(-2)}")
 echo "================================"
@@ -108,20 +110,20 @@ echo ""
 sleep 2
 v7=`echo "scale=2;$v6*100/$r6"|bc`
 echo "================================"
-echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period'
+echo 'vote_rate_now : '$v7'%  should be >=25% at the end of the test period.'
 echo "================================"
 echo ""
 if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
 then
-    count=`expr $count + 100`
+    count=`expr $count + 1`
 fi
 if [ $count -gt 3 ]
 then
-    if [ $count -gt 100 ]
+    if [ $count -gt 4 ]
     then
         echo "Done! Check result's so amazing!"
     else
-        echo "Done! Check result's not bad."
+        echo "Done! Check result's good."
     fi
 else
     echo "Done. You should check carefully at the parts that are "Not ok!!" now."
