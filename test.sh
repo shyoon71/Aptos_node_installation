@@ -4,7 +4,8 @@ echo "================================"
 echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
-echo '================================  This script is for "validators installed by docker" only.'
+echo "================================"
+echo 'This script is for "validators installed by docker" only.'
 echo ""
 echo ""
 count=0
@@ -212,24 +213,15 @@ fi
 echo ""
 echo ""
 echo ""
-echo "Disk usage info"
+echo "Disk Usage Info"
 echo "================================"
 df -h | grep "Avail"; df -h | grep "/$"
 echo "================================"
 echo ""
-echo "Node uptime"
+echo "Node Uptime"
 echo "================================"
-pro_nm="aptos-node"
-pro_sday=`ps -eo lstart,pid,cmd|grep -w "$pro_nm" |grep -v "grep" |
-awk '{ 
-       cmd="date -d\""$1 FS $2 FS $3 FS $4 FS $5"\" +\047%Y-%m-%d %H:%M:%S\047"; 
-       cmd | getline d; close(cmd); $1=$2=$3=$4=$5=""; printf "%s\n",d$0 }' 2>/dev/null |
-       awk '{print $1}'`
-pro_cday=`date +%Y-%m-%d`
-pro_sday_sec=`date -d $pro_sday +%s`
-pro_cday_sec=`date -d $pro_cday +%s`
-day_sec_diff=`echo "($pro_cday_sec - $pro_sday_sec) / 86400" |bc`
-echo "Process $pro_nm has been running for" $day_sec_diff "days."
-ps -eo pid,etime,cmd | grep aptos-node | grep -v grep
+ps -ef|grep aptos-node
+up=$(pgrep -f aptos-node)
+ps -p $up -o etime
 echo "================================"
 echo ""
