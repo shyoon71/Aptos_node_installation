@@ -220,11 +220,13 @@ else
 fi
 echo ""
 echo ""
+sleep 2
 echo "Disk Usage Info"
 echo "================================"
 df -h | grep "Avail"; df -h | grep "/$"
 echo "================================"
 echo ""
+sleep 1
 echo "Node Uptime"
 echo "================================"
 pid=$(ps -ef|grep aptos-node) 2> /dev/null
