@@ -220,7 +220,8 @@ echo "================================"
 echo ""
 echo "Node Uptime"
 echo "================================"
-ps -ef|grep aptos-node
+pid=$(ps -ef|grep aptos-node)
+echo "$pid"|sed -n -e '1p'
 up=$(pgrep -f aptos-node)
 ps -p $up -o etime
 echo "================================"
