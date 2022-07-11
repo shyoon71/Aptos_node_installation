@@ -12,6 +12,7 @@ echo 'So applying it to nodes compilied with source code or fullnodes will resul
 echo ""
 echo ""
 echo ""
+sleep 2
 count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
