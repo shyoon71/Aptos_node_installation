@@ -8,11 +8,6 @@ echo "================================"
 echo 'This script is for "validators installed by docker" only.'
 echo ""
 echo ""
-timeout 0.2 docker compose logs -f | grep [[:alnum:]] | grep remote_peer | grep ReceiveVote | grep false > peers_tracking.txt
-peers=$(sed -n -e '1p' peers_tracking.txt)
-peer_id=$(echo "$peers" | cut -d "." -f4)
-rm peers_tracking.txt &> /dev/null
-echo "Current_connected_peers : $peer_id"
 count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
