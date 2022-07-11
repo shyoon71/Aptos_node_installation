@@ -5,7 +5,10 @@ echo ""
 echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
 echo "================================"
+echo "*Notice!"
 echo 'This script is for "validators installed by docker" only.'
+echo 'So applying it to nodes compilied with source code or fullnodes will result in error messages.'
+echo ""
 echo ""
 echo ""
 count=0
@@ -210,7 +213,6 @@ then
 else
     echo "Done. You should check carefully at the parts that are not ok."
 fi
-echo ""
 echo ""
 echo ""
 echo "Disk Usage Info"
