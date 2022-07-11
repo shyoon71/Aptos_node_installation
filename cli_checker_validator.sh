@@ -9,7 +9,7 @@ echo "================================"
 echo ""
 echo "*Notice!"
 echo 'This script is for "validators installed by docker" only.'
-echo 'So applying it to compilied with source code or fullnode will result in error messages.'
+echo 'So applying it to compilied with source code or fullnode will result in errors or info missing.'
 echo ""
 echo ""
 sleep 3
