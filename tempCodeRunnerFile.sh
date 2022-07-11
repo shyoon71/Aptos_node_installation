@@ -1,13 +1,4 @@
-echo "Disk Usage Info"
-echo "================================"
-df -h | grep "Avail"; df -h | grep "/$"
-echo "================================"
-echo ""
-echo "Node Uptime"
-echo "================================"
-pid=$(ps -ef|grep aptos-node)
-echo "$pid"|sed -n -e '1p'
-up=$(pgrep -f aptos-node)
-ps -p $up -o etime
-echo "================================"
-echo ""
+timeout 0.5s docker-compose logs -f | grep [:alnum:] | grep remote_peer | grep ReceiveVote | grep false > peers_tracking.txt
+peers=$(sed -n -e '1p')
+peer_id=$(echo "$peers" | cut -d "." -f4)
+echo "$peer_id"
