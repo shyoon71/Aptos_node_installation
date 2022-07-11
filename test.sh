@@ -8,7 +8,7 @@ echo "================================"
 echo 'This script is for "validators installed by docker" only.'
 echo ""
 echo ""
-timeout 0.2 docker compose logs -f | grep [:alnum:] | grep remote_peer | grep ReceiveVote | grep false > peers_tracking.txt
+timeout 0.2 docker compose logs -f | grep [[:alnum:]] | grep remote_peer | grep ReceiveVote | grep false > peers_tracking.txt
 peers=$(sed -n -e '1p' peers_tracking.txt)
 peer_id=$(echo "$peers" | cut -d "." -f4)
 rm peers_tracking.txt &> /dev/null
