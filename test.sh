@@ -11,8 +11,10 @@ echo 'This script is for "validators installed by docker" only.'
 echo 'So applying it to nodes compilied with source code or fullnodes will result in error messages.'
 echo ""
 echo ""
-echo ""
 sleep 3
+echo "Then script starts now..."
+echo ""
+sleep 1
 count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
