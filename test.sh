@@ -21,6 +21,8 @@ echo "================================"
 curl 127.0.0.1:80 2> /dev/null; curl 127.0.0.1:8080 2> /dev/null
 live=$(echo -e "curl 127.0.0.1:80 \n") > /dev/null; live2=$(echo -e "curl 127.0.0.1:8080 \n") > /dev/null
 echo "================================"
+live=$(echo $live | grep -o '[0-9]*')
+live2=$(echo $live2 | grep -o '[0-9]*')
 if [ -z $live ]
 then
     if [ -z $live2 ]
