@@ -175,14 +175,14 @@ fi
 
 echo ""
 sleep 2
-tps=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_last_committed_version")
 tps=$(echo "$tps"|sed -n -e '3p')
 tps3=$(echo $tps | grep -o '[0-9]*')
 echo "Transaction Speed"
 echo "================================"
 echo "$tps"
 sleep 5
-tps2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_channel_msgs_count")
+tps2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_last_committed_version")
 tps2=$(echo "$tps2"|sed -n -e '3p')
 tps4=$(echo $tps2 | grep -o '[0-9]*')
 echo "$tps2"
