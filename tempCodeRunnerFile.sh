@@ -1,4 +1,17 @@
-timeout 0.5s docker-compose logs -f | grep [:alnum:] | grep remote_peer | grep ReceiveVote | grep false > peers_tracking.txt
-peers=$(sed -n -e '1p')
-peer_id=$(echo "$peers" | cut -d "." -f4)
-echo "$peer_id"
+echo "Checking Liveness"
+echo "================================"
+curl 127.0.0.1:80 2> /dev/null; curl 127.0.0.1:8080 2> /dev/null
+live=$(curl 127.0.0.1:80) ; live2=$(curl 127.0.0.1:8080)
+echo "================================"
+if [ -z $live ]
+then
+    if [ -z $live2 ]
+    then
+        echo "Can't fetch out your connection status."
+        echo "Node looks like have no liveness"
+    else
+        echo "ok."    
+    fi
+else
+    echo "ok."
+fi
