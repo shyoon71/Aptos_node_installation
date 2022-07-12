@@ -171,8 +171,6 @@ else
     fi
 fi
 
-
-
 echo ""
 sleep 2
 tps=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_last_committed_version")
