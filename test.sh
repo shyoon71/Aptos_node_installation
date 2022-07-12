@@ -19,7 +19,7 @@ sleep 1
 echo "Checking Liveness"
 echo "================================"
 curl 127.0.0.1:80 2> /dev/null; curl 127.0.0.1:8080 2> /dev/null
-live=$(curl 127.0.0.1:80) > /dev/null; live2=$(curl 127.0.0.1:8080) > /dev/null
+live=$(curl 127.0.0.1:80 | sed -n -e '1p') > /dev/null; live2=$(curl 127.0.0.1:8080 | sed -n -e '1p') > /dev/null
 \
 echo "================================"
 live=$(echo $live | grep -o '[0-9]*')
