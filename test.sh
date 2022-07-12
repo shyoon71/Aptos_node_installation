@@ -19,7 +19,7 @@ sleep 1
 echo "Checking Liveness"
 echo "================================"
 curl 127.0.0.1:80 2> /dev/null; curl 127.0.0.1:8080 2> /dev/null
-live=$(echo -e "curl 127.0.0.1:80 \n") 2> /dev/null; live2=$(echo -e "curl 127.0.0.1:8080 \n") 2> /dev/null
+live=$(echo -e "curl 127.0.0.1:80 \n") > /dev/null; live2=$(echo -e "curl 127.0.0.1:8080 \n") > /dev/null
 echo "================================"
 if [ -z $live ]
 then
