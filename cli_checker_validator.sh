@@ -126,7 +126,7 @@ then
 else
     if [ $v6 -gt $v3 ]
     then
-        echo "ok."
+        echo "Voting count ok."
         echo "The proposal count increases once or twice in an hour."
         echo "So don't worry if it doesn't increase now."
         count=`expr $count + 1`
