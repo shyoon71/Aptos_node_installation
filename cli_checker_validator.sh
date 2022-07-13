@@ -159,7 +159,7 @@ else
         count=`expr $count + 1`
     else
         echo ">>>> Not ok!! <<<<"
-        echo "There's no vote occurred during 15 second. It's too slow or stopped."
+        echo "There's no round occurred during 15 second. It's too slow or stopped."
     fi
 fi
 echo ""
