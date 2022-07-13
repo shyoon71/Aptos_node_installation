@@ -61,7 +61,7 @@ else
     if [ $highest2 -gt $sync4 ]
     then
         lag=`expr $highest2 - $sync4`
-        echo 'You have to catch up with highest_version about '$lag''
+        echo 'You have to catch up with highest_version about '$lag'.'
     fi
 fi
 echo ""
