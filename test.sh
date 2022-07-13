@@ -116,6 +116,9 @@ v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_c
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
 echo "$v5"
+p5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count")
+p5=$(echo "$p5"|sed -n -e '3p')
+echo "$p5"
 echo "================================"
 if [ -z $v6 ]
 then
@@ -124,6 +127,8 @@ else
     if [ $v6 -gt $v3 ]
     then
         echo "ok."
+        echo "The proposal count increases once or twice in an hour."
+        echo "So don't worry if it doesn't increase now."
         count=`expr $count + 1`
     else
         echo ">>>> Not ok!! <<<<"
