@@ -10,12 +10,13 @@ echo ""
 echo "*Notice!"
 echo 'This script is for "validators installed by docker" only.'
 echo 'So applying it to compilied with source code or fullnode will result in errors or info missing.'
+echo "This script will check your important index figures, so it will take 2 minutes more."
 echo ""
 echo ""
-sleep 3
+sleep 4
 echo "Then script starts now..."
 echo ""
-sleep 1
+sleep 2
 count=0
 sync=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version")
 sync=$(echo "$sync"|sed -n -e '5p')
@@ -54,7 +55,7 @@ echo "$sync2"
 echo "================================"
 if [ $sync4 -gt $highest2 ]
 then
-    echo "ok.No lag."
+    echo "ok.No lag or catchup"
     count=`expr $count + 1`
 else
     if [ $highest2 -gt $sync4 ]
@@ -78,7 +79,7 @@ then
 else
     if [ $in4 -eq 0 ]
     then
-        echo "No problem if you are not in AIT period."
+        echo ">>>> Not ok!! <<<<"
     else
         echo "ok."
     fi
@@ -98,7 +99,7 @@ then
 else
     if [ $out4 -eq 0 ]
     then
-        echo "Validators don't need to outbound. No problem."
+        echo ">>>> Not ok!! <<<<"
     else
         echo "ok."
     fi
@@ -110,7 +111,7 @@ v3=$(echo $v1 | grep -o '[0-9]*')
 echo "Voting Progress"
 echo "================================"
 echo "$v1"
-sleep 4
+sleep 30
 v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
@@ -126,6 +127,7 @@ else
         count=`expr $count + 1`
     else
         echo ">>>> Not ok!! <<<<"
+        echo "There's no vote occurred during 30 second. It's too slow or stopped."
     fi
 fi
 echo ""
@@ -136,7 +138,7 @@ r3=$(echo $r1 | grep -o '[0-9]*')
 echo "Consensus Round Progess"
 echo "================================"
 echo "$r1"
-sleep 2
+sleep 15
 r5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
 r5=$(echo "$r5"|sed -n -e '3p')
 r6=$(echo $r5 | grep -o '[0-9]*')
@@ -152,6 +154,7 @@ else
         count=`expr $count + 1`
     else
         echo ">>>> Not ok!! <<<<"
+        echo "There's no vote occurred during 15 second. It's too slow or stopped."
     fi
 fi
 echo ""
@@ -160,7 +163,7 @@ then
     echo ""
 else
     v7=`echo "scale=2;$v6*100/$r6"|bc`
-    echo "Voting Success Ratio"
+    echo "Voting Count per Round"
     echo "============================="
     echo 'Ratio_now : '$v7'%  should be >=25% at the end of the test period.'
     echo "============================="
@@ -179,7 +182,7 @@ tps3=$(echo $tps | grep -o '[0-9]*')
 echo "Transaction Speed"
 echo "================================"
 echo "$tps"
-sleep 5
+sleep 10
 tps2=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_last_committed_version")
 tps2=$(echo "$tps2"|sed -n -e '3p')
 tps4=$(echo $tps2 | grep -o '[0-9]*')
@@ -194,7 +197,7 @@ else
         echo "ok."
         echo ""
         count=`expr $count + 1`
-        tps5=`echo "scale=2;($tps4-$tps3)/5"|bc`
+        tps5=`echo "scale=2;($tps4-$tps3)/10"|bc`
         echo "Transactions Per Second"
         echo "============================="
         echo 'TPS_now : '$tps5''
