@@ -203,7 +203,7 @@ else
         echo ""
         count=`expr $count + 1`
         tps5=`echo "scale=2;($tps4-$tps3)/10"|bc`
-        echo "Transactions Per Second"
+        echo "Transactions per Second"
         echo "============================="
         echo 'TPS_now : '$tps5''
         echo "============================="
