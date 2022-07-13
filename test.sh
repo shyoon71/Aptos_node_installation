@@ -108,7 +108,7 @@ echo ""
 v1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v1=$(echo "$v1"|sed -n -e '3p')
 v3=$(echo $v1 | grep -o '[0-9]*')
-echo "Voting Progress"
+echo "Voting Progress ------- checking 30s diff." 
 echo "================================"
 echo "$v1"
 sleep 30
@@ -126,7 +126,7 @@ then
 else
     if [ $v6 -gt $v3 ]
     then
-        echo "ok."
+        echo "Voting count ok."
         echo "The proposal count increases once or twice in an hour."
         echo "So don't worry if it doesn't increase now."
         count=`expr $count + 1`
@@ -140,7 +140,7 @@ sleep 2
 r1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_current_round")
 r1=$(echo "$r1"|sed -n -e '3p')
 r3=$(echo $r1 | grep -o '[0-9]*')
-echo "Consensus Round Progess"
+echo "Round Progess --------- checking 15s diff."
 echo "================================"
 echo "$r1"
 sleep 15
@@ -159,7 +159,7 @@ else
         count=`expr $count + 1`
     else
         echo ">>>> Not ok!! <<<<"
-        echo "There's no vote occurred during 15 second. It's too slow or stopped."
+        echo "There's no round occurred during 15 second. It's too slow or stopped."
     fi
 fi
 echo ""
