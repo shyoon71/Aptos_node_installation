@@ -40,9 +40,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   3. print total error count(/min) if there are errors count > 1 per minute between terms
   
-  4. target log figure: 
-
-    4-1. aptos_state_sync_version{type="synced"}
+  4. target log figure: ptos_state_sync_version{type="synced"}
   
   5. print synced version numbers if syncing speed has fallen below 20% between terms
   
@@ -52,7 +50,12 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   8. print message with ledger version if node completes catchup version 
   
-  9. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week 
+  9. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week
+
+  10. if you want to delete script running at background, follow command below
+  
+      ps -ef | grep aptos_restart.sh
+      kill -9 PID PID (maybe 2 process)
 
 # Notion Guide Page :
 
