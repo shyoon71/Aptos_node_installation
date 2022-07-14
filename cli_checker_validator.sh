@@ -108,17 +108,22 @@ echo ""
 v1=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v1=$(echo "$v1"|sed -n -e '3p')
 v3=$(echo $v1 | grep -o '[0-9]*')
+p5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count")
+p5=$(echo "$p5"|sed -n -e '3p')
+p6=$(echo $p5 | grep -o '[0-9]*')
 echo "Voting Progress ------- checking 60s diff."
 echo "================================"
 echo "$v1"
+echo "$p5"
 sleep 60
 v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
+p7=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count")
+p7=$(echo "$p7"|sed -n -e '3p')
+p8=$(echo $p7 | grep -o '[0-9]*')
 echo "$v5"
-p5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count")
-p5=$(echo "$p5"|sed -n -e '3p')
-echo "$p5"
+echo "$p7"
 echo "================================"
 if [ -z $v6 ]
 then
@@ -126,10 +131,14 @@ then
 else
     if [ $v6 -gt $v3 ]
     then
-        echo "Voting count ok."
-        echo "The proposal count increases once or twice in an hour."
-        echo "So don't worry if it doesn't increase now."
-        count=`expr $count + 1`
+        if [ $p8 -gt $p6 ]
+        then
+            echo "Very good.Voting and proposal participation is very aggressive."
+            count=`expr $count + 1`
+        else
+            echo "Voting count ok."
+            count=`expr $count + 1`
+        fi
     else
         echo ">>>> Not ok!! <<<<"
         echo "There's no vote occurred during 60 second. It's too slow or stopped."
@@ -214,9 +223,9 @@ else
     fi
 fi
 echo ""
-if [ $count -gt 4 ]
+if [ $count -gt 5 ]
 then
-    if [ $count -gt 5 ]
+    if [ $count -gt 6 ]
     then
         echo "Done! Check result's so amazing!"
     else
