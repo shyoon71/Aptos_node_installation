@@ -31,6 +31,7 @@ do
             sleep 10
             docker compose start
             P=0
+            B=1
         fi
     else
         P=$P+1
