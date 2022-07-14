@@ -8,12 +8,33 @@ echo "================================"
 echo ""
 A=1
 B=1
-C=1
+P=1
 while [ $A -lt 10081 ]
 do
-    #proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
-    #C=$C+1
-    #if [  ]
+    if [ $P -eq 1 ]
+    then
+        proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
+        proposala=$(echo "$proposala"|sed -n -e '3p')
+        proposalb=$(echo $proposala | grep -o '[0-9]*')
+    fi
+    if [ $P -gt 9 ]
+    then
+        proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
+        proposalc=$(echo "$proposalc"|sed -n -e '3p')
+        proposald=$(echo $proposalc | grep -o '[0-9]*')
+        if [ $proposald -eq $proposalb ]
+        then
+            echo " "$today"  Proposal stopped!!! No increasing in 10 minutes."
+            echo "$proposalc"
+            echo "Node should be restarted!!"
+            docker compose stop
+            sleep 10
+            docker compose start
+            P=1
+        fi
+    else
+        P=$P+1
+    fi
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
