@@ -179,7 +179,7 @@ else
     v7=`echo "scale=2;$v6*100/$r6"|bc`
     echo "Voting Count per Round"
     echo "============================="
-    echo 'Ratio_now : '$v7'%  should be >=25% at the end of the test period.'
+    echo 'Ratio_now : '$v7'%'
     echo "============================="
     echo ""
     if [[ `echo "$v7 > 60" | bc` -eq 1 ]]
