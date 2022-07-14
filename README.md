@@ -37,12 +37,22 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   1. log scan term: 1 min
   
   2. target log phrase:
+  
+    2-1. devent fullnode
  
-    2-1. aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}
+    - aptos_state_sync_continuous_syncer_errors{error_label="unexpected_error"}
 
-    2-2. aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}
+    - aptos_state_sync_continuous_syncer_errors{error_label="data_stream_notification_timeout"}
     
-    2-3. aptos_state_sync_timeout_total
+    - aptos_state_sync_timeout_total
+    
+    2-2. testnet validator
+    
+    - aptos_consensus_error_count
+    
+    - aptos_consensus_timeout_rounds_count
+    
+    - aptos_data_streaming_service_received_response_error
   
   3. print total error count(/min) if there are errors count > 1 per minute between terms
   
