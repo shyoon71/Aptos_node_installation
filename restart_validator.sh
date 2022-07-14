@@ -61,7 +61,7 @@ do
     count45=$(echo $count5)
     tilt=$((count45 / 5))
     count5=$((count2c - count1c))
-    dockera=$(docker ps | grep aptoslabs)
+    dockera=$(docker ps | grep aptoslab)
     if [ $count5 -eq 0 ]
     then
         if [ $count3 -eq 0 ]
