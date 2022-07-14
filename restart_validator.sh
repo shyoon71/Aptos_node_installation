@@ -184,5 +184,5 @@ do
 done
 rm ./restart_log.old &> /dev/null
 mv ./restart_log.out ./restart_log.old &> /dev/null
-sudo wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh &> restart_log.out &
+sudo wget -q -O restart_validator.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/restart_validator.sh && sudo chmod +x restart_validator.sh && sudo nohup ./restart_validator.sh &> restart_log.out &
 exit()
