@@ -8,8 +8,12 @@ echo "================================"
 echo ""
 A=1
 B=1
+C=1
 while [ $A -lt 10081 ]
 do
+    proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
+    C=$C+1
+    if [  ]
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
