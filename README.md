@@ -48,6 +48,8 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
     
     2-2. testnet validator
     
+    - aptos_consensus_proposals_count
+    
     - aptos_consensus_error_count
     
     - aptos_consensus_timeout_rounds_count
@@ -56,19 +58,21 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   3. print total error count(/min) if there are errors count > 1 per minute between terms
   
-  4. target log figure: aptos_state_sync_version{type="synced"}
+  4. target log figure: aptos_consensus_proposals_count, aptos_state_sync_version{type="synced"}
   
-  5. print synced version numbers if syncing speed has fallen below 20% between terms
+  5. print aptos_consensus_proposals_count if proposal count is stopped during 10 minutes
   
-  6. if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute, start tracing synced version and restart node after 5 minutes if it has no changes 
+  6. print synced version numbers if syncing speed has fallen below 20% between terms
   
-  7. Forcibly restarting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
+  7. if proposal count and synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute, start tracing synced version and restart node after 5 minutes if it has no changes 
   
-  8. print message with ledger version if node completes catchup version 
+  8. Forcibly restarting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
   
-  9. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week
+  9. print message with ledger version if node completes catchup version 
+  
+  10. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week
 
-  10. if you want to delete script running at background, follow command below
+  11. if you want to delete script running at background, follow command below
   
       ps -ef | grep restart
       
