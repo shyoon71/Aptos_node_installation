@@ -22,10 +22,14 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   wget -q -O kaptos_alan_yoon_v2.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/kaptos_alan_yoon_v2.sh && chmod +x kaptos_alan_yoon_v2.sh && sudo sh ./kaptos_alan_yoon_v2.sh
 
-# Auto Restarting Script : only for docker mode on devnet
+# Auto Restarting Script : only for docker mode
   
+  1. devnet fullnode
   sudo wget -q -O aptos_restart.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/aptos_restart.sh && sudo chmod +x aptos_restart.sh && sudo nohup ./aptos_restart.sh > restart_log.out &
-
+  
+  2. testnet validator
+  sudo wget -q -O restart_validator.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/restart_validator.sh && sudo chmod +x restart_validator.sh && sudo nohup ./restart_validator.sh > restart_log.out &
+  
 < operational criteria >
 
   1. log scan term: 1 min
