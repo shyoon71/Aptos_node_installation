@@ -46,13 +46,13 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   5. print synced version numbers if syncing speed has fallen below 20% between terms
   
-  6. restart node if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute
+  6. if synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute, start tracing synced version and restart node after 5 minutes if it has no changes 
   
-  7. Forcibly starting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
+  7. Forcibly restarting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
   
   8. print message with ledger version if node completes catchup version 
   
-  9. download and update restart script, refresh log(~/aptos/restart_log.out) every week 
+  9. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week 
 
 # Notion Guide Page :
 
