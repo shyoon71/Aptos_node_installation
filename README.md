@@ -60,7 +60,10 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
 
   10. if you want to delete script running at background, follow command below
   
-      ps -ef | grep aptos_restart.sh
+      ps -ef | grep aptos_restart.sh (for devnet)
+      
+      ps -ef | grep restart_validator.sh (for testnet)
+      
       kill -9 PID PID (maybe 2 process)
 
 # Notion Guide Page :
