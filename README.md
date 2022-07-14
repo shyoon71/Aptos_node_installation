@@ -72,7 +72,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
       ps -ef | grep restart
       
-      kill -9 PID PID (maybe 1 or 2 process)
+      kill -9 PID PID (2 processes)
 
 # Notion Guide Page :
 
