@@ -136,7 +136,8 @@ else
             echo "Very good.Voting and proposal participation is very aggressive."
             count=`expr $count + 1`
         else
-            echo "Voting count ok."
+            echo "Voting speed ok."
+            echo "But, proposal Not ok."
             count=`expr $count + 1`
         fi
     else
