@@ -207,6 +207,7 @@ else
         echo "============================="
         echo 'TPS_now : '$tps5''
         echo "============================="
+        echo "This index is from aptos_consensus_last_committed_version occurred per second."
         echo ""
     else
         echo ">>>> Not ok!! <<<<"
