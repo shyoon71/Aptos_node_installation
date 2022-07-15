@@ -119,13 +119,20 @@ do
     tilt=$((count45 / 10))
     count5=$((count2c - count1c))
     dockera=$(docker ps | grep aptoslab)
+    dockera=$(echo $dockera | grep -o '[0-9]*')
+    if [ -z $count2c ]
+    then
+        dockera=0
+    else
+        dockera=1
+    fi
     if [ $count5 -eq 0 ]
     then
         if [ $count3 -eq 0 ]
         then
             if [ -z $outbound1 ]
             then
-                if [ -z $dockera ]
+                if [ $dockera -eq 0 ]
                 then
                     today=$(date)
                     echo " "$today"  Node already stopped!! Docker exited, too!!"
