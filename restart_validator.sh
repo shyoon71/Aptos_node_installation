@@ -11,7 +11,7 @@ B=1
 P=0
 while [ $A -lt 10081 ]
 do
-    P='echo "$P+1"'
+    let P=$P+1
     if [ $P -eq 1 ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
