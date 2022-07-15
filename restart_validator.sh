@@ -19,12 +19,20 @@ do
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
         proposalb=$(echo "$proposala" | grep -o '[0-9]*')
+        if [ -z $proposalb ]
+        then
+            let proposalb=0
+        fi
     fi
     if [ $P -eq $PPP ]
     then
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
         proposald=$(echo "$proposalc" | grep -o '[0-9]*')
+        if [ -z $proposald ]
+        then
+            let proposald=0
+        fi
         if [ $proposald -eq $proposalb ]
         then
             echo " "$today"  Proposal stopped!!! No increasing in 10 minutes."
@@ -45,9 +53,25 @@ do
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     ref=10
     count1a=$(echo $counta | grep -o '[0-9]*')
+    if [ -z $count1a ]
+    then
+        let count1a=0
+    fi
     count1b=$(echo $countb | grep -o '[0-9]*')
+    if [ -z $count1b ]
+    then
+        let count1b=0
+    fi
     count1bb=$(echo $countbb | grep -o '[0-9]*')
+    if [ -z $count1bb ]
+    then
+        let count1bb=0
+    fi
     count1c=$(echo $countc | grep -o '[0-9]*')
+    if [ -z $count1c ]
+    then
+        let count1c=0
+    fi
     sleep 60
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
@@ -55,9 +79,25 @@ do
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_connections{direction="outbound"')
     count2a=$(echo $counta | grep -o '[0-9]*')
+    if [ -z $count2a ]
+    then
+        let count2a=0
+    fi
     count2b=$(echo $countb | grep -o '[0-9]*')
+    if [ -z $count2b ]
+    then
+        let count2b=0
+    fi
     count2bb=$(echo $countbb | grep -o '[0-9]*')
+    if [ -z $count2bb ]
+    then
+        let count2bb=0
+    fi
     count2c=$(echo $countc | grep -o '[0-9]*')
+    if [ -z $count2c ]
+    then
+        let count2c=0
+    fi
     export outbound1=$(echo "${outbound:(-2)}")
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
