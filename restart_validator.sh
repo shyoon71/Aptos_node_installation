@@ -11,6 +11,7 @@ B=1
 P=0
 while [ $A -lt 10081 ]
 do
+    P=$P+1
     if [ $P -eq 1 ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
@@ -35,8 +36,6 @@ do
         else
             P=0
         fi
-    else
-        P=$P+1
     fi
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
