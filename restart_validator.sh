@@ -166,8 +166,7 @@ do
             if [ $count3 -gt $ref ]
             then
                 today=$(date)
-                echo " "$today"  Node health is bad. Sync error "$count4""/"min occurred."
-                echo " "$today"  Check your node health or configuration!!"
+                echo " "$today"  Node health is not so good. Sync error "$count4""/"min occurred."
             else
                 if [ $count3 -ne 0 ]
                 then
