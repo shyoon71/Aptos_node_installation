@@ -14,7 +14,7 @@ A=1
 B=1
 P=0
 PP=1
-PPP=15
+PPP=20
 while [ $A -lt 10081 ]
 do
     let P=$P+1
@@ -47,7 +47,7 @@ do
         fi
         if [ $proposald -eq $proposalb ]
         then
-            echo " "$today"  Proposal stopped!!! No increasing in 15 minutes."
+            echo " "$today"  Proposal stopped!!! No increasing in 20 minutes."
             echo " "$today"  Node should be restarted!!"
             docker compose stop
             sleep 10
