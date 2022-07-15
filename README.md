@@ -60,13 +60,13 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   4. target log figure: aptos_consensus_proposals_count, aptos_state_sync_version{type="synced"}
   
-  5. print aptos_consensus_proposals_count if proposal count is stopped during 15 minutes
+  5. print aptos_consensus_proposals_count for marking checkpoint and re-checking every 25 minutes
   
   6. print synced version numbers if syncing speed has fallen below 10% between terms compare to normal speed
   
-  7. if proposal count and synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute, start tracing synced version and restart node after 5 minutes if it has no changes 
+  7. keep track of the syncing figures for 5 minutes, proposal figures for 25 minutes at the same time
   
-  8. Forcibly restarting the node after 5 minutes has elapsed while the node has already "stopped abruptly" due to an uncertain cause and the docker remains in the exited state.
+  8. stop node if there is no change in the numbers, then start the node again
   
   9. print message with ledger version if node completes catchup version 
   
