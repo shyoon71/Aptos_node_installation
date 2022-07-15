@@ -11,18 +11,18 @@ B=1
 P=0
 while [ $A -lt 10081 ]
 do
-    P=$($P+1)
+    P='echo "$P+1"'
     if [ $P -eq 1 ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
-        proposalb=$(echo $proposala | grep -o '[0-9]*')
+        proposalb=$(echo "$proposala" | grep -o '[0-9]*')
     fi
     if [ $P -eq 10 ]
     then
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
-        proposald=$(echo $proposalc | grep -o '[0-9]*')
+        proposald=$(echo "$proposalc" | grep -o '[0-9]*')
         if [ $proposald -eq $proposalb ]
         then
             echo " "$today"  Proposal stopped!!! No increasing in 10 minutes."
