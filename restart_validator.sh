@@ -23,9 +23,9 @@ do
         today=$(date)
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
-        echo "==========================="
+        echo "================================"
         echo " "$today"  Proposal checkpoint: start tracing --- "$proposala""
-        echo "==========================="
+        echo "================================"
         proposalb=$(echo "$proposala" | grep -o '[0-9]*')
         if [ -z $proposalb ]
         then
@@ -37,9 +37,9 @@ do
         today=$(date)
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
-        echo "==========================="
+        echo "================================"
         echo " "$today"  Proposal re-checkpoint: comparing... --- "$proposalc""
-        echo "==========================="
+        echo "================================"
         proposald=$(echo "$proposalc" | grep -o '[0-9]*')
         if [ -z $proposald ]
         then
