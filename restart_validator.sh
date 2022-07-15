@@ -9,16 +9,18 @@ echo ""
 A=1
 B=1
 P=0
+PP=1
+PPP=10
 while [ $A -lt 10081 ]
 do
     let P=$P+1
-    if [ $P -eq 1 ]
+    if [ $P -eq $PP ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
         proposalb=$(echo "$proposala" | grep -o '[0-9]*')
     fi
-    if [ $P -eq 10 ]
+    if [ $P -eq $PPP ]
     then
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
@@ -31,7 +33,7 @@ do
             docker compose stop
             sleep 10
             docker compose start
-            P=1
+            P=0
             B=1
         else
             P=0
