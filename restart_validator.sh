@@ -59,7 +59,7 @@ do
     countbb=$(echo "$countbb"|sed -n -e '1p') &> /dev/null
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     countc=$(echo "$countc"|sed -n -e '1p')
-    ref=10
+    ref=30
     count1a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count1a ]
     then
@@ -116,7 +116,7 @@ do
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
-    tilt=$((count45 / 5))
+    tilt=$((count45 / 10))
     count5=$((count2c - count1c))
     dockera=$(docker ps | grep aptoslab)
     if [ $count5 -eq 0 ]
