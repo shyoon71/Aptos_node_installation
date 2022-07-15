@@ -166,7 +166,7 @@ do
             if [ $count3 -gt $ref ]
             then
                 today=$(date)
-                echo " "$today"  Node health is not so good. Sync and consensus error "$count4""/"min occurred."
+                echo " "$today"  Node status is unstable. Sync and consensus error "$count4""/"min occurred."
             else
                 if [ $count3 -ne 0 ]
                 then
@@ -203,8 +203,8 @@ do
                 if [ $count3 -gt $ref ]
                 then
                     today=$(date)
-                    echo " "$today"  Node health is bad. Sync and consensus error "$count4""/"min occurred."
-                    echo " "$today"  Syncing speed has fallen below 20%!!!"
+                    echo " "$today"  Node status is unstable. Sync and consensus error "$count4""/"min occurred."
+                    echo " "$today"  Syncing speed has fallen below 10% compared to normal!!"
                     echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                     docker compose stop
                     sleep 10
@@ -230,7 +230,7 @@ do
                         fi
                     else
                         today=$(date)
-                        echo " "$today"  Syncing speed has fallen below 20%!!"
+                        echo " "$today"  Syncing speed has fallen below 10% compared to normal!!"
                         echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                     fi
                 fi
