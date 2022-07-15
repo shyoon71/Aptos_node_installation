@@ -6,21 +6,19 @@ echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
 echo "================================"
 echo ""
-export A=1
-export B=1
-export P=0
-export aaa=1
-export aaaa=10
+A=1
+B=1
+P=0
 while [ $A -lt 10081 ]
 do
-    P=$P+1
-    if [ $P -eq $aaa ]
+    P=$($P+1)
+    if [ $P -eq 1 ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
         proposalb=$(echo $proposala | grep -o '[0-9]*')
     fi
-    if [ $P -eq $aaaa ]
+    if [ $P -eq 10 ]
     then
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
@@ -33,10 +31,10 @@ do
             docker compose stop
             sleep 10
             docker compose start
-            export P=1
-            export B=1
+            P=1
+            B=1
         else
-            export P=0
+            P=0
         fi
     fi
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
