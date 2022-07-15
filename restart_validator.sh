@@ -47,7 +47,7 @@ do
         fi
         if [ $proposald -eq $proposalb ]
         then
-            echo " "$today"  Proposal stopped!!! No increasing in 10 minutes."
+            echo " "$today"  Proposal stopped!!! No increasing in 15 minutes."
             echo " "$today"  Node should be restarted!!"
             docker compose stop
             sleep 10
