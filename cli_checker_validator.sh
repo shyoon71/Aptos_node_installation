@@ -10,7 +10,7 @@ echo ""
 echo "*Notice!"
 echo 'This script is for "validators installed by docker" only.'
 echo 'So applying it to compilied with source code or fullnode will result in errors or info missing.'
-echo "This script will check your important index figures, so it will take 2 minutes more."
+echo "This script will check your important index figures, so it will take 3 minutes more."
 echo ""
 echo ""
 sleep 4
@@ -111,11 +111,11 @@ v3=$(echo $v1 | grep -o '[0-9]*')
 p5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count")
 p5=$(echo "$p5"|sed -n -e '3p')
 p6=$(echo $p5 | grep -o '[0-9]*')
-echo "Voting Progress ------- checking 60s diff."
+echo "Voting Progress ------- checking 90s diff."
 echo "================================"
 echo "$v1"
 echo "$p5"
-sleep 60
+sleep 90
 v5=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_vote_nil_count")
 v5=$(echo "$v5"|sed -n -e '3p')
 v6=$(echo $v5 | grep -o '[0-9]*')
@@ -137,7 +137,7 @@ else
             count=`expr $count + 1`
         else
             echo "Voting speed ok."
-            echo "But, proposal Not ok."
+            echo "Proposal speed too slow. >>>> Not ok!! <<<<"
             count=`expr $count + 1`
         fi
     else
