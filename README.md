@@ -60,9 +60,9 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   4. target log figure: aptos_consensus_proposals_count, aptos_state_sync_version{type="synced"}
   
-  5. print aptos_consensus_proposals_count if proposal count is stopped during 10 minutes
+  5. print aptos_consensus_proposals_count if proposal count is stopped during 15 minutes
   
-  6. print synced version numbers if syncing speed has fallen below 20% between terms
+  6. print synced version numbers if syncing speed has fallen below 10% between terms compare to normal speed
   
   7. if proposal count and synced version stuck or syncing speed has fallen below 20% between terms with error count > 10 per minute, start tracing synced version and restart node after 5 minutes if it has no changes 
   
