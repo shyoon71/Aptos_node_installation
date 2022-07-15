@@ -20,6 +20,7 @@ do
     let P=$P+1
     if [ $P -eq $PP ]
     then
+        today=$(date)
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
         echo "==========================="
@@ -33,6 +34,7 @@ do
     fi
     if [ $P -eq $PPP ]
     then
+        today=$(date)
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
         echo "==========================="
@@ -46,7 +48,6 @@ do
         if [ $proposald -eq $proposalb ]
         then
             echo " "$today"  Proposal stopped!!! No increasing in 10 minutes."
-            echo " "$today"  $proposalc"
             echo " "$today"  Node should be restarted!!"
             docker compose stop
             sleep 10
