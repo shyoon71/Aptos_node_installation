@@ -48,9 +48,13 @@ do
         fi
     fi
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
+    counta=$(echo "$counta"|sed -n -e '3p')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
+    countb=$(echo "$countb"|sed -n -e '3p')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
+    countbb=$(echo "$countbb"|sed -n -e '1p') &> /dev/null
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
+    countc=$(echo "$countc"|sed -n -e '1p')
     ref=10
     count1a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count1a ]
@@ -74,9 +78,13 @@ do
     fi
     sleep 60
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
+    counta=$(echo "$counta"|sed -n -e '3p')
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
+    countb=$(echo "$countb"|sed -n -e '3p')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
+    countbb=$(echo "$countbb"|sed -n -e '1p') &> /dev/null
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
+    countc=$(echo "$countc"|sed -n -e '1p')
     outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "outbound")
     outbound=$(echo "$outbound"|sed -n -e '1p')
     outbound=$(echo $outbound | grep -o '[0-9]*')
