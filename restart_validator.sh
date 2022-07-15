@@ -186,7 +186,7 @@ do
     fi
     A=`expr $A + 1`
 done
-rm ./restart_log.old &> /dev/null
-mv ./restart_log.out ./restart_log.old &> /dev/null
-sudo wget -q -O restart_validator.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/restart_validator.sh && sudo chmod +x restart_validator.sh && sudo nohup ./restart_validator.sh &> restart_log.out &
+#rm ./restart_log.old &> /dev/null
+#mv ./restart_log.out ./restart_log.old &> /dev/null
+#sudo wget -q -O restart_validator.sh https://raw.githubusercontent.com/shyoon71/installation-script/main/restart_validator.sh && sudo chmod +x restart_validator.sh && sudo nohup ./restart_validator.sh &> restart_log.out &
 exit()
