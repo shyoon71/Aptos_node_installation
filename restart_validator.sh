@@ -25,7 +25,7 @@ do
         proposalb=$(echo "$proposala" | grep -o '[0-9]*')
         if [ -z $proposalb ]
         then
-            let proposalb=0
+            proposalb=0
         fi
     fi
     if [ $P -eq $PPP ]
@@ -35,7 +35,7 @@ do
         proposald=$(echo "$proposalc" | grep -o '[0-9]*')
         if [ -z $proposald ]
         then
-            let proposald=0
+            proposald=0
         fi
         if [ $proposald -eq $proposalb ]
         then
