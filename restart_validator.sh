@@ -14,13 +14,13 @@ aaaa=10
 while [ $A -lt 10081 ]
 do
     P=$P+1
-    if [ $P -eq $aaa ]
+    if [ "$P" -eq "$aaa" ]
     then
         proposala=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposala=$(echo "$proposala"|sed -n -e '3p')
         proposalb=$(echo $proposala | grep -o '[0-9]*')
     fi
-    if [ $P -eq $aaaa ]
+    if [ "$P" -eq "$aaaa" ]
     then
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
