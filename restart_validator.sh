@@ -77,7 +77,10 @@ do
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
-    outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_connections{direction="outbound"')
+    outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "outbound")
+    outbound=$(echo "$outbound"|sed -n -e '1p')
+    outbound=$(echo $outbound | grep -o '[0-9]*')
+    export outbound1=$(echo "${outbound:(-3)}")
     count2a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count2a ]
     then
@@ -98,7 +101,6 @@ do
     then
         let count2c=0
     fi
-    export outbound1=$(echo "${outbound:(-2)}")
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
     count45=$(echo $count5)
