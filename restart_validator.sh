@@ -71,7 +71,7 @@ do
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     countc=$(echo "$countc"|sed -n -e '1p')
     sleep 1
-    ref=30
+    ref=40
     count1a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count1a ]
     then
