@@ -53,12 +53,16 @@ do
     fi
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     counta=$(echo "$counta"|sed -n -e '3p')
+    sleep 1
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
     countb=$(echo "$countb"|sed -n -e '3p')
+    sleep 1
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
     countbb=$(echo "$countbb"|sed -n -e '1p') &> /dev/null
+    sleep 1
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     countc=$(echo "$countc"|sed -n -e '1p')
+    sleep 1
     ref=30
     count1a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count1a ]
@@ -80,17 +84,22 @@ do
     then
         count1c=0
     fi
-    sleep 60
+    sleep 50
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
     counta=$(echo "$counta"|sed -n -e '3p')
+    sleep 1
     countb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_timeout_rounds_count')
     countb=$(echo "$countb"|sed -n -e '3p')
+    sleep 1
     countbb=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_data_streaming_service_received_response_error')
     countbb=$(echo "$countbb"|sed -n -e '1p') &> /dev/null
+    sleep 1
     countc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_state_sync_version{type="synced"}')
     countc=$(echo "$countc"|sed -n -e '1p')
+    sleep 1
     outbound=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep "outbound")
     outbound=$(echo "$outbound"|sed -n -e '1p')
+    sleep 1
     outbound=$(echo $outbound | grep -o '[0-9]*')
     export outbound1=$(echo "${outbound:(-3)}")
     count2a=$(echo $counta | grep -o '[0-9]*')
@@ -118,6 +127,7 @@ do
     count45=$(echo $count5)
     tilt=$((count45 / 10))
     count5=$((count2c - count1c))
+    sleep 1
     dockera=$(docker ps | grep aptoslab)
     dockera=$(echo $dockera | grep -o '[0-9]*')
     if [ -z $count2c ]
