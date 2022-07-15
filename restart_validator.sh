@@ -38,7 +38,7 @@ do
         proposalc=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_proposals_count')
         proposalc=$(echo "$proposalc"|sed -n -e '3p')
         echo "================================"
-        echo " "$today"  Proposal re-checkpoint: comparing... --- "$proposalc""
+        echo " "$today"  Proposal re-checkpoint: comparing ---- "$proposalc""
         echo "================================"
         proposald=$(echo "$proposalc" | grep -o '[0-9]*')
         if [ -z $proposald ]
