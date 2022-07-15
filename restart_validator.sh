@@ -6,6 +6,10 @@ echo "Script from  //-\ ][_ //-\ ][\][ ";
 echo ""
 echo "================================"
 echo ""
+echo "*Notice!"
+echo 'This script is for "validators installed by docker" only.'
+echo 'So applying it to compilied with source code or fullnode will result in errors or malfunction.'
+echo ""
 A=1
 B=1
 P=0
