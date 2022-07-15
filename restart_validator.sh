@@ -14,7 +14,7 @@ A=1
 B=1
 P=0
 PP=1
-PPP=10
+PPP=15
 while [ $A -lt 10081 ]
 do
     let P=$P+1
