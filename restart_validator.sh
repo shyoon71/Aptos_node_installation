@@ -55,22 +55,22 @@ do
     count1a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count1a ]
     then
-        let count1a=0
+        count1a=0
     fi
     count1b=$(echo $countb | grep -o '[0-9]*')
     if [ -z $count1b ]
     then
-        let count1b=0
+        count1b=0
     fi
     count1bb=$(echo $countbb | grep -o '[0-9]*')
     if [ -z $count1bb ]
     then
-        let count1bb=0
+        count1bb=0
     fi
     count1c=$(echo $countc | grep -o '[0-9]*')
     if [ -z $count1c ]
     then
-        let count1c=0
+        count1c=0
     fi
     sleep 60
     counta=$(curl 127.0.0.1:9101/metrics 2> /dev/null | grep 'aptos_consensus_error_count')
@@ -84,22 +84,22 @@ do
     count2a=$(echo $counta | grep -o '[0-9]*')
     if [ -z $count2a ]
     then
-        let count2a=0
+        count2a=0
     fi
     count2b=$(echo $countb | grep -o '[0-9]*')
     if [ -z $count2b ]
     then
-        let count2b=0
+        count2b=0
     fi
     count2bb=$(echo $countbb | grep -o '[0-9]*')
     if [ -z $count2bb ]
     then
-        let count2bb=0
+        count2bb=0
     fi
     count2c=$(echo $countc | grep -o '[0-9]*')
     if [ -z $count2c ]
     then
-        let count2c=0
+        count2c=0
     fi
     count3=$((count2a + count2b + count2bb - count1a - count1b - count1bb))
     count4=$((count3 / 1))
