@@ -71,8 +71,12 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   9. print message with ledger version if node completes catchup version 
   
   10. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week
+  
+  11. if you want to check log, enter commands below
+  
+      tail -n 100 restart_log.out
 
-  11. if you want to delete script running at background, follow command below
+  12. if you want to delete script running at background, enter commands below
   
       ps -ef | grep restart
       
