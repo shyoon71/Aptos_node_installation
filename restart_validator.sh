@@ -9,7 +9,7 @@ echo ""
 echo "*Notice!"
 echo 'This script is for "validators installed by docker" only.'
 echo 'So applying it to compilied with source code or fullnode will result in errors or malfunction.'
-echo 'Enter "tail -n 100 restart_log.out" to check the log.'
+echo 'Enter "tail -n 100 restart_log.out" to check logs.'
 echo ""
 A=1
 B=1
