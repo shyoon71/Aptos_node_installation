@@ -136,8 +136,8 @@ else
             echo "Very good.Voting and proposal participation is very aggressive."
             count=`expr $count + 1`
         else
-            echo "Voting speed ok."
-            echo "Proposal speed too slow. >>>> Not ok!! <<<<"
+            echo "Vote occurring is ok."
+            echo "Proposal is not increasing now, but it doesn't matter if occurs more than once an hour"
             count=`expr $count + 1`
         fi
     else
