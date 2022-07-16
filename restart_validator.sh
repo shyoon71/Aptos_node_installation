@@ -257,6 +257,7 @@ do
                     else
                         today=$(date)
                         echo " "$today"  Syncing speed has fallen below 10% compared to normal!!"
+                        echo " "$today"  It looks like catchup has just been finished"
                         echo " "$today"  Previous_synced : "$count1c", Present_synced : "$count2c""
                     fi
                 fi
