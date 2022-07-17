@@ -64,9 +64,9 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   6. print synced version numbers if syncing speed has fallen below 10% between terms compare to normal speed
   
-  7. keep track of the syncing figures for 5 minutes, proposal figures for 25 minutes at the same time
+  7. keep track of the syncing figures for 5 minutes, proposal figures for 35 minutes at the same time
   
-  8. stop node if there is no change in the numbers, then start the node again
+  8. stop node if there is no change during tracing time interval, then start the node again
   
   9. print message with ledger version if node completes catchup version 
   
