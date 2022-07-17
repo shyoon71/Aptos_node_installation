@@ -134,7 +134,7 @@ else
         if [ $p8 -gt $p6 ]
         then
             echo "Very good.Voting and proposal participation is very aggressive."
-            count=`expr $count + 1`
+            count=`expr $count + 2`
         else
             echo "Vote occurring is ok."
             echo "Proposal is not increasing now, but it doesn't matter if occurs more than once an hour"
