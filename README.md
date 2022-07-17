@@ -70,7 +70,7 @@ I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main ins
   
   9. print message with ledger version if node completes catchup version 
   
-  10. log(~/$WORKSPACE/restart_log.out) file refresh itself and rename old log file as .old every week
+  10. this script runs in the background for a week and then automatically ends running itself
   
   11. if you want to check log, enter commands below
   
