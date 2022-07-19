@@ -8,7 +8,7 @@
 
 # Auto Setup/Update Script :
 
-I adopted Andrew | zValid(Discord id @drawrowfly#4024)'s scripts as the main installation script.
+I adopted Andrew | zValid(Discord id @drawrowfly#4024 https://ohsnail.com/)'s scripts as the main installation script.
 
   1. Docker mode for devnet
   
